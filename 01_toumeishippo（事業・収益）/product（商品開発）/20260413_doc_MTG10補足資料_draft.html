@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>とうめいしっぽ MTG⑩ 補足資料</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #3a5a40;
+  --gold: #b08d57;
+  --cream: #f8f4ec;
+  --ink: #1e1a14;
+  --muted: #4a4438;
+  --border: #c8b87a;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 10pt;
+  color: var(--ink);
+  background: #fff;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 14mm 12mm 14mm;
+  background: #fff;
+  margin: 0 auto;
+}
+
+/* ヘッダー */
+.header {
+  border-top: 2.5px solid var(--forest);
+  border-bottom: 1px solid var(--border);
+  padding: 5px 0 5px 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-left h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 15pt;
+  color: var(--forest);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.header-left p {
+  font-size: 8pt;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.1em;
+}
+
+.header-right {
+  font-size: 7.5pt;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* リード文 */
+.lead {
+  background: #f4f0e8;
+  border-left: 3px solid var(--gold);
+  padding: 7px 10px;
+  font-size: 8.5pt;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+/* セクション */
+.section {
+  margin-bottom: 9px;
+  page-break-inside: avoid;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.section-badge {
+  background: var(--forest);
+  color: #fff;
+  font-size: 7pt;
+  letter-spacing: 0.08em;
+  padding: 1.5px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.section-badge.gold {
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #e0d8c8;
+  padding-bottom: 2px;
+  flex: 1;
+}
+
+.section-body {
+  padding-left: 0;
+  font-size: 8.5pt;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+  margin-top: 4px;
+}
+
+th {
+  background: var(--forest);
+  color: #fff;
+  padding: 3px 7px;
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-size: 7.5pt;
+}
+
+td {
+  padding: 3.5px 7px;
+  border-bottom: 1px solid #e8e0d0;
+  vertical-align: top;
+  line-height: 1.65;
+}
+
+tr:nth-child(even) td {
+  background: #faf7f2;
+}
+
+.td-label {
+  color: var(--forest);
+  font-weight: 500;
+  white-space: nowrap;
+  width: 26%;
+}
+
+.tag-new {
+  display: inline-block;
+  background: #e8f4ec;
+  color: var(--forest);
+  font-size: 6.5pt;
+  padding: 0 4px;
+  border-radius: 2px;
+  margin-left: 4px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.tag-rec {
+  display: inline-block;
+  background: #fef3e2;
+  color: var(--gold);
+  font-size: 6.5pt;
+  padding: 0 4px;
+  border-radius: 2px;
+  margin-left: 4px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+/* フロー */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 5px 0 3px;
+  font-size: 8pt;
+}
+
+.flow-step {
+  background: #f0ece4;
+  border: 1px solid #d8ceb8;
+  padding: 4px 9px;
+  border-radius: 3px;
+  color: var(--ink);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.flow-step.highlight {
+  background: #e8f0e8;
+  border-color: var(--forest);
+  color: var(--forest);
+  font-weight: 700;
+}
+
+.flow-arrow {
+  color: var(--gold);
+  font-size: 10pt;
+  margin: 0 4px;
+}
+
+/* 修正前後 */
+.diff {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 3px 0;
+  font-size: 8.5pt;
+}
+
+.diff-old {
+  background: #fff0f0;
+  border: 1px solid #e8c8c8;
+  padding: 2px 8px;
+  border-radius: 3px;
+  color: #888;
+  text-decoration: line-through;
+}
+
+.diff-arrow { color: var(--gold); font-size: 10pt; }
+
+.diff-new {
+  background: #f0f8f0;
+  border: 1px solid #a8c8a8;
+  padding: 2px 8px;
+  border-radius: 3px;
+  color: var(--forest);
+  font-weight: 700;
+}
+
+/* コピー候補 */
+.copy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.copy-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border: 1px solid #e0d8c8;
+  padding: 5px 9px;
+  border-radius: 3px;
+}
+
+.copy-item.rec {
+  border-color: var(--gold);
+  background: #fdfaf4;
+}
+
+.copy-phrase {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 11pt;
+  color: var(--forest);
+  white-space: nowrap;
+}
+
+.copy-note {
+  font-size: 7.5pt;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* フッター */
+.footer {
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  color: #aaa;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="header-left">
+      <h1>MTG⑩ 補足資料</h1>
+      <p>共有スライドへの追記・修正事項まとめ</p>
+    </div>
+    <div class="header-right">
+      とうめいしっぽ<br>
+      2026年4月13日作成<br>
+      新田紗希
+    </div>
+  </div>
+
+  <!-- リード文 -->
+  <div class="lead">
+    スライド共有後に確認・更新した事項です。明日のMTG⑩でご参照ください。<br>
+    スライド本体の内容は変えていませんが、以下の点を補足・修正としてお持ちします。
+  </div>
+
+  <!-- ① 対象年齢 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">① 修正</span>
+      <span class="section-title">対象年齢</span>
+    </div>
+    <div class="section-body">
+      <div class="diff">
+        <span class="diff-old">0〜2歳・5ヶ月〜</span>
+        <span class="diff-arrow">→</span>
+        <span class="diff-new">3ヶ月〜</span>
+        に統一
+      </div>
+      赤ちゃんから使えることを売りにしたいため。こどもPSCマーク申請時の表記もこれに統一します。
+    </div>
+  </div>
+
+  <!-- ② 製造体制・工程フロー -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">② 追記</span>
+      <span class="section-title">製造体制・工程フロー（塗装担当の明確化）</span>
+    </div>
+    <div class="section-body">
+      <div class="flow">
+        <div class="flow-step">NC加工 or<br>レーザー彫刻<br><span style="font-size:7pt;color:var(--muted);">松森木工所</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">研磨・梱包<br><span style="font-size:7pt;color:var(--muted);">しらたき工房</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step highlight">塗装（木守りコート）<br><span style="font-size:7pt;">※彫刻・研磨後に実施</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">発送</div>
+      </div>
+      <table style="margin-top:6px;">
+        <tr><th>モード</th><th>塗装担当</th></tr>
+        <tr>
+          <td class="td-label">③ NC＋レーザー（¥25,000）</td>
+          <td>松森木工所</td>
+        </tr>
+        <tr>
+          <td class="td-label">① ② レーザーのみ・V溝NC（¥13,000〜¥16,000）</td>
+          <td>新田、またはタイミーアルバイトスタッフなど</td>
+        </tr>
+      </table>
+      <div style="margin-top:4px; font-size:7.5pt; color:var(--muted);">
+        ※ しらたき工房の担当は「研磨・梱包」のみ。塗料は工房側では対応不可のため、上記分担で進める。
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ ターゲット -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">③ 整理</span>
+      <span class="section-title">ターゲット像（「誰が買うか」と「誰が使うか」の整理）</span>
+    </div>
+    <div class="section-body">
+      <table>
+        <tr><th>役割</th><th>対象</th><th>備考</th></tr>
+        <tr>
+          <td class="td-label">購入・意思決定</td>
+          <td>母親（20代後半〜40代・第一子のいる家庭）</td>
+          <td style="font-size:7.5pt; color:var(--muted);">出産祝いの贈り手（友人・職場・祖父母）も含む</td>
+        </tr>
+        <tr>
+          <td class="td-label">データ入力・参画</td>
+          <td>父親・祖父母・上の子ども</td>
+          <td style="font-size:7.5pt; color:var(--muted);">アプリ入力は誰でも可。「家族みんなで作る」訴求に活かす</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ④ デザイン仕様 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">④ 確認事項</span>
+      <span class="section-title">デザイン仕様（阿部さん・松森さんにご確認ください）</span>
+    </div>
+    <div class="section-body">
+      <table>
+        <tr><th>項目</th><th>方針</th></tr>
+        <tr>
+          <td class="td-label">フチ（模様のない部分）</td>
+          <td><strong>最低5mm</strong> を確保</td>
+        </tr>
+        <tr>
+          <td class="td-label">線と線の間隔</td>
+          <td>約1cm（「ぽこぽこ」の手触りが感じられる密度）</td>
+        </tr>
+        <tr>
+          <td class="td-label">0才児向けの模様要素</td>
+          <td>丸・対称・コントラストのはっきりした形を取り入れる</td>
+        </tr>
+        <tr>
+          <td class="td-label">ロットNo</td>
+          <td>引き続き検討中（入れる方向で整理予定）</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ⑤ 産地証明書 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">⑤ 追記</span>
+      <span class="section-title">産地証明書・素材トレーサビリティ</span>
+    </div>
+    <div class="section-body">
+      松森さんが森林組合から原料を購入する際に取得予定。<br>
+      取得した証明書は<strong>商品同梱パンフレット</strong>に「○○は盛岡市産の木材です」として表記する。おもちゃ本体への刻印・説明表示は不要。
+    </div>
+  </div>
+
+  <!-- 商品名追加 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge gold">追加</span>
+      <span class="section-title">商品名候補への追加</span>
+    </div>
+    <div class="section-body">
+      スライドの候補6案に、以下を追加します。
+      <span style="font-family:'Shippori Mincho B1',serif; font-size:12pt; color:var(--forest); margin-left:8px; font-weight:700;">もりのは</span>
+      <span class="tag-new">新規</span>
+      <span style="font-size:7.5pt; color:var(--muted); margin-left:6px;">「もり（森・盛岡）」＋「のは（葉）」。葉形パネルのコンセプトと直結。</span>
+    </div>
+  </div>
+
+  <!-- キャッチコピー -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge gold">提案</span>
+      <span class="section-title">キャッチコピー候補（現行からの更新案）</span>
+    </div>
+    <div class="section-body">
+      <div style="font-size:7.5pt; color:var(--muted); margin-bottom:5px;">
+        現行：「てのひらに、もりおかを。」　→　パーソナライズ感＋一生寄り添う感を加えた方向で検討中。阿部さんのご意見もお聞きしたい。
+      </div>
+      <div class="copy-list">
+        <div class="copy-item rec">
+          <span class="copy-phrase">「この子のもりが、ずっとそばに。」</span>
+          <span class="tag-rec">推薦①</span>
+          <span class="copy-note">パーソナライズ感＋一生感が両立。「もり」＝森・盛岡のダブルミーニング。余韻がある。</span>
+        </div>
+        <div class="copy-item rec">
+          <span class="copy-phrase">「てのひらに、この子のもりを。」</span>
+          <span class="tag-rec">推薦②</span>
+          <span class="copy-note">現行のリズムを踏襲しつつ個別性を追加。使いやすい長さ。</span>
+        </div>
+        <div class="copy-item">
+          <span class="copy-phrase">「この子と育つ、もりのかたち。」</span>
+          <span class="copy-note">成長と木を重ねる表現。「育つ」イメージが好きなら有力。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <span>とうめいしっぽ　MTG⑩ 補足資料　2026.04.13</span>
+    <span>このシートはスライド共有後の確認・追記事項をまとめたものです</span>
+  </div>
+
+</div>
+</body>
+</html>

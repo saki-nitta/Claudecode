@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幼児教室 年間プログラム</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Meiryo", "Yu Gothic", sans-serif;
+      background: #fff;
+      color: #333;
+      font-size: 11pt;
+      line-height: 1.6;
+    }
+
+    /* ===== 表紙 ===== */
+    .cover {
+      padding: 60px 60px 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover h1 {
+      font-size: 28pt;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .cover .subtitle {
+      font-size: 12pt;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 50px;
+      font-size: 10.5pt;
+    }
+
+    .cover-meta div {
+      background: #f7f7f7;
+      border-left: 4px solid #bbb;
+      padding: 10px 16px;
+      border-radius: 2px;
+    }
+
+    .overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5pt;
+    }
+
+    .overview-table th {
+      background: #444;
+      color: #fff;
+      padding: 7px 10px;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    .overview-table td {
+      border: 1px solid #ddd;
+      padding: 6px 10px;
+      vertical-align: top;
+    }
+
+    .overview-table tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .season-spring { background: #fff8e1 !important; font-weight: bold; }
+    .season-summer { background: #e3f2fd !important; font-weight: bold; }
+    .season-autumn { background: #fff3e0 !important; font-weight: bold; }
+    .season-winter { background: #f3e5f5 !important; font-weight: bold; }
+
+    /* ===== 凡例 ===== */
+    .legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      font-size: 9.5pt;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ===== 月ページ ===== */
+    .month-page {
+      padding: 30px 50px 30px;
+      page-break-before: always;
+    }
+
+    .month-header {
+      border-bottom: 3px solid #333;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    .month-header h2 {
+      font-size: 20pt;
+      font-weight: bold;
+    }
+
+    .month-header .theme {
+      font-size: 11pt;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .component-card {
+      border-radius: 6px;
+      padding: 14px 16px;
+      border: 1px solid #ddd;
+    }
+
+    .component-card .card-title {
+      font-size: 10.5pt;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .component-card .card-time {
+      font-size: 8.5pt;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .component-card .card-content {
+      font-size: 9.5pt;
+      margin-bottom: 8px;
+    }
+
+    .component-card .card-aim {
+      font-size: 8.5pt;
+      color: #555;
+      background: rgba(0,0,0,0.04);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .comp-intro  { background: #fffde7; border-left: 5px solid #f9c300; }
+    .comp-song   { background: #f1f8e9; border-left: 5px solid #66bb6a; }
+    .comp-craft  { background: #fff3e0; border-left: 5px solid #ffa726; }
+    .comp-toys   { background: #e3f2fd; border-left: 5px solid #42a5f5; }
+    .comp-mama   { background: #f3e5f5; border-left: 5px solid #ab47bc; }
+    .comp-book   { background: #f5f5f5; border-left: 5px solid #9e9e9e; }
+
+    /* ===== 再利用活動ページ ===== */
+    .activity-page {
+      padding: 30px 50px;
+      page-break-before: always;
+    }
+
+    .activity-page h2 {
+      font-size: 16pt;
+      font-weight: bold;
+      border-bottom: 3px solid #333;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .activity-card {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 14px 16px;
+      background: #fafafa;
+    }
+
+    .activity-card .act-title {
+      font-size: 11pt;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .activity-card .act-aim {
+      font-size: 9pt;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .activity-card .act-months {
+      font-size: 8.5pt;
+      background: #eee;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      color: #444;
+    }
+
+    /* ===== 印刷設定 ===== */
+    @media print {
+      body { background: #fff !important; }
+
+      .cover { min-height: auto; page-break-after: always; }
+
+      .month-page, .activity-page { page-break-before: always; }
+
+      @page {
+        size: A4;
+        margin: 15mm 15mm 15mm 15mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<div class="cover">
+  <h1>幼児教室 年間プログラム</h1>
+  <p class="subtitle">2026年度版　対象：0〜3歳 親子クラス</p>
+
+  <div class="cover-meta">
+    <div>対象年齢：0〜3歳（親子参加）</div>
+    <div>1クラス：1時間15分</div>
+    <div>目標：遊びを通じた発達支援・親の学びの場</div>
+  </div>
+
+  <table class="overview-table">
+    <thead>
+      <tr>
+        <th>季節</th>
+        <th>月</th>
+        <th>テーマ</th>
+        <th>うた・リズム</th>
+        <th>工作・感覚遊び</th>
+        <th>ママコラム</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="season-spring" rowspan="3">春</td>
+        <td>4月</td><td>はじめまして</td><td>あたまかたひざポン / グーチョキパー</td><td>チューリップ壁面制作</td><td>入園期の不安と安心</td>
+      </tr>
+      <tr>
+        <td>5月</td><td>五感で遊ぼう</td><td>おべんとうばこのうた / やおやのおみせ</td><td>こいのぼり製作</td><td>感覚遊びの発達的意味</td>
+      </tr>
+      <tr>
+        <td>6月</td><td>雨の日も楽しもう</td><td>かたつむり / アブラハムのこ</td><td>てるてる坊主・カエル制作</td><td>室内遊びアイデア10選</td>
+      </tr>
+      <tr>
+        <td class="season-summer" rowspan="3">夏</td>
+        <td>7月</td><td>夏と宇宙</td><td>やきいもグーチーパー / バスにのって</td><td>七夕飾り・短冊</td><td>夏の安全講座</td>
+      </tr>
+      <tr>
+        <td>8月</td><td>夏いっぱい</td><td>パンダうさぎコアラ / アルゴリズム体操</td><td>夏野菜スタンプ・氷遊び</td><td>食育：夏野菜を知ろう</td>
+      </tr>
+      <tr>
+        <td>9月</td><td>秋を見つけよう</td><td>どんぐりころころ / 幸せなら手をたたこう</td><td>どんぐり・まつぼっくりアート</td><td>外遊びと発達について</td>
+      </tr>
+      <tr>
+        <td class="season-autumn" rowspan="3">秋</td>
+        <td>10月</td><td>ハロウィンと色遊び</td><td>動物園へ行こうよ / いっぽんばし</td><td>かぼちゃのお面・色混ぜ</td><td>想像力を育てる遊び</td>
+      </tr>
+      <tr>
+        <td>11月</td><td>秋の恵み</td><td>げんこつ山のたぬきさん / いとまき</td><td>落ち葉コラージュ・スタンプ</td><td>木のおもちゃの選び方</td>
+      </tr>
+      <tr>
+        <td>12月</td><td>クリスマス・お祝い</td><td>誰にだってお誕生日 / ひげじいさん</td><td>クリスマスカード・リース</td><td>プレゼントと子育て</td>
+      </tr>
+      <tr>
+        <td class="season-winter" rowspan="3">冬</td>
+        <td>1月</td><td>日本の文化</td><td>一本でもにんじん / いっぽんばし</td><td>だるまの福笑い・凧制作</td><td>日本の伝統遊びの魅力</td>
+      </tr>
+      <tr>
+        <td>2月</td><td>節分・冬遊び</td><td>鬼のパンツ / てをたたきましょう</td><td>鬼のお面・豆入れ箱</td><td>ルールある遊びと社会性</td>
+      </tr>
+      <tr>
+        <td>3月</td><td>ありがとう</td><td>幸せなら手をたたこう / バナナのおやこ</td><td>卒業記念アルバム</td><td>次のステージへ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="legend">
+    <strong>色の凡例：</strong>
+    <div class="legend-item"><div class="legend-dot" style="background:#f9c300;"></div>導入</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#66bb6a;"></div>うた・リズム遊び</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ffa726;"></div>工作・感覚遊び</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#42a5f5;"></div>おもちゃの時間</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ab47bc;"></div>ママ向けコラム</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#9e9e9e;"></div>絵本</div>
+  </div>
+</div>
+
+<!-- ===== 4月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>4月　はじめまして</h2>
+    <div class="theme">テーマ：新しい出会い・探索開始　／　入室・慣れることが目標</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">自己紹介ゲーム<br>名前を呼び合おう</div>
+      <div class="card-aim">ねらい：場の安心感をつくる</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">あたまかたひざポン<br>グーチョキパーでなにつくろう</div>
+      <div class="card-aim">ねらい：体の部位・模倣</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">チューリップ壁面制作<br>（折り紙・シール）</div>
+      <div class="card-aim">ねらい：手指の操作</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">積み木・形合わせ<br>パズル・絵本コーナー</div>
+      <div class="card-aim">ねらい：自由探索</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">入園期の不安と安心<br>親同士のつながりをつくる</div>
+      <div class="card-aim">ねらい：親のサポート</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「だるまさんが」</div>
+      <div class="card-aim">ねらい：共有体験・静の時間へ移行</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>5月　五感で遊ぼう</h2>
+    <div class="theme">テーマ：感覚を刺激する遊び　／　体を使って探索する</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">春の植物探し<br>においを嗅いでみよう</div>
+      <div class="card-aim">ねらい：五感への気づき</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">おべんとうばこのうた<br>やおやのおみせ</div>
+      <div class="card-aim">ねらい：語彙・リズム感</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">こいのぼり製作<br>（紙袋・折り紙）</div>
+      <div class="card-aim">ねらい：季節感・制作体験</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">砂・水遊び素材<br>感触遊び各種</div>
+      <div class="card-aim">ねらい：感覚統合</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">感覚遊びの発達的意味<br>どんな遊びが大事？</div>
+      <div class="card-aim">ねらい：遊びへの理解</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「はらぺこあおむし」</div>
+      <div class="card-aim">ねらい：集中・共有体験</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 6月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>6月　雨の日も楽しもう</h2>
+    <div class="theme">テーマ：室内あそびの工夫　／　自然の変化に気づく</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">梅雨の生き物トーク<br>かたつむり探し</div>
+      <div class="card-aim">ねらい：自然への興味</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">かたつむり<br>アブラハムのこ</div>
+      <div class="card-aim">ねらい：体を大きく動かす</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">てるてる坊主<br>紙皿カエル制作</div>
+      <div class="card-aim">ねらい：季節感・巧緻性</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">色水遊び・室内感触遊び<br>水遊びセット</div>
+      <div class="card-aim">ねらい：探究心</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">室内遊びアイデア10選<br>梅雨の過ごし方</div>
+      <div class="card-aim">ねらい：親の実践知</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「あめのひのえんそく」</div>
+      <div class="card-aim">ねらい：共感・安心感</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 7月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>7月　夏と宇宙</h2>
+    <div class="theme">テーマ：七夕・夏の自然　／　想像力を広げる</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">七夕のお話<br>星座を探そう</div>
+      <div class="card-aim">ねらい：文化・想像力</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">やきいもグーチーパー<br>バスにのって</div>
+      <div class="card-aim">ねらい：リズム・協調動作</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">七夕飾り（折り紙）<br>短冊に願い事を書く</div>
+      <div class="card-aim">ねらい：季節行事・表現</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">水遊び・シャボン玉<br>夏の感触遊び</div>
+      <div class="card-aim">ねらい：身体感覚・解放感</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">夏の安全講座<br>熱中症・水の事故防止</div>
+      <div class="card-aim">ねらい：親の安全知識</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「たなばたさま」</div>
+      <div class="card-aim">ねらい：伝統文化を知る</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 8月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>8月　夏いっぱい</h2>
+    <div class="theme">テーマ：水・土・虫との出会い　／　解放感・全身で遊ぶ</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">夏休みの思い出シェア<br>虫・水・土の話</div>
+      <div class="card-aim">ねらい：言語表現・共感</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">パンダうさぎコアラ<br>アルゴリズム体操</div>
+      <div class="card-aim">ねらい：全身運動・模倣</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">夏野菜スタンプ<br>氷絵の具あそび</div>
+      <div class="card-aim">ねらい：感触・色彩体験</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">砂場・水遊び自由時間<br>夏の感触素材</div>
+      <div class="card-aim">ねらい：開放感・自主性</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">食育：夏野菜を知ろう<br>一緒に料理するヒント</div>
+      <div class="card-aim">ねらい：食への興味づけ</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「すいかのたね」</div>
+      <div class="card-aim">ねらい：夏・自然・成長</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 9月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>9月　秋を見つけよう</h2>
+    <div class="theme">テーマ：どんぐり・虫・色の変化　／　季節の移ろいを感じる</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">秋の虫・どんぐり探し<br>色の変化を観察</div>
+      <div class="card-aim">ねらい：季節の変化に気づく</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">どんぐりころころ<br>幸せなら手をたたこう</div>
+      <div class="card-aim">ねらい：日本の童謡・リズム</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">どんぐり・まつぼっくり<br>自然素材アート</div>
+      <div class="card-aim">ねらい：素材感・創造性</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">自然素材遊び<br>葉・石・木の実コーナー</div>
+      <div class="card-aim">ねらい：触覚・探索</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">外遊びと発達について<br>泥遊びのすすめ</div>
+      <div class="card-aim">ねらい：親の理解促進</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「きのみのケーキ」</div>
+      <div class="card-aim">ねらい：秋・収穫・食</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 10月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>10月　ハロウィンと色遊び</h2>
+    <div class="theme">テーマ：変身・想像力　／　色の組み合わせを楽しむ</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">ハロウィンのお話<br>仮装してみよう</div>
+      <div class="card-aim">ねらい：想像力・変身遊び</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">動物園へ行こうよ<br>いっぽんばし</div>
+      <div class="card-aim">ねらい：動物・ふれあい遊び</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">かぼちゃのお面制作<br>色混ぜ実験</div>
+      <div class="card-aim">ねらい：色の発見・表現</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">仮装グッズ・変装遊び<br>色水遊び</div>
+      <div class="card-aim">ねらい：表現・想像力</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">想像力を育てる遊び<br>ごっこ遊びの発達的意義</div>
+      <div class="card-aim">ねらい：遊びへの理解</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「もりのかくれんぼ」</div>
+      <div class="card-aim">ねらい：色・探索・発見</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 11月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>11月　秋の恵み</h2>
+    <div class="theme">テーマ：木の実・落ち葉・感謝　／　素材の豊かさを感じる</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">落ち葉拾い報告会<br>七五三ってなに？</div>
+      <div class="card-aim">ねらい：文化・成長祝い</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">げんこつ山のたぬきさん<br>いとまき</div>
+      <div class="card-aim">ねらい：手遊び・触れ合い</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">落ち葉コラージュ<br>スタンプ遊び</div>
+      <div class="card-aim">ねらい：自然素材・表現</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">木のおもちゃ大集合<br>積み木・ルーピング等</div>
+      <div class="card-aim">ねらい：素材感・集中力</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">木のおもちゃの選び方<br>安全基準・素材の話</div>
+      <div class="card-aim">ねらい：商品選びの目を養う</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「くだもの」</div>
+      <div class="card-aim">ねらい：語彙・食への興味</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 12月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>12月　クリスマス・お祝い</h2>
+    <div class="theme">テーマ：贈る喜び・感謝の気持ち　／　年末のあたたかさ</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">クリスマスカウントダウン<br>手作りプレゼントの話</div>
+      <div class="card-aim">ねらい：贈る喜びを知る</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">誰にだってお誕生日<br>ひげじいさん</div>
+      <div class="card-aim">ねらい：祝う・感謝する</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">クリスマスカード制作<br>リース製作</div>
+      <div class="card-aim">ねらい：贈り物文化</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">積み木でツリー制作<br>クリスマス自由遊び</div>
+      <div class="card-aim">ねらい：創造・発表の喜び</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">プレゼントと子育て<br>与え方・もらい方</div>
+      <div class="card-aim">ねらい：親の価値観整理</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「サンタクロースっているの？」</div>
+      <div class="card-aim">ねらい：想像・ファンタジー</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 1月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>1月　日本の文化</h2>
+    <div class="theme">テーマ：お正月・伝統遊び　／　受け継がれる遊びの魅力</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">お正月遊び体験<br>こま・カルタ・羽根つき</div>
+      <div class="card-aim">ねらい：伝統文化への親しみ</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">一本でもにんじん<br>いっぽんばし</div>
+      <div class="card-aim">ねらい：数・触れ合い遊び</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">だるまの福笑い<br>凧製作</div>
+      <div class="card-aim">ねらい：伝統遊びの体験</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">こま・けん玉・カルタ<br>伝統玩具体験コーナー</div>
+      <div class="card-aim">ねらい：手指・集中力</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">日本の伝統遊びの魅力<br>デジタル時代の遊び方</div>
+      <div class="card-aim">ねらい：遊びの再発見</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「おもちのきもち」</div>
+      <div class="card-aim">ねらい：お正月・食文化</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 2月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>2月　節分・冬遊び</h2>
+    <div class="theme">テーマ：鬼退治・冬の感触　／　ルールある遊びと社会性</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">節分の由来<br>鬼はどこにいる？</div>
+      <div class="card-aim">ねらい：行事・文化</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">鬼のパンツ<br>てをたたきましょう</div>
+      <div class="card-aim">ねらい：行事・リズム</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">鬼のお面製作<br>豆入れ箱（折り紙）</div>
+      <div class="card-aim">ねらい：節分製作</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">雪・氷の感触遊び<br>（室内再現）</div>
+      <div class="card-aim">ねらい：冬の感触体験</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">ルールある遊びと社会性<br>「まって」が言える子に</div>
+      <div class="card-aim">ねらい：社会性の発達</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「おにはそと」</div>
+      <div class="card-aim">ねらい：節分・勇気</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3月 ===== -->
+<div class="month-page">
+  <div class="month-header">
+    <h2>3月　ありがとう</h2>
+    <div class="theme">テーマ：1年間の成長を祝う　／　旅立ちと新しい始まり</div>
+  </div>
+  <div class="components-grid">
+    <div class="component-card comp-intro">
+      <div class="card-title">導入</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">1年間の振り返り<br>大きくなったね！</div>
+      <div class="card-aim">ねらい：成長の可視化</div>
+    </div>
+    <div class="component-card comp-song">
+      <div class="card-title">うた・リズム遊び</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">幸せなら手をたたこう<br>バナナのおやこ</div>
+      <div class="card-aim">ねらい：感謝・つながり</div>
+    </div>
+    <div class="component-card comp-craft">
+      <div class="card-title">工作・感覚遊び</div>
+      <div class="card-time">15分</div>
+      <div class="card-content">卒業記念アルバム<br>メッセージカード制作</div>
+      <div class="card-aim">ねらい：贈り合う喜び</div>
+    </div>
+    <div class="component-card comp-toys">
+      <div class="card-title">おもちゃの時間</div>
+      <div class="card-time">40分</div>
+      <div class="card-content">全おもちゃ大放出！<br>自由に選んで遊ぼう</div>
+      <div class="card-aim">ねらい：自主性・達成感</div>
+    </div>
+    <div class="component-card comp-mama">
+      <div class="card-title">ママ向けコラム</div>
+      <div class="card-time">10分</div>
+      <div class="card-content">次のステージへ<br>親の不安を聞く会</div>
+      <div class="card-aim">ねらい：不安解消・継続促進</div>
+    </div>
+    <div class="component-card comp-book">
+      <div class="card-title">絵本</div>
+      <div class="card-time">5分</div>
+      <div class="card-content">「ありがとうをあつめたら」</div>
+      <div class="card-aim">ねらい：感謝・旅立ち</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 再利用できる活動ネタ ===== -->
+<div class="activity-page">
+  <h2>再利用できる活動ネタ</h2>
+  <p style="font-size:9.5pt; color:#666; margin-bottom:20px;">複数の月で使い回せる活動です。月の内容に合わせてアレンジしてください。</p>
+  <div class="activity-grid">
+    <div class="activity-card">
+      <div class="act-title">グーチョキパーでなにつくろう</div>
+      <div class="act-aim">ねらい：手指の協応・創造性・親子の対話</div>
+      <div class="act-months">対象月：4月・6月・10月</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">幸せなら手をたたこう</div>
+      <div class="act-aim">ねらい：感情表現・全身運動・共感</div>
+      <div class="act-months">対象月：9月・3月</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">積み木・ブロック自由遊び</div>
+      <div class="act-aim">ねらい：空間認識・創造力・集中力</div>
+      <div class="act-months">対象月：4月・11月・12月</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">色水・スタンプ遊び</div>
+      <div class="act-aim">ねらい：色の発見・感触・造形表現</div>
+      <div class="act-months">対象月：6月・9月・10月・11月</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">自然素材アート</div>
+      <div class="act-aim">ねらい：素材感・創造性・季節感</div>
+      <div class="act-months">対象月：9月・11月</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">いっぽんばし</div>
+      <div class="act-aim">ねらい：くすぐり・触れ合い・期待感</div>
+      <div class="act-months">対象月：10月・1月</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">木のおもちゃ体験コーナー</div>
+      <div class="act-aim">ねらい：素材感・職人の仕事・集中力</div>
+      <div class="act-months">対象月：11月・1月・3月</div>
+    </div>
+    <div class="activity-card">
+      <div class="act-title">読み聞かせ（季節絵本）</div>
+      <div class="act-aim">ねらい：集中・共感・語彙・静の時間</div>
+      <div class="act-months">全月共通で活用可能</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
