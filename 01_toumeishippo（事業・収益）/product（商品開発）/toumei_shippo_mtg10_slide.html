@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>とうめいしっぽ MTG⑩ スライド資料</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #3a5a40;
+  --forest-light: #588157;
+  --gold: #b08d57;
+  --gold-light: #d4a96a;
+  --cream: #f8f4ec;
+  --paper: #fdfaf4;
+  --ink: #1e1a14;
+  --muted: #4a4438;
+  --border: rgba(176,141,87,0.2);
+  --w: 297mm;
+  --h: 210mm;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: #1a1a1a;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ===== スライド共通 ===== */
+.slide {
+  width: var(--w);
+  height: var(--h);
+  background: var(--cream);
+  margin: 24px auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ヘッダー帯 */
+.sl-head {
+  background: var(--forest);
+  color: var(--cream);
+  padding: 5px 12mm;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.sl-head-right { font-size: 10px; opacity: 0.5; letter-spacing: 0.2em; }
+
+/* コンテンツ本体 */
+.sl-body {
+  flex: 1;
+  padding: 5mm 12mm 4mm;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* フッター */
+.sl-foot {
+  padding: 2mm 12mm;
+  font-size: 9px;
+  color: rgba(74,68,56,0.4);
+  letter-spacing: 0.15em;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* セクション見出し */
+.sl-label {
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  margin-bottom: 3px;
+}
+.sl-title {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 3mm;
+}
+.sl-divider {
+  width: 30px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 3mm;
+}
+
+/* 汎用カード */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  border: 1px solid var(--gold-light);
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+
+.note-box {
+  background: rgba(176,141,87,0.07);
+  border-left: 3px solid var(--gold);
+  padding: 9px 13px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.forest-box {
+  background: rgba(58,90,64,0.06);
+  border: 1px solid rgba(58,90,64,0.2);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* グリッド */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+
+/* テーブル */
+.tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+.tbl th { background: var(--forest); color: var(--cream); padding: 7px 10px; text-align: left; font-weight: 500; font-size: 11px; }
+.tbl td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.tbl tr:nth-child(even) td { background: rgba(248,244,236,0.6); }
+.tbl tr:last-child td { border-bottom: none; }
+
+/* 優先度ラベル */
+.must { border-left: 3px solid #c0392b; }
+.want { border-left: 3px solid var(--gold); }
+.check { border-left: 3px solid var(--forest-light); }
+
+/* ===== 印刷 ===== */
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+  body { background: white; }
+  .slide {
+    margin: 0;
+    page-break-after: always;
+    break-after: page;
+  }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+</head>
+<body>
+
+
+<!-- ==============================
+  SLIDE 01 — 表紙
+============================== -->
+<div class="slide" style="background: var(--forest); color: var(--cream); justify-content: center; align-items: center; text-align: center;">
+  <svg style="position:absolute; top:-30px; right:-30px; width:260px; opacity:0.07;" viewBox="0 0 200 300" fill="white"><ellipse cx="100" cy="150" rx="60" ry="130"/></svg>
+  <svg style="position:absolute; bottom:-50px; left:-50px; width:320px; opacity:0.06;" viewBox="0 0 200 300" fill="white"><path d="M100,20 Q160,60 160,150 Q160,240 100,280 Q40,240 40,150 Q40,60 100,20Z"/></svg>
+  <div style="position:relative; z-index:1; padding: 0 20mm;">
+    <div style="font-size:9px; letter-spacing:0.5em; color:var(--gold-light); margin-bottom:20px;">とうめいしっぽ ／ MTG⑩ 事前共有資料</div>
+    <div style="font-family:'Shippori Mincho B1',serif; font-size:36px; font-weight:700; line-height:1.5; letter-spacing:0.08em; margin-bottom:16px;">
+      てのひらに、<br>もりおかを。
+    </div>
+    <div style="font-size:13px; color:rgba(248,244,236,0.65); letter-spacing:0.15em; margin-bottom:32px;">
+      人と木の情感を自然計算が紡ぐ、あたらしいおもちゃのかたち
+    </div>
+    <div style="width: 40px; height: 1px; background: var(--gold); margin: 0 auto 28px;"></div>
+    <div style="font-size:12px; color:rgba(248,244,236,0.5); letter-spacing:0.2em; line-height:2.2;">
+      2026年4月14日<br>
+      新田紗希（とうめいしっぽ）
+    </div>
+    <div style="margin-top:28px; font-size:9px; color:rgba(248,244,236,0.3); letter-spacing:0.15em; line-height:2;">
+      松森政仁（ima Design Lab）／ 阿部拓也（のはら）／ 内藤晶（manordaいわて）
+    </div>
+  </div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 02 — 01 哲学
+============================== -->
+<div class="slide">
+  <div class="sl-head">01 ／ PHILOSOPHY<div class="sl-head-right">この商品が立つ場所</div></div>
+  <div class="sl-body">
+    <div class="sl-label">01 ／ Philosophy</div>
+    <div class="sl-title">この商品が立つ場所<br>——おもちゃとは何か</div>
+    <div class="sl-divider"></div>
+
+    <div style="background:rgba(58,90,64,0.06); border-left:3px solid var(--forest-light); padding:14px 18px; margin-bottom:14px; font-size:13px; color:var(--muted); line-height:2; border-radius: 0 4px 4px 0;">
+      <strong style="color:var(--ink);">「玩」という言葉の原点は「手に取って愛でる」こと。</strong><br>
+      子どもだけのものではなく、大人も含めた「愛でるもの」全般を指した。<br><br>
+      歴史的に長く愛されてきたおもちゃは、積み木や砂や粘土のように<strong style="color:var(--ink);">「未完成」なもの</strong>ばかりだ。<br>
+      おもちゃ自体は何も語らず、<strong style="color:var(--ink);">意味は遊ぶ人間が作る。</strong><br><br>
+      おもちゃの原点を一言で言うなら——<strong style="color:var(--ink);">「人間が世界と関わるための最初の橋渡し」</strong>
+    </div>
+
+    <div style="background:rgba(176,141,87,0.06); border-left:3px solid var(--gold); padding:14px 18px; font-size:13px; color:var(--muted); line-height:2; border-radius: 0 4px 4px 0;">
+      これまでのおもちゃは「大人が子供に買い与える」ものだった。<br>
+      でも、<strong style="color:var(--ink);">大人（親）が子供のことを思い、ゼロから作ったものを贈ることができたら。</strong><br>
+      そのプロセスや時間自体に価値を生むことができたら。<br>
+      それが、このおもちゃの基本的なコンセプト。<br>
+      <div style="margin-top:8px; font-size:9px; color:var(--gold); letter-spacing:0.1em;">— 阿部拓也（のはら）より</div>
+    </div>
+
+    <div style="margin-top:auto; padding-top:10px; font-size:9px; color:var(--muted); font-style:italic;">
+      以下は新田より提案するコンセプトの方向性です。皆さまのご意見・ご感想をぜひお聞かせください。
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>02 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 03 — 02 コンセプト（3層）
+============================== -->
+<div class="slide">
+  <div class="sl-head">02 ／ CONCEPT<div class="sl-head-right">この商品が存在する3つの理由</div></div>
+  <div class="sl-body">
+    <div class="sl-label">02 ／ Concept</div>
+    <div class="sl-title">この商品が存在する<br>3つの理由</div>
+    <div class="sl-divider"></div>
+
+    <div style="border:1px solid var(--border); border-radius:4px; overflow:hidden; flex:1;">
+      <!-- Layer 1 -->
+      <div style="padding:14px 20px; display:grid; grid-template-columns:54px 1fr; gap:16px; align-items:start; border-bottom:1px solid var(--border); background:var(--paper);">
+        <div style="font-family:'Shippori Mincho B1',serif; font-size:32px; font-weight:700; color:var(--border); line-height:1;">1</div>
+        <div>
+          <span class="tag">FIRST ／ まず</span>
+          <div style="font-family:'Shippori Mincho B1',serif; font-size:16px; font-weight:700; margin-bottom:5px;">おもちゃであること</div>
+          <div style="font-size:12px; color:var(--muted); line-height:1.8;">
+            0〜2歳の赤ちゃんが実際に握り、触れ、遊べる形であること。葉っぱ形の丸みが手にフィット。舐めても安全。<br>
+            6枚以上で握る・並べる・積む・転がすと遊びが広がる。<strong style="color:var(--ink);">「まず、これで遊べる」が大前提。</strong><br>
+            <em style="font-size:9px; color:var(--gold);">→ おもちゃ自体は「未完成」。意味は親子が作る。</em>
+          </div>
+        </div>
+      </div>
+      <!-- Layer 2 -->
+      <div style="padding:14px 20px; display:grid; grid-template-columns:54px 1fr; gap:16px; align-items:start; border-bottom:1px solid var(--border); background:white;">
+        <div style="font-family:'Shippori Mincho B1',serif; font-size:32px; font-weight:700; color:var(--border); line-height:1;">2</div>
+        <div>
+          <span class="tag">THEN ／ 次に</span>
+          <div style="font-family:'Shippori Mincho B1',serif; font-size:16px; font-weight:700; margin-bottom:5px;">家族をつなぐものであること</div>
+          <div style="font-size:12px; color:var(--muted); line-height:1.8;">
+            赤ちゃんの名前・誕生日・体重・身長・出生時刻・天気——7つのデータが自然計算で木の模様に翻訳される。世界に二つとない、その子だけのパターン。<br>
+            <strong style="color:var(--ink);">親が込めた物語から始まり、子ども自身の物語へと育っていく。</strong><br>
+            <em style="font-size:9px; color:var(--gold);">→ 最初は「模様の由来」をあえて教えない。子どもが自分で意味を見出してから、親が明かす。</em>
+          </div>
+        </div>
+      </div>
+      <!-- Layer 3 -->
+      <div style="padding:14px 20px; display:grid; grid-template-columns:54px 1fr; gap:16px; align-items:start; background:var(--paper);">
+        <div style="font-family:'Shippori Mincho B1',serif; font-size:32px; font-weight:700; color:var(--border); line-height:1;">3</div>
+        <div>
+          <span class="tag">BEYOND ／ そして</span>
+          <div style="font-family:'Shippori Mincho B1',serif; font-size:16px; font-weight:700; margin-bottom:5px;">現在と未来を、森と人をつなぐものであること</div>
+          <div style="font-size:12px; color:var(--muted); line-height:1.8;">
+            岩手の森で育った木が、盛岡の工房で加工され、家庭の日常に届き、子どもの手のひらに宿る。<br>
+            使うことが森を知ること。触れることが森を守ること。<strong style="color:var(--ink);">一枚の葉が、森と人の時間をつなぐ。</strong><br>
+            <em style="font-size:9px; color:var(--gold);">→ 遊び卒業後もコースターやインテリアとして残る。雛人形・五月人形と同じ「役目が変わっても手元に残るもの」の構造。</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>03 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 04 — 03 コアバリュー
+============================== -->
+<div class="slide">
+  <div class="sl-head">03 ／ CORE VALUES<div class="sl-head-right">商品が大切にすること</div></div>
+  <div class="sl-body">
+    <div class="sl-label">03 ／ Core Values</div>
+    <div class="sl-title">商品が大切にすること</div>
+    <div class="sl-divider"></div>
+
+    <div class="g3" style="flex:1;">
+      <div style="background:var(--paper); border:1px solid var(--border); border-radius:4px; padding:20px 16px; text-align:center; display:flex; flex-direction:column;">
+        <div style="font-size:8px; letter-spacing:0.4em; color:var(--gold); margin-bottom:6px;">FLEXIBLE</div>
+        <div style="font-family:'Shippori Mincho B1',serif; font-size:20px; font-weight:700; margin-bottom:10px;">可変性</div>
+        <div style="width:24px; height:1px; background:var(--gold); margin:0 auto 10px;"></div>
+        <div style="font-size:12px; color:var(--muted); line-height:1.9; flex:1;">
+          はめる・落とす・並べる・積む……<br>
+          遊び方は子どもが決める。<br>
+          難易度も組み合わせも可変。<br>
+          ワクワクが続き、くりかえし遊びたくなる。
+        </div>
+        <div style="margin-top:12px; font-size:9px; color:var(--forest); font-style:italic;">→ 1つの形に収まらない遊び</div>
+      </div>
+      <div style="background:var(--paper); border:1px solid var(--border); border-radius:4px; padding:20px 16px; text-align:center; display:flex; flex-direction:column;">
+        <div style="font-size:8px; letter-spacing:0.4em; color:var(--gold); margin-bottom:6px;">TIMELESS</div>
+        <div style="font-family:'Shippori Mincho B1',serif; font-size:20px; font-weight:700; margin-bottom:10px;">持続性</div>
+        <div style="width:24px; height:1px; background:var(--gold); margin:0 auto 10px;"></div>
+        <div style="font-size:12px; color:var(--muted); line-height:1.9; flex:1;">
+          0歳から手に持てる、成長に寄り添う素材とデザイン。<br>
+          おもちゃ→コースター→インテリア→次世代へ。<br>
+          ライフステージが変わっても、そばにあり続ける。
+        </div>
+        <div style="margin-top:12px; font-size:9px; color:var(--forest); font-style:italic;">→ 使い捨てにしない道具</div>
+      </div>
+      <div style="background:var(--paper); border:1px solid var(--border); border-radius:4px; padding:20px 16px; text-align:center; display:flex; flex-direction:column;">
+        <div style="font-size:8px; letter-spacing:0.4em; color:var(--gold); margin-bottom:6px;">SUSTAINABLE</div>
+        <div style="font-family:'Shippori Mincho B1',serif; font-size:20px; font-weight:700; margin-bottom:10px;">循環性</div>
+        <div style="width:24px; height:1px; background:var(--gold); margin:0 auto 10px;"></div>
+        <div style="font-size:12px; color:var(--muted); line-height:1.9; flex:1;">
+          岩手県産材9樹種を活用。<br>
+          使うことが森を知ること、守ること。<br>
+          木材の価値を高め、地域の資源循環をつくる。
+        </div>
+        <div style="margin-top:12px; font-size:9px; color:var(--forest); font-style:italic;">→ 触れることが、つながること</div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:10mm;">
+      盛岡市森林づかいイノベーション事業（R6〜R8・計498万円）として進行中。<strong style="color:var(--ink);">R8年度（今年度）がクラウドファンディング実施・製品完成の計画目標年度。</strong>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>04 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 05 — 04 商品仕様
+============================== -->
+<div class="slide">
+  <div class="sl-head">04 ／ SPECIFICATION<div class="sl-head-right">現時点での商品仕様案</div></div>
+  <div class="sl-body">
+    <div class="sl-label">04 ／ Specification</div>
+    <div class="sl-title">現時点での商品仕様案</div>
+    <div class="sl-divider"></div>
+
+    <table class="tbl" style="flex:1;">
+      <tbody>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;width:100px;">商品名（仮）</td><td><strong>てもり</strong>（候補複数あり／後述）</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">キャッチコピー</td><td>てのひらに、もりおかを。</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">素材</td><td>岩手県産材フローリング材・15mm厚（9樹種）</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">9樹種</td><td>スギ・カラマツ・アカマツ・ナラ・クリ（市産材5種）＋ ヤマザクラ・オニグルミ・イタヤカエデ・ケヤキ（県産材4種）</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">仕上げ</td><td>シオン社・食器用木守りコート（舐めても安全）</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">対象年齢</td><td>0〜2歳〜（出産祝い・誕生記念品として0歳から）</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">加工モード</td><td>
+          お客さまが3モードから選択（松森さん設計）<br>
+          <span style="font-size:9px; color:var(--muted);">① レーザー刻印のみ　② V溝NC加工（今ここ）　③ NC＋レーザー（最上位）</span>
+        </td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">模様</td><td>赤ちゃんの7つのデータを自然計算アルゴリズムで変換した唯一無二のパターン</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">最小遊べる枚数</td><td>6枚（握る・並べる・積む・転がす遊びが成立）</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">製造体制</td><td>加工：松森木工所 ／ 研磨・梱包：しらたき工房様（相談済）</td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">販売チャネル</td><td><strong>Phase 1（R8）：</strong>クラウドファンディング（初回テスト販売）<br><span style="font-size:9px;color:var(--muted);"><strong>Phase 2以降：</strong>自社ECサイト・木育イベント直販・工務店への施主進呈品</span></td></tr>
+        <tr><td style="color:var(--gold);font-size:9px;letter-spacing:0.2em;">パッケージ</td><td>本のスリーブ型ケース＋遊び方リーフレット（検討中）<br><span style="font-size:9px;color:var(--gold);">→ 具体的なデザインは阿部さんのご提案をお聞きしたい（議題⑦）</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>05 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 06 — 加工モードと価格
+============================== -->
+<div class="slide">
+  <div class="sl-head">04 ／ PRICING<div class="sl-head-right">加工モード別価格設計（松森さん試算）</div></div>
+  <div class="sl-body">
+    <div class="sl-label">04 ／ Pricing</div>
+    <div class="sl-title">加工モード別<br>価格設計</div>
+    <div class="sl-divider"></div>
+
+    <div class="g3" style="margin-bottom:10px;">
+      <div class="card">
+        <div style="font-size:8px;letter-spacing:0.15em;color:var(--muted);margin-bottom:6px;">① レーザー刻印のみ</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;color:var(--ink);">¥13,000</div>
+        <div style="font-size:9px;color:var(--muted);margin-top:4px;line-height:1.8;">9枚コンプリート・粗利43%<br>原価：¥735〜754/枚</div>
+      </div>
+      <div style="background:rgba(58,90,64,0.06);border:2px solid var(--forest);border-radius:4px;padding:10px 14px;position:relative;">
+        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--forest);color:var(--cream);font-size:8px;padding:2px 10px;border-radius:10px;white-space:nowrap;">今ここ</div>
+        <div style="font-size:8px;letter-spacing:0.15em;color:var(--forest);margin-bottom:6px;">② V溝NC加工のみ</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;color:var(--forest);">¥16,000</div>
+        <div style="font-size:9px;color:var(--muted);margin-top:4px;line-height:1.8;">9枚コンプリート・粗利50%<br>原価：¥877〜896/枚</div>
+      </div>
+      <div class="card">
+        <div style="font-size:8px;letter-spacing:0.15em;color:var(--muted);margin-bottom:6px;">③ NC＋レーザー刻印</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;color:var(--ink);">¥25,000</div>
+        <div style="font-size:9px;color:var(--muted);margin-top:4px;line-height:1.8;">9枚コンプリート・粗利50%<br>原価：¥1,377〜1,396/枚</div>
+      </div>
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">原価内訳（V溝NCの場合・1枚あたり）</div>
+    <table class="tbl" style="margin-bottom:10px;">
+      <thead><tr><th>工程</th><th style="text-align:right;">金額</th></tr></thead>
+      <tbody>
+        <tr><td>木材費（樹種による）</td><td style="text-align:right;">¥35〜54</td></tr>
+        <tr><td>NC加工費（5,500円/h × 7分/枚・消耗品含む）</td><td style="text-align:right;">¥642</td></tr>
+        <tr><td>研磨・仕上げ（しらたき工房委託・¥1,200/h相当）</td><td style="text-align:right;">¥100</td></tr>
+        <tr><td>オイル塗装材料</td><td style="text-align:right;">¥100</td></tr>
+        <tr style="font-weight:500;"><td style="color:var(--forest);">合計原価 / 枚</td><td style="text-align:right;color:var(--forest);font-size:13px;font-weight:700;">¥877〜896</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <strong style="color:var(--ink);">検討点：</strong>松森さん資料では「新田さん方向性：1万円以下」とも記載。コスト構造との乖離を本日整合させたい。<br>
+      → エントリー（¥13,000）かスタンダード（¥16,000）か、加工モードの選択も含めて議論したい。<br>
+      クラファン分は<strong style="color:var(--ink);">受注生産</strong>のため各プランの個数はこちらで設定可能。
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>06 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 07 — ターゲット
+============================== -->
+<div class="slide">
+  <div class="sl-head">04 ／ TARGET<div class="sl-head-right">誰が、何のために買うか</div></div>
+  <div class="sl-body">
+    <div class="sl-label">04 ／ Target</div>
+    <div class="sl-title">誰が、何のために<br>買うか</div>
+    <div class="sl-divider"></div>
+
+    <div class="g2" style="margin-bottom:12px;">
+      <div style="background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:16px 18px;">
+        <div style="font-size:12px;font-weight:500;color:var(--forest);margin-bottom:8px;">パターン A ／ 自分の子のために買う</div>
+        <div style="font-size:12px;color:var(--muted);line-height:2;">
+          第一子誕生から1年以内の母親（20〜30代）<br>
+          誕生記念品として・我が子だけの模様として<br>
+          <strong style="color:var(--ink);">「価値に納得して自分が選ぶ」買い方</strong><br>
+          <span style="font-size:9px;color:var(--gold);">→ コンセプト・ストーリーへの共感が購入動機</span>
+        </div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:16px 18px;">
+        <div style="font-size:12px;font-weight:500;color:var(--forest);margin-bottom:8px;">パターン B ／ 誰かの子へのギフトとして買う</div>
+        <div style="font-size:12px;color:var(--muted);line-height:2;">
+          出産祝いを探している友人・祖父母・親戚<br>
+          「特別なもの・ありきたりじゃないもの」を探している<br>
+          <strong style="color:var(--ink);">「贈る自分の気持ち」を乗せられる買い方</strong><br>
+          <span style="font-size:9px;color:var(--gold);">→ 購入の手間が少ないことも重要（フロー設計）</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">購入のタイミング</div>
+    <div class="g4" style="margin-bottom:14px;">
+      <div class="card" style="text-align:center;font-size:12px;color:var(--muted);">出産祝い</div>
+      <div class="card" style="text-align:center;font-size:12px;color:var(--muted);">誕生記念</div>
+      <div class="card" style="text-align:center;font-size:12px;color:var(--muted);">ハーフバースデー</div>
+      <div class="card" style="text-align:center;font-size:12px;color:var(--muted);">木育への共感</div>
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">市場における位置づけ</div>
+    <div class="forest-box">
+      出産祝い相場：¥3,000〜¥10,000 ／ 名入れ積み木（既存品）：¥8,000〜¥20,000<br>
+      <strong style="color:var(--ink);">→ ¥13,000〜¥16,000 は「カスタム記念品」として妥当な上位帯</strong>。誰にも同じものが贈れない唯一性で差別化。
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>07 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 08 — 月齢別遊び方
+============================== -->
+<div class="slide">
+  <div class="sl-head">04b ／ USER EXPERIENCE<div class="sl-head-right">遊び方と使われ方</div></div>
+  <div class="sl-body">
+    <div class="sl-label">04b ／ User Experience</div>
+    <div class="sl-title">月齢別の遊び方</div>
+    <div class="sl-divider"></div>
+
+    <div class="g3" style="margin-bottom:12px;">
+      <div class="card">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:5px;">5〜8か月</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;">なめる・つかむ・にぎる<br><span style="font-size:9px;">感覚を育てる最初の遊び</span></div>
+      </div>
+      <div class="card">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:5px;">8〜10か月</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;">つまむ・いれる・おとす<br><span style="font-size:9px;">手先の細かい動きが育つ</span></div>
+      </div>
+      <div class="card">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:5px;">10〜12か月</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;">なげる・かくす・みつける<br><span style="font-size:9px;">遊びの幅が広がる</span></div>
+      </div>
+      <div class="card">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:5px;">1歳〜</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;">ならべる・みたてる・みわける<br>他のおもちゃと組み合わせる</div>
+      </div>
+      <div style="background:rgba(58,90,64,0.06);border:1px solid rgba(58,90,64,0.2);border-radius:4px;padding:10px 14px;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:12px;font-weight:700;color:var(--forest);margin-bottom:5px;">遊び卒業後</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;">はしおき・コースター・<br>インテリアとして家族のそばに残る</div>
+      </div>
+      <div class="card" style="background:rgba(176,141,87,0.06);display:flex;align-items:center;justify-content:center;text-align:center;">
+        <div style="font-size:9px;color:var(--gold);line-height:1.9;">おもちゃ → コースター<br>→ インテリア → 次世代へ</div>
+      </div>
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">LIFECYCLE ／「遊ばなくなっても」に答える設計</div>
+    <div class="note-box">
+      「¥15,000のおもちゃを買って、遊んでくれなかったらもったいない」という不安に対して、この商品は<strong style="color:var(--ink);">「遊ばなくなること」も設計に組み込んでいます。</strong><br>
+      日本の雛人形・五月人形と同じ「役目が変わっても手元に残るもの」の構造。<strong style="color:var(--forest);">「もったいない」が生まれにくい。</strong>
+    </div>
+
+    <div style="margin-top:10px;font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:6px;">PSC安全基準</div>
+    <div class="forest-box">
+      乳幼児向けおもちゃには<strong>「こどもPSCマーク」</strong>の取得が法的に必要（消費生活用製品安全法）。全樹種で誤飲防止基準（幅31.7mm以上）をクリア済み。製品化にあたり検査機関での検査・合格が必要。
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>08 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 09 — 購入フローとパッケージ
+============================== -->
+<div class="slide">
+  <div class="sl-head">04b ／ HOW TO ORDER<div class="sl-head-right">購入の流れとパッケージ</div></div>
+  <div class="sl-body">
+    <div class="sl-label">04b ／ How to Order</div>
+    <div class="sl-title">購入の流れ</div>
+    <div class="sl-divider"></div>
+
+    <div class="g3" style="margin-bottom:14px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:28px;color:var(--gold);margin-bottom:6px;">01</div>
+        <div style="font-size:13px;font-weight:500;margin-bottom:5px;">データを入力する</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">名前・誕生日・体重・身長・<br>出生時刻・天気・出生地の<br>7つを専用Webアプリに入力<br><span style="color:var(--forest);">松森さんが既に開発・動作確認済み</span></div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:28px;color:var(--gold);margin-bottom:6px;">02</div>
+        <div style="font-size:13px;font-weight:500;margin-bottom:5px;">唯一の模様が生まれる</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">アルゴリズムが模様を生成し、<br>岩手の木にNCルーターと<br>レーザーで刻印される<br><span style="color:var(--forest);">（受注生産）</span></div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:28px;color:var(--gold);margin-bottom:6px;">03</div>
+        <div style="font-size:13px;font-weight:500;margin-bottom:5px;">手元に届く</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">パッケージに入って届く。<br>開けるまで模様がわからない<br>ことも、体験のひとつ。</div>
+      </div>
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">PACKAGE ／ パッケージについて</div>
+    <div class="note-box" style="margin-bottom:14px;">
+      本のスリーブ型ケース・遊び方リーフレット付きの方向で検討中。<br>
+      <strong style="color:var(--forest);">具体的なパッケージデザインは阿部さんのご提案をお聞きしたいと思っています。</strong>（MTG⑩議題⑦参照）
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">SYSTEM ／ しくみの全体像（松森さん資料より）</div>
+    <div class="forest-box">
+      <strong style="color:var(--ink);">三層翻訳アーキテクチャ：</strong><br>
+      Layer 1「いのちの声」（名前・誕生日・体重・身長・出生時刻・天気・出生地）<br>
+      → Layer 2「自然計算エンジン」（季節のアルゴリズム × 名前の母音 × 出生時刻のブレンド）<br>
+      → Layer 3「木の固有特性」（9樹種の繊維間隔・繊維幅・木目強度）＝ <strong style="color:var(--forest);">世界に一つの模様</strong>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>09 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 10 — 05 樹種別サイズ（前半）
+============================== -->
+<div class="slide">
+  <div class="sl-head">05 ／ SIZE & SHAPE<div class="sl-head-right">樹種別シルエット・サイズ仕様案（1/2）</div></div>
+  <div class="sl-body">
+    <div class="sl-label">05 ／ Size & Shape</div>
+    <div class="sl-title">樹種別シルエットと<br>サイズ仕様案</div>
+    <div class="sl-divider"></div>
+
+    <div class="note-box" style="margin-bottom:10px;font-size:9px;">
+      全形状は70mm四方から最大限取れるサイズで算出。誤飲防止基準（幅31.7mm以上）を全樹種クリア。<br>
+      ※スギのみ幅が細めのため、現物での安全確認を松森さんにお願いしたい。
+    </div>
+
+    <table class="tbl" style="flex:1;">
+      <thead>
+        <tr>
+          <th style="width:60px;">シルエット</th>
+          <th>樹種</th>
+          <th>形状</th>
+          <th style="text-align:right;">幅(mm)</th>
+          <th style="text-align:right;">高さ(mm)</th>
+          <th>基準</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><svg width="32" height="44" viewBox="0 0 40 56"><ellipse cx="20" cy="28" rx="16" ry="26" fill="#c8b89a" opacity="0.8"/></svg></td>
+          <td><strong>スギ</strong> <span style="color:var(--gold);font-size:9px;">盛岡市産</span></td>
+          <td>縦長楕円</td>
+          <td style="text-align:right;">38.9</td>
+          <td style="text-align:right;">70.0</td>
+          <td><span style="color:var(--forest-light);">✓</span> <span style="color:var(--gold);font-size:9px;">要確認</span></td>
+        </tr>
+        <tr>
+          <td><svg width="36" height="44" viewBox="0 0 44 56"><path d="M22,4 Q38,18 38,28 Q38,42 22,52 Q6,42 6,28 Q6,18 22,4Z" fill="#d4a96a" opacity="0.8"/></svg></td>
+          <td><strong>カラマツ</strong> <span style="color:var(--gold);font-size:9px;">盛岡市産</span></td>
+          <td>角丸菱形</td>
+          <td style="text-align:right;">43.8</td>
+          <td style="text-align:right;">70.0</td>
+          <td><span style="color:var(--forest-light);">✓</span></td>
+        </tr>
+        <tr>
+          <td><svg width="38" height="44" viewBox="0 0 47 56"><path d="M23,3 Q40,16 40,30 Q37,48 23,54 Q9,48 6,30 Q6,16 23,3Z" fill="#c9936a" opacity="0.8"/></svg></td>
+          <td><strong>アカマツ</strong> <span style="color:var(--gold);font-size:9px;">岩手県産</span></td>
+          <td>上尖り卵形</td>
+          <td style="text-align:right;">46.7</td>
+          <td style="text-align:right;">70.0</td>
+          <td><span style="color:var(--forest-light);">✓</span></td>
+        </tr>
+        <tr>
+          <td><svg width="40" height="44" viewBox="0 0 50 56"><path d="M25,4 Q40,12 44,26 Q42,44 25,54 Q8,44 6,26 Q10,12 25,4Z" fill="#c8b080" opacity="0.8"/></svg></td>
+          <td><strong>ナラ</strong> <span style="color:var(--gold);font-size:9px;">盛岡市産</span></td>
+          <td>丸みある卵形</td>
+          <td style="text-align:right;">50.0</td>
+          <td style="text-align:right;">70.0</td>
+          <td><span style="color:var(--forest-light);">✓</span></td>
+        </tr>
+        <tr>
+          <td><svg width="43" height="44" viewBox="0 0 54 56"><path d="M27,3 Q46,10 48,26 Q46,46 27,54 Q8,46 6,26 Q8,10 27,3Z" fill="#e8b4b0" opacity="0.8"/></svg></td>
+          <td><strong>ヤマザクラ</strong> <span style="color:var(--gold);font-size:9px;">岩手県産</span></td>
+          <td>上膨らみ雫形</td>
+          <td style="text-align:right;">53.8</td>
+          <td style="text-align:right;">70.0</td>
+          <td><span style="color:var(--forest-light);">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>10 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 11 — 05 樹種別サイズ（後半）
+============================== -->
+<div class="slide">
+  <div class="sl-head">05 ／ SIZE & SHAPE<div class="sl-head-right">樹種別シルエット・サイズ仕様案（2/2）</div></div>
+  <div class="sl-body">
+    <div class="sl-label">05 ／ Size & Shape</div>
+    <div class="sl-title">樹種別シルエットと<br>サイズ仕様案（続き）</div>
+    <div class="sl-divider"></div>
+
+    <table class="tbl" style="margin-bottom:12px;">
+      <thead>
+        <tr>
+          <th style="width:60px;">シルエット</th>
+          <th>樹種</th>
+          <th>形状</th>
+          <th style="text-align:right;">幅(mm)</th>
+          <th style="text-align:right;">高さ(mm)</th>
+          <th>基準</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><svg width="44" height="44" viewBox="0 0 56 56"><ellipse cx="28" cy="28" rx="26" ry="24" fill="#b8955a" opacity="0.8"/></svg></td>
+          <td><strong>クリ</strong> <span style="color:var(--gold);font-size:9px;">盛岡市産</span></td>
+          <td>横長楕円</td>
+          <td style="text-align:right;">70.0</td>
+          <td style="text-align:right;">53.8</td>
+          <td><span style="color:var(--forest-light);">✓</span></td>
+        </tr>
+        <tr>
+          <td><svg width="44" height="44" viewBox="0 0 56 56"><path d="M28,4 Q48,6 52,26 Q50,48 28,54 Q6,48 4,26 Q8,6 28,4Z" fill="#9a8870" opacity="0.8"/></svg></td>
+          <td><strong>オニグルミ</strong> <span style="color:var(--gold);font-size:9px;">岩手県産</span></td>
+          <td>自然石型</td>
+          <td style="text-align:right;">63.6</td>
+          <td style="text-align:right;">70.0</td>
+          <td><span style="color:var(--forest-light);">✓</span></td>
+        </tr>
+        <tr>
+          <td><svg width="44" height="44" viewBox="0 0 56 56"><path d="M28,4 Q46,10 50,26 Q46,46 28,52 Q10,46 6,26 Q10,10 28,4Z" fill="#e8dfc0" opacity="0.8"/></svg></td>
+          <td><strong>イタヤカエデ</strong> <span style="color:var(--gold);font-size:9px;">岩手県産</span></td>
+          <td>丸み五角形</td>
+          <td style="text-align:right;">63.6</td>
+          <td style="text-align:right;">70.0</td>
+          <td><span style="color:var(--forest-light);">✓</span></td>
+        </tr>
+        <tr>
+          <td><svg width="44" height="37" viewBox="0 0 56 47"><path d="M28,6 Q50,8 54,22 Q50,38 28,44 Q6,38 2,22 Q6,8 28,6Z" fill="#c8a86a" opacity="0.8"/></svg></td>
+          <td><strong>ケヤキ</strong> <span style="color:var(--gold);font-size:9px;">岩手県産</span></td>
+          <td>下広がり扇形</td>
+          <td style="text-align:right;">70.0</td>
+          <td style="text-align:right;">58.3</td>
+          <td><span style="color:var(--forest-light);">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box" style="margin-bottom:10px;">
+      <strong style="color:var(--ink);">誤飲防止基準：</strong>「小さな部品テスト」（直径31.7mm×深さ57.1mmの筒に入らないこと）。9樹種すべて幅38.9mm以上のためクリア。
+    </div>
+
+    <div class="forest-box">
+      <strong style="color:var(--ink);">こどもPSCマーク（法的義務）：</strong>乳幼児向け玩具は消費生活用製品安全法により取得必須。<br>
+      所定の検査機関での検査・合格が必要。CF発送前に取得完了するよう発送スケジュールに組み込む予定。
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>11 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 12 — 06 商品名候補
+============================== -->
+<div class="slide">
+  <div class="sl-head">06 ／ NAMING<div class="sl-head-right">商品名候補（案）</div></div>
+  <div class="sl-body">
+    <div class="sl-label">06 ／ Naming</div>
+    <div class="sl-title">商品名候補（案）</div>
+    <div class="sl-divider"></div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.8;">
+      「てもり（仮）」の流れを引き継ぎ、ひらがなの語感・2〜3音節・「もり・は・てのり」の響きを意識した案。<br>
+      阿部さんのデザイン感覚・松森さんの視点でもご意見をいただけると助かります。
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:1;">
+      <!-- 推薦① -->
+      <div style="background:var(--paper);border:2px solid var(--gold);border-radius:4px;padding:12px 14px;position:relative;">
+        <div style="position:absolute;top:-1px;left:12px;background:var(--gold);color:white;font-size:8px;letter-spacing:0.1em;padding:2px 8px;border-radius:0 0 3px 3px;">◆ 新田推薦①</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;margin:10px 0 3px;">このは</div>
+        <div style="font-size:8px;color:var(--gold);letter-spacing:0.2em;margin-bottom:8px;">ko-no-ha</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">「木の葉」をひらがなに。やわらかく子どもでも呼びやすい。シンプルだからこそブランドとして育てやすく、「木の葉文（このはふみ）」への展開も自然。</div>
+      </div>
+      <!-- 推薦② -->
+      <div style="background:var(--paper);border:2px solid var(--forest-light);border-radius:4px;padding:12px 14px;position:relative;">
+        <div style="position:absolute;top:-1px;left:12px;background:var(--forest-light);color:white;font-size:8px;letter-spacing:0.1em;padding:2px 8px;border-radius:0 0 3px 3px;">◆ 新田推薦②</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;margin:10px 0 3px;">てのは</div>
+        <div style="font-size:8px;color:var(--gold);letter-spacing:0.2em;margin-bottom:8px;">te-no-ha</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">「手の葉」。手で持つ葉、という情景。「てもり」の語感を継承しつつ葉形へ着地。「玩＝手に取って愛でる」語源とも一致。</div>
+      </div>
+      <!-- はのり -->
+      <div class="card">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;margin-bottom:3px;">はのり</div>
+        <div style="font-size:8px;color:var(--gold);letter-spacing:0.2em;margin-bottom:8px;">ha-no-ri</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">「葉乗り」。手のひらに乗る葉っぱ。動詞的な躍動感があり、子どもが呼ぶ音としても自然。</div>
+      </div>
+      <!-- きのは -->
+      <div class="card">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;margin-bottom:3px;">きのは</div>
+        <div style="font-size:8px;color:var(--gold);letter-spacing:0.2em;margin-bottom:8px;">ki-no-ha</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">「木の葉」の直訳。「このは」と同じ意味だが「き」の硬さが木材感を強調。シリアスなブランドにも向く。</div>
+      </div>
+      <!-- むすびは -->
+      <div class="card">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;margin-bottom:3px;">むすびは</div>
+        <div style="font-size:8px;color:var(--gold);letter-spacing:0.2em;margin-bottom:8px;">mu-su-bi-ha</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">「結び葉」。親の願い（むすび）＋葉。「つながる・受け継ぐ」コンセプトに直結。子どもが上書きする構造とも合う。</div>
+      </div>
+      <!-- もりのて -->
+      <div class="card">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;margin-bottom:3px;">もりのて</div>
+        <div style="font-size:8px;color:var(--gold);letter-spacing:0.2em;margin-bottom:8px;">mo-ri-no-te</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.8;">「森の手」。森から子どもの手へ届く。3層ストーリー（おもちゃ→家族→森）を一言で表現した案。</div>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>12 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 13 — 07 CFプラットフォーム比較
+============================== -->
+<div class="slide">
+  <div class="sl-head">07 ／ CROWDFUNDING<div class="sl-head-right">プラットフォーム比較</div></div>
+  <div class="sl-body">
+    <div class="sl-label">07 ／ Crowdfunding</div>
+    <div class="sl-title">クラウドファンディング<br>プラットフォーム比較</div>
+    <div class="sl-divider"></div>
+
+    <div class="g3" style="flex:1;">
+      <!-- CAMPFIRE -->
+      <div style="background:var(--paper);border:2px solid var(--gold);border-radius:4px;padding:14px;position:relative;display:flex;flex-direction:column;">
+        <div style="position:absolute;top:-1px;left:12px;background:var(--gold);color:white;font-size:8px;padding:2px 8px;border-radius:0 0 3px 3px;">内藤さん第1候補</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:18px;font-weight:700;margin:10px 0 8px;">CAMPFIRE</div>
+        <div style="font-size:9px;color:var(--muted);line-height:2;flex:1;">
+          <span style="color:var(--forest-light);">◎</span> 国内最大級・拡散力が強い<br>
+          <span style="color:var(--forest-light);">◎</span> 県内限定施策を入れやすい<br>
+          <span style="color:var(--forest-light);">◎</span> モニター枠・アンケート導線を設計しやすい<br>
+          <span style="color:var(--forest-light);">◎</span> リターン設計の自由度が高い<br>
+          <span style="color:var(--forest-light);">◎</span> 代行パートナーが多い<br>
+          <span style="color:#c0392b;">△</span> 掲載数が多く埋もれやすい<br>
+          <span style="color:#c0392b;">△</span> 初速設計と地道な発信が必須
+        </div>
+      </div>
+      <!-- Readyfor -->
+      <div class="card" style="display:flex;flex-direction:column;">
+        <div style="font-size:8px;color:var(--muted);letter-spacing:0.2em;margin-bottom:6px;">内藤さん第2候補</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:18px;font-weight:700;margin-bottom:8px;">Readyfor</div>
+        <div style="font-size:9px;color:var(--muted);line-height:2;flex:1;">
+          <span style="color:var(--forest-light);">◎</span> 地域性・社会性の共感に強い<br>
+          <span style="color:var(--forest-light);">◎</span> 「木育」「地域資源活用」文脈でPRしやすい<br>
+          <span style="color:var(--forest-light);">○</span> 団体連携で県内協力者を増やせる<br>
+          <span style="color:var(--forest-light);">○</span> 共感層から深い声が取れる<br>
+          <span style="color:#c0392b;">△</span> "応援"色が強く購買転換に工夫が必要<br>
+          <span style="color:#c0392b;">△</span> 伸び方は堅実寄りになりやすい
+        </div>
+      </div>
+      <!-- Makuake -->
+      <div class="card" style="display:flex;flex-direction:column;">
+        <div style="font-size:8px;color:var(--muted);letter-spacing:0.2em;margin-bottom:6px;">内藤さん第3候補</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:18px;font-weight:700;margin-bottom:8px;">Makuake</div>
+        <div style="font-size:9px;color:var(--muted);line-height:2;flex:1;">
+          <span style="color:var(--forest-light);">◎</span> 新商品の先行体験文化・テストマーケ向き<br>
+          <span style="color:var(--forest-light);">◎</span> ページが整いやすく商品魅力を伝えやすい<br>
+          <span style="color:var(--forest-light);">○</span> 担当キュレーターが伴走<br>
+          <span style="color:#c0392b;">△</span> 審査・編集色が強く自由度が下がりやすい<br>
+          <span style="color:#c0392b;">△</span> 「地域認知」より「新商品の買い物」になりやすい<br>
+          <span style="color:#c0392b;">△</span> 全国分散しやすく県内導線は別途必要
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>13 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 14 — CF 選定基準・まとめ
+============================== -->
+<div class="slide">
+  <div class="sl-head">07 ／ CROWDFUNDING<div class="sl-head-right">選定基準・内藤さんのまとめ</div></div>
+  <div class="sl-body">
+    <div class="sl-label">07 ／ Crowdfunding</div>
+    <div class="sl-title">選定基準と<br>現時点の考え</div>
+    <div class="sl-divider"></div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">CRITERIA ／ 選定基準</div>
+    <div class="g3" style="margin-bottom:12px;">
+      <div class="card" style="font-size:9px;color:var(--muted);">① 認知度を高める（広く）</div>
+      <div class="card" style="font-size:9px;color:var(--muted);">② 商品テスト＆意見収集</div>
+      <div class="card" style="font-size:9px;color:var(--muted);">③ 地域性・共感ストーリー</div>
+      <div class="card" style="font-size:9px;color:var(--muted);">④ 掲載・運用支援の充実</div>
+      <div class="card" style="font-size:9px;color:var(--muted);">⑤ 岩手県内への導線</div>
+    </div>
+
+    <div class="forest-box" style="margin-bottom:10px;">
+      <strong style="color:var(--ink);">内藤さんのまとめ（2026年2月）</strong><br>
+      ・県内中心で販売数を積み上げるなら → <strong style="color:var(--forest);">CAMPFIREが第一候補</strong><br>
+      ・地域性・共感ストーリー＆団体連携も重視するなら → <strong style="color:var(--forest);">Readyforを検討</strong><br>
+      ・県外含めて販売数を最大化する局面では → Makuakeも選択肢<br>
+      ・<strong style="color:var(--ink);">成果の鍵はPF選定だけでなく、岩手県内導線（展示・受取・体験・紹介）の設計</strong>
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">岩手県内導線（クラファンだけでは届かない）</div>
+    <div class="note-box" style="margin-bottom:10px;font-size:9px;line-height:1.9;">
+      ・子育てコミュニティ（保育園・子育て支援センター・ママコミュニティ）へのリーチ<br>
+      ・店舗掲示、試作品展示、イベント出展などオフライン導線<br>
+      ・受け取り拠点候補：マモール、アイーナ、アリベースなど 1〜3拠点があると強い
+    </div>
+
+    <div class="note-box">
+      <strong style="color:var(--ink);">新田の現時点の考え：</strong>県内認知拡大と意見収集を第一目標とするなら<strong style="color:var(--forest);">CAMPFIREが有力</strong>。MTG⑩で皆さんと一緒に決めたい。
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>14 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 15 — CF 目標金額・タイムライン
+============================== -->
+<div class="slide">
+  <div class="sl-head">07 ／ CROWDFUNDING<div class="sl-head-right">目標金額・申請タイムライン</div></div>
+  <div class="sl-body">
+    <div class="sl-label">07 ／ Crowdfunding</div>
+    <div class="sl-title">目標金額と<br>申請タイムライン</div>
+    <div class="sl-divider"></div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">TARGET AMOUNT ／ 目標金額（暫定試算・¥16,000ベース）</div>
+    <div class="g3" style="margin-bottom:12px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:9px;color:var(--muted);margin-bottom:4px;">最低達成ライン</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;color:var(--forest);">¥500,000</div>
+        <div style="font-size:9px;color:var(--muted);">約31セット</div>
+      </div>
+      <div style="background:rgba(58,90,64,0.06);border:2px solid var(--forest);border-radius:4px;padding:10px 14px;text-align:center;">
+        <div style="font-size:9px;color:var(--forest);margin-bottom:4px;">目標ライン</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;color:var(--forest);">¥800,000</div>
+        <div style="font-size:9px;color:var(--muted);">約50セット</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:9px;color:var(--muted);margin-bottom:4px;">ストレッチ</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:20px;font-weight:700;color:var(--ink);">¥1,200,000</div>
+        <div style="font-size:9px;color:var(--muted);">約75セット</div>
+      </div>
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">TIMELINE ／ 申請スケジュール（CF開始：秋〜12月を想定）</div>
+    <table class="tbl" style="margin-bottom:12px;">
+      <thead><tr><th>PF</th><th>審査期間の目安</th><th>申請開始の目安</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Makuake</strong></td>
+          <td>2〜3ヶ月</td>
+          <td style="color:#c0392b;font-weight:500;">5月中</td>
+          <td style="font-size:9px;">審査・編集が厳密</td>
+        </tr>
+        <tr>
+          <td><strong>CAMPFIRE</strong></td>
+          <td>1〜2ヶ月</td>
+          <td style="color:var(--forest);font-weight:500;">6〜7月</td>
+          <td style="font-size:9px;">審査が柔軟・自由度高い</td>
+        </tr>
+        <tr>
+          <td><strong>Readyfor</strong></td>
+          <td>1〜2ヶ月</td>
+          <td style="color:var(--forest);font-weight:500;">6〜7月</td>
+          <td style="font-size:9px;">社会性・共感文脈向き</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="forest-box">
+      ＊目標金額は松森さんのコスト確認後に正式確定。CAMPFIREの初回達成額中央値は約¥300,000〜¥700,000（木工・雑貨カテゴリ）。<br>
+      <strong style="color:var(--forest);">¥500,000を最低ラインにすることで「手が届く目標」に設定できる。</strong>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>15 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 16 — CF リターン案
+============================== -->
+<div class="slide">
+  <div class="sl-head">07 ／ CROWDFUNDING<div class="sl-head-right">リターン案（たたき台）</div></div>
+  <div class="sl-body">
+    <div class="sl-label">07 ／ Returns</div>
+    <div class="sl-title">リターン案（たたき台）</div>
+    <div class="sl-divider"></div>
+
+    <div class="forest-box" style="margin-bottom:12px;font-size:9px;">
+      クラファン分はすべて<strong style="color:var(--ink);">受注生産</strong>のため、各リターンの個数上限はこちらで設定できます。需要を見ながら段階的に枠を開放する運用も可能。
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;flex:1;">
+      <!-- メール便 -->
+      <div style="background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+            <span style="background:var(--forest);color:var(--cream);font-size:8px;padding:2px 8px;border-radius:10px;">おすすめ入口</span>
+            <span style="font-size:13px;font-weight:500;">お試しメール便リターン</span>
+          </div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">
+            製品1枚（加工済みパネル）＋ 加工前の木の板（同じ樹種の端材）＋ 商品説明書 ＋ 感謝のレター<br>
+            <span style="color:var(--gold);">→ 「触れてみたい」「贈り物の参考にしたい」層への入口として</span>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Shippori Mincho B1',serif;font-size:18px;font-weight:700;color:var(--forest);">¥2,500</div>
+          <div style="font-size:8px;color:var(--muted);">送料込み（目安）</div>
+        </div>
+      </div>
+      <!-- 3枚 -->
+      <div style="background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;">
+        <div>
+          <div style="font-size:13px;font-weight:500;margin-bottom:4px;">3枚セットリターン（スタンダード）</div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">V溝NCパネル 3枚（赤ちゃんデータ入力あり）＋ 商品説明書 ＋ 感謝のレター<br><span style="color:var(--gold);">→ 複数樹種を試したいひとへ。単品より割安感あり</span></div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Shippori Mincho B1',serif;font-size:18px;font-weight:700;color:var(--forest);">¥5,000</div>
+          <div style="font-size:8px;color:var(--muted);">松森さん試算ベース</div>
+        </div>
+      </div>
+      <!-- 9枚 -->
+      <div style="background:rgba(58,90,64,0.06);border:2px solid var(--forest);border-radius:4px;padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <span style="background:var(--gold);color:white;font-size:8px;padding:2px 8px;border-radius:10px;">メイン</span>
+            <span style="font-size:13px;font-weight:500;">9枚コンプリート（スタンダード）</span>
+          </div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">V溝NCパネル 9枚・9樹種（赤ちゃんデータ入力あり）＋ 商品説明書 ＋ 感謝のレター ＋ 収納袋（検討中）<br><span style="color:var(--gold);">→ CF本命。誕生記念品・出産祝いとして完結する</span></div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Shippori Mincho B1',serif;font-size:18px;font-weight:700;color:var(--forest);">¥16,000</div>
+          <div style="font-size:8px;color:var(--muted);">松森さん試算ベース</div>
+        </div>
+      </div>
+      <!-- 応援 -->
+      <div style="background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;">
+        <div>
+          <div style="font-size:13px;font-weight:500;margin-bottom:4px;">応援リターン（モノなし）</div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">感謝のメール ＋ 制作進捗レポート（PDF） ＋ サンクスページへのお名前掲載（希望者のみ）<br><span style="color:var(--gold);">→ 「気持ちで応援したい」層・遠方の関係者向け</span></div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Shippori Mincho B1',serif;font-size:18px;font-weight:700;color:var(--forest);">¥1,000〜</div>
+          <div style="font-size:8px;color:var(--muted);">任意設定</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>16 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 17 — 本日のゴール
+============================== -->
+<div class="slide">
+  <div class="sl-head">08 ／ AGENDA<div class="sl-head-right">本日の会議を終わらせる条件</div></div>
+  <div class="sl-body">
+    <div class="sl-label">08 ／ Agenda</div>
+    <div class="sl-title">本日の会議を<br>終わらせる条件</div>
+    <div class="sl-divider"></div>
+
+    <div class="g3" style="margin-bottom:14px;">
+      <div style="background:var(--forest);color:var(--cream);border-radius:4px;padding:16px;">
+        <div style="font-size:8px;letter-spacing:0.2em;color:rgba(255,255,255,0.5);margin-bottom:8px;">MUST ／ 必ず決める</div>
+        <div style="font-size:13px;line-height:2;">③ 商品名の決定<br>⑥ クラファンPFの決定<br>④ サンプル制作GO/HOLD</div>
+        <div style="margin-top:8px;font-size:9px;color:rgba(255,255,255,0.5);">この3つが決まれば次へ進める</div>
+      </div>
+      <div style="background:rgba(176,141,87,0.1);border:1px solid var(--gold);border-radius:4px;padding:16px;">
+        <div style="font-size:8px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">WANT ／ できれば決める</div>
+        <div style="font-size:13px;color:var(--ink);line-height:2;">① コンセプトへの合意<br>⑤ 価格・枚数の方向性</div>
+      </div>
+      <div style="background:rgba(88,129,87,0.07);border:1px solid rgba(88,129,87,0.3);border-radius:4px;padding:16px;">
+        <div style="font-size:8px;letter-spacing:0.2em;color:var(--forest-light);margin-bottom:8px;">CHECK ／ 確認・持ち帰り可</div>
+        <div style="font-size:13px;color:var(--ink);line-height:2;">② 加工コスト（松森さん）<br>⑦ 阿部さんの関与範囲</div>
+      </div>
+    </div>
+
+    <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;">優先度の見方</div>
+    <div class="g3" style="font-size:9px;color:var(--muted);">
+      <div class="card" style="border-left:3px solid #c0392b;"><span style="color:#c0392b;">■</span> 必ず決める（MTGを終わらせない）</div>
+      <div class="card" style="border-left:3px solid var(--gold);"><span style="color:var(--gold);">■</span> できれば決める</div>
+      <div class="card" style="border-left:3px solid var(--forest-light);"><span style="color:var(--forest-light);">■</span> 方向性を確認する</div>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>17 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 18 — 議題①〜④
+============================== -->
+<div class="slide">
+  <div class="sl-head">08 ／ AGENDA<div class="sl-head-right">議題①〜④</div></div>
+  <div class="sl-body">
+    <div class="sl-label">08 ／ Agenda</div>
+    <div class="sl-title">MTG⑩ 議題（1/2）</div>
+    <div class="sl-divider"></div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;flex:1;">
+      <div class="card must" style="display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold);line-height:1;">①</div>
+        <div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">商品の意義・コンセプト方向性について（全員）</div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">「おもちゃ→家族をつなぐ→森と人をつなぐ」の3層構造、および阿部さんの「未完成性・子どもが上書きできる仕組み」の方向性について、皆さまの率直なご意見をお聞きしたいです。</div>
+        </div>
+      </div>
+      <div class="card must" style="display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold);line-height:1;">②</div>
+        <div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">葉形の加工コストについて（松森さんへ）</div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">15mm厚・軸なし葉形のNC加工コストを1枚あたりでご提示いただけますか。樹種ごとにシルエットを変える場合のコスト差もお教えください。原価から価格設計を一緒に考えたいと思っています。</div>
+        </div>
+      </div>
+      <div class="card must" style="display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold);line-height:1;">③</div>
+        <div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">商品名について（全員）<span style="font-size:9px;color:#c0392b;margin-left:6px;">▶ 本日決定</span></div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">「てもり（仮）」の流れを引き継いだ6案を提案。特に阿部さんにはブランドとしての響きについてご意見をいただけると嬉しいです。MTG⑩での決定を目指しています。</div>
+        </div>
+      </div>
+      <div class="card must" style="display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold);line-height:1;">④</div>
+        <div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">サンプル制作の進め方について（全員）<span style="font-size:9px;color:#c0392b;margin-left:6px;">▶ 本日決定</span></div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">形状・コンセプト・名前の方向性が固まれば、サンプル制作に進みたいと考えています。「模様なしのブランクサンプル」から始めるか、「模様入りのサンプル」を作るか、ご意見をお聞きしたいです。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>18 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 19 — 議題⑤〜⑦
+============================== -->
+<div class="slide">
+  <div class="sl-head">08 ／ AGENDA<div class="sl-head-right">議題⑤〜⑦</div></div>
+  <div class="sl-body">
+    <div class="sl-label">08 ／ Agenda</div>
+    <div class="sl-title">MTG⑩ 議題（2/2）</div>
+    <div class="sl-divider"></div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+      <div class="card want" style="display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold);line-height:1;">⑤</div>
+        <div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">価格・枚数構成について（全員）</div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">9枚¥16,000（スタンダード）を目標としていますが、加工コストによっては6枚¥16,000も選択肢です。加工モードの選択も含めて現実的な構成を一緒に検討できればと思います。</div>
+        </div>
+      </div>
+      <div class="card must" style="display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold);line-height:1;">⑥</div>
+        <div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">クラウドファンディングPFの決定（内藤さんへ）<span style="font-size:9px;color:#c0392b;margin-left:6px;">▶ 本日決定</span></div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">内藤さんの分析ではCAMPFIREが第1候補。「まず県内認知」か「新商品テストマーケ」か目的を確認しながら今日中に決定したい。CF開始を秋〜12月と想定すると、Makuakeなら5月中・CAMPFIREなら6〜7月が申請の目安。</div>
+        </div>
+      </div>
+      <div class="card check" style="display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;">
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold);line-height:1;">⑦</div>
+        <div>
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">阿部さんの制作関与範囲について（阿部さんへ）</div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.8;">クラファンページ・パッケージ・デザインストーリーカード・入力プラットフォームのUIなど、どこまでお願いできるかをご相談したいです。ご負担にならない範囲でお聞かせください。</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:9px;color:var(--muted);padding:8px 12px;background:rgba(176,141,87,0.05);border-radius:4px;line-height:1.9;">
+      <span style="color:#c0392b;">■</span> 必ず決める
+      <span style="color:var(--gold);">■</span> できれば決める
+      <span style="color:var(--forest-light);">■</span> 方向性を確認する
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>19 / 20</span></div>
+</div>
+
+
+<!-- ==============================
+  SLIDE 20 — リスクと対応方針
+============================== -->
+<div class="slide">
+  <div class="sl-head">08 ／ RISK<div class="sl-head-right">想定リスクと対応の考え方</div></div>
+  <div class="sl-body">
+    <div class="sl-label">08 ／ Risk</div>
+    <div class="sl-title">想定リスクと<br>対応の考え方</div>
+    <div class="sl-divider"></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;">
+      <div style="background:rgba(192,57,43,0.04);border:1px solid rgba(192,57,43,0.15);border-radius:4px;padding:12px 14px;">
+        <div style="font-size:12px;font-weight:500;color:#c0392b;margin-bottom:6px;">クラファン未達の場合</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.9;">
+          補助金の対象はCF「実施」であり「達成」は条件ではない。<br>
+          未達でも試作費・広告費は補助対象範囲内で執行済みのため事業継続は可能。<br>
+          <strong style="color:var(--ink);">→ 再挑戦の資料として活用する。</strong>
+        </div>
+      </div>
+      <div style="background:rgba(192,57,43,0.04);border:1px solid rgba(192,57,43,0.15);border-radius:4px;padding:12px 14px;">
+        <div style="font-size:12px;font-weight:500;color:#c0392b;margin-bottom:6px;">加工コストが高くなった場合</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.9;">
+          9枚→6枚構成に変更（価格は維持）か、<br>
+          価格を¥18,000〜¥20,000に上げる選択肢。<br>
+          あるいはエントリーモード（¥13,000）から始める。<br>
+          <strong style="color:var(--ink);">→ 今日のコスト確認（議題②）で判断できる。</strong>
+        </div>
+      </div>
+      <div style="background:rgba(192,57,43,0.04);border:1px solid rgba(192,57,43,0.15);border-radius:4px;padding:12px 14px;">
+        <div style="font-size:12px;font-weight:500;color:#c0392b;margin-bottom:6px;">こどもPSCマーク取得が遅れた場合</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.9;">
+          CF掲載時点では「取得予定」として明示する。<br>
+          CF支援者への発送前に取得が間に合えば問題なし。<br>
+          <strong style="color:var(--ink);">→ 発送スケジュールに取得期間を組み込む。</strong>
+        </div>
+      </div>
+      <div style="background:rgba(192,57,43,0.04);border:1px solid rgba(192,57,43,0.15);border-radius:4px;padding:12px 14px;">
+        <div style="font-size:12px;font-weight:500;color:#c0392b;margin-bottom:6px;">認知が県外に広がらない場合</div>
+        <div style="font-size:9px;color:var(--muted);line-height:1.9;">
+          初回CFは県内テストと割り切る設計にする。<br>
+          Phase 2以降でグッド・トイ認定・EC展開へ。<br>
+          <strong style="color:var(--ink);">→ 最初から「全国」を狙わないことがリスクヘッジ。</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:10px;font-size:9px;">
+      本資料はご提案・たたき台です。皆さまのご意見をもとにブラッシュアップしていきます。<br>
+      <strong style="color:var(--forest);">とうめいしっぽ 代表　新田紗希 ／ 盛岡市森林づかいイノベーション事業</strong>
+    </div>
+  </div>
+  <div class="sl-foot"><span>とうめいしっぽ MTG⑩</span><span>20 / 20</span></div>
+</div>
+
+
+</body>
+</html>

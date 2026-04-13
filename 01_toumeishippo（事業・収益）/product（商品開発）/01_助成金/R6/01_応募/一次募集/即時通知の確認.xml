@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="https://clientweb.e-tax.nta.go.jp/content/xsl/XU00S080-1.xsl" ?>
+<XU00S080>即時通知画面
+	<XHA000>https://clientweb.e-tax.nta.go.jp/content/xsl/XU00S080-1.xsl</XHA000>
+	<XHB000>ヘッダー部
+		<XHB010>SU00S080</XHB010>
+		<XHB020>1691054612302912345SU00S070SU00S080        15251322009100020                  4120240419115028622</XHB020>
+	</XHB000>
+	<XHC000>ボディー部
+		<XHC010>即時通知</XHC010>
+		<XHC020/>
+		<XHC030>以下の送信データは現在審査中です。<br/>審査結果は、メッセージボックスに格納されます。<br/><br/>e-Taxホームページの「メッセージボックスの確認」やe-Taxソフト、<br/>あるいはお使いのソフトから正常に受信されているかを必ずご確認ください。<br/>（審査結果により正常に受け付けられない場合がありますので、必ずご確認ください。）</XHC030>
+		<XHC040>この通知は再表示できませんので、必要に応じて、印刷又は保存を行ってください。</XHC040>
+		<XHC050>即時通知情報
+			<XHC060>利用者識別番号（送信者）</XHC060>
+			<XHC070>1525132200910002</XHC070>
+			<XHC060>受付日時</XHC060>
+			<XHC070>2024/04/19 11:50:28</XHC070>
+			<XHC060>受付ファイル名</XHC060>
+			<XHC070>納税証明書の交付請求(その1).xtx</XHC070>
+			<XHC060>受付番号</XHC060>
+			<XHC070>20240419115028628414</XHC070>
+			<XHC060>エラー情報</XHC060>
+			<XHC070>　</XHC070>
+		</XHC050>
+		<XHC080>ボタン情報
+			<XHC090>　戻　る　</XHC090>
+               <XHC140>受信通知画面へ</XHC140>
+		</XHC080>
+		<XHC100>リンク情報
+			<XHC110>https://uketsuke.e-tax.nta.go.jp/UF_APP/lnk/Menu</XHC110>
+               <XHC150>https://uketsuke.e-tax.nta.go.jp/UF_APP/lnk/MailDtilGmnViewCtlPage</XHC150>
+		</XHC100>
+	<XHC160>20240419115028628414</XHC160>
+	<XHC170>PCR0140</XHC170>
+
+	</XHC000>
+	<status>000</status>			
+</XU00S080>

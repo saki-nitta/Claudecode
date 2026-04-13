@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdeaHub - 情報一括管理プラットフォーム</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2d5a3d;
+            --primary-light: #4a7c5e;
+            --accent: #e8a87c;
+            --accent-dark: #d89060;
+            --bg-dark: #1a1a1a;
+            --bg-light: #f5f3f0;
+            --text-dark: #2a2a2a;
+            --text-light: #f5f3f0;
+            --border: #d4c5b9;
+            --success: #6b9e7f;
+            --warning: #d89060;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f3f0 0%, #ede8e1 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Panel Styles */
+        .panel {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            letter-spacing: 1px;
+        }
+
+        /* Input Form */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: #fafaf8;
+        }
+
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        input[type="date"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Tags Input */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+            min-height: 40px;
+            align-content: flex-start;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            animation: scaleIn 0.3s ease;
+        }
+
+        .tag button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .tags-input-wrapper {
+            display: flex;
+            gap: 8px;
+        }
+
+        #tagInput {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .btn-add-tag {
+            padding: 10px 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add-tag:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 90, 61, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--border);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: #c9bab2;
+            transform: translateY(-2px);
+        }
+
+        /* Items List */
+        .items-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 700px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .items-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .items-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .items-container::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        .item {
+            background: linear-gradient(135deg, #fafaf8 0%, #f5f3f0 100%);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            animation: slideInLeft 0.4s ease;
+        }
+
+        .item:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transform: translateX(4px);
+        }
+
+        .item-type {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 6px;
+            word-break: break-word;
+        }
+
+        .item-content {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .item-link {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        .item-link:hover {
+            text-decoration: underline;
+        }
+
+        .item-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .item-tag {
+            background: var(--primary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+        .item-date {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 8px;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+
+        /* Stats & Controls */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        /* Controls Panel */
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn-export,
+        .btn-clear,
+        .btn-filter {
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-export {
+            background: var(--success);
+            color: white;
+            border: none;
+        }
+
+        .btn-export:hover {
+            background: #5a8a6f;
+            transform: translateY(-2px);
+        }
+
+        .btn-clear {
+            background: #e74c3c;
+            color: white;
+            border: none;
+        }
+
+        .btn-clear:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Filter Input */
+        .filter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            opacity: 0.3;
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>IdeaHub</h1>
+            <p>点在した情報を一括管理。Claude Codeで即分析。</p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Left: Input Form -->
+            <div class="panel">
+                <div class="panel-title">新しい情報を追加</div>
+                
+                <form id="addForm">
+                    <div class="form-group">
+                        <label for="itemType">種類 *</label>
+                        <select id="itemType" required>
+                            <option value="">選択してください</option>
+                            <option value="idea">💡 アイデア</option>
+                            <option value="task">✓ タスク</option>
+                            <option value="link">🔗 リンク</option>
+                            <option value="note">📝 メモ</option>
+                            <option value="quote">💬 引用</option>
+                            <option value="project">📊 プロジェクト</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemTitle">タイトル *</label>
+                        <input type="text" id="itemTitle" placeholder="簡潔なタイトルを入力" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemContent">内容・説明</label>
+                        <textarea id="itemContent" placeholder="詳細を入力（オプション）"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemLink">リンク（URL）</label>
+                        <input type="url" id="itemLink" placeholder="https://example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemDate">日付</label>
+                        <input type="date" id="itemDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label>タグ</label>
+                        <div class="tags-container" id="tagsContainer"></div>
+                        <div class="tags-input-wrapper">
+                            <input type="text" id="tagInput" placeholder="タグを入力してEnter">
+                            <button type="button" class="btn-add-tag">追加</button>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <button type="reset" class="btn btn-secondary">リセット</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right: Items List -->
+            <div class="panel">
+                <div class="panel-title">情報一覧</div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-number" id="totalCount">0</span>
+                        <span class="stat-label">総件数</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" id="typeCount">0</span>
+                        <span class="stat-label">種類</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" id="tagCount">0</span>
+                        <span class="stat-label">タグ</span>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <input type="text" id="filterInput" class="filter-input" placeholder="タイトル・内容で検索...">
+                    <button class="btn-export" onclick="exportToJSON()">📥 JSON出力</button>
+                    <button class="btn-clear" onclick="clearAll()">🗑️ 全削除</button>
+                </div>
+
+                <div id="itemsList" class="items-container">
+                    <div class="empty-state">
+                        <p>情報をまだ追加していません</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💾 データはブラウザのローカルストレージに自動保存されます | Claude Codeで分析可能なJSON形式でエクスポート可能</p>
+        </div>
+    </div>
+
+    <script>
+        const typeEmojis = {
+            idea: '💡',
+            task: '✓',
+            link: '🔗',
+            note: '📝',
+            quote: '💬',
+            project: '📊'
+        };
+
+        const typeLabels = {
+            idea: 'アイデア',
+            task: 'タスク',
+            link: 'リンク',
+            note: 'メモ',
+            quote: '引用',
+            project: 'プロジェクト'
+        };
+
+        let items = [];
+        let currentTags = [];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFromStorage();
+            renderItems();
+            updateStats();
+            setupEventListeners();
+            setDefaultDate();
+        });
+
+        function setDefaultDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('itemDate').value = today;
+        }
+
+        function setupEventListeners() {
+            document.getElementById('addForm').addEventListener('submit', addItem);
+            document.getElementById('tagInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addTag();
+                }
+            });
+            document.querySelector('.btn-add-tag').addEventListener('click', (e) => {
+                e.preventDefault();
+                addTag();
+            });
+            document.getElementById('filterInput').addEventListener('input', (e) => {
+                filterItems(e.target.value);
+            });
+        }
+
+        function addTag() {
+            const input = document.getElementById('tagInput');
+            const tag = input.value.trim();
+            
+            if (tag && !currentTags.includes(tag)) {
+                currentTags.push(tag);
+                renderTags();
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        function removeTag(tag) {
+            currentTags = currentTags.filter(t => t !== tag);
+            renderTags();
+        }
+
+        function renderTags() {
+            const container = document.getElementById('tagsContainer');
+            container.innerHTML = currentTags.map(tag => `
+                <div class="tag">
+                    ${tag}
+                    <button type="button" onclick="removeTag('${tag}')">×</button>
+                </div>
+            `).join('');
+        }
+
+        function addItem(e) {
+            e.preventDefault();
+
+            const item = {
+                id: Date.now(),
+                type: document.getElementById('itemType').value,
+                title: document.getElementById('itemTitle').value,
+                content: document.getElementById('itemContent').value,
+                link: document.getElementById('itemLink').value,
+                date: document.getElementById('itemDate').value,
+                tags: [...currentTags],
+                createdAt: new Date().toISOString()
+            };
+
+            items.unshift(item);
+            saveToStorage();
+            renderItems();
+            updateStats();
+            resetForm();
+        }
+
+        function resetForm() {
+            document.getElementById('addForm').reset();
+            currentTags = [];
+            renderTags();
+            setDefaultDate();
+        }
+
+        function deleteItem(id) {
+            items = items.filter(item => item.id !== id);
+            saveToStorage();
+            renderItems();
+            updateStats();
+        }
+
+        function renderItems(itemsToRender = items) {
+            const container = document.getElementById('itemsList');
+            
+            if (itemsToRender.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>情報をまだ追加していません</p></div>';
+                return;
+            }
+
+            container.innerHTML = itemsToRender.map(item => `
+                <div class="item">
+                    <span class="item-type">${typeEmojis[item.type]} ${typeLabels[item.type]}</span>
+                    <div class="item-title">${escapeHtml(item.title)}</div>
+                    ${item.content ? `<div class="item-content">${escapeHtml(item.content)}</div>` : ''}
+                    ${item.link ? `<div class="item-content"><a href="${item.link}" target="_blank" class="item-link">${item.link}</a></div>` : ''}
+                    ${item.tags.length > 0 ? `
+                        <div class="item-tags">
+                            ${item.tags.map(tag => `<span class="item-tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                    <div class="item-date">${item.date || '未設定'}</div>
+                    <div class="item-actions">
+                        <button class="btn-delete" onclick="deleteItem(${item.id})">削除</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterItems(query) {
+            const filtered = items.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase()) ||
+                item.content.toLowerCase().includes(query.toLowerCase()) ||
+                item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+            );
+            renderItems(filtered);
+        }
+
+        function updateStats() {
+            document.getElementById('totalCount').textContent = items.length;
+            
+            const types = new Set(items.map(i => i.type));
+            document.getElementById('typeCount').textContent = types.size;
+            
+            const allTags = new Set();
+            items.forEach(item => item.tags.forEach(tag => allTags.add(tag)));
+            document.getElementById('tagCount').textContent = allTags.size;
+        }
+
+        function exportToJSON() {
+            const dataStr = JSON.stringify(items, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `ideahub-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function clearAll() {
+            if (confirm('本当に全ての情報を削除してもよろしいですか？')) {
+                items = [];
+                saveToStorage();
+                renderItems();
+                updateStats();
+            }
+        }
+
+        function saveToStorage() {
+            localStorage.setItem('ideahub-data', JSON.stringify(items));
+        }
+
+        function loadFromStorage() {
+            const stored = localStorage.getItem('ideahub-data');
+            if (stored) {
+                try {
+                    items = JSON.parse(stored);
+                } catch (e) {
+                    console.error('Failed to load data:', e);
+                    items = [];
+                }
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

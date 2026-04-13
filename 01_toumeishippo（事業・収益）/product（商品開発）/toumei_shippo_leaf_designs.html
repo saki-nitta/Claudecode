@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>とうめいしっぽ — 樹種別 葉形デザイン案</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f0e8;
+    --ink: #2a2118;
+    --gold: #b8935a;
+    --muted: #8a7a68;
+    --card-bg: #faf7f2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    min-height: 100vh;
+    padding: 48px 24px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .brand {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 4px;
+    padding: 32px 24px 28px;
+    border: 1px solid rgba(184,147,90,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 32px rgba(42,33,24,0.1);
+    transform: translateY(-3px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.10s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.20s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+  .card:nth-child(6) { animation-delay: 0.30s; }
+  .card:nth-child(7) { animation-delay: 0.35s; }
+  .card:nth-child(8) { animation-delay: 0.40s; }
+  .card:nth-child(9) { animation-delay: 0.45s; }
+
+  .leaf-wrap {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg.leaf-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 4px 12px rgba(42,33,24,0.15));
+  }
+
+  .card-info {
+    text-align: center;
+    width: 100%;
+  }
+
+  .tree-name-ja {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .tree-name-en {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+  }
+
+  .tag-origin {
+    background: rgba(184,147,90,0.12);
+    color: var(--gold);
+    border: 1px solid rgba(184,147,90,0.3);
+  }
+
+  .tag-feel {
+    background: rgba(42,33,24,0.06);
+    color: var(--muted);
+    border: 1px solid rgba(42,33,24,0.12);
+  }
+
+  .desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+    letter-spacing: 0.05em;
+  }
+
+  .shape-note {
+    font-size: 11px;
+    color: var(--gold);
+    margin-top: 8px;
+    letter-spacing: 0.1em;
+    border-top: 1px solid rgba(184,147,90,0.2);
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+  }
+
+  .note-box {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    background: rgba(184,147,90,0.08);
+    border: 1px solid rgba(184,147,90,0.25);
+    border-radius: 4px;
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">とうめいしっぽ</div>
+  <h1>樹種別 葉形デザイン案</h1>
+  <div class="divider"></div>
+  <p class="subtitle">軸なし・丸み重視 ／ 15mm厚フローリング材対応</p>
+</header>
+
+<div class="note-box">
+  全形状は「軸なし」の丸みある葉形。<br>
+  0〜2歳が握りやすく、舐めても安全な輪郭を基本とし、<br>
+  樹種ごとの個性・木目・色みに合わせてシルエットを変えています。
+</div>
+
+<div class="grid">
+
+  <!-- 1. スギ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g1" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#c8b89a"/>
+            <stop offset="100%" stop-color="#7a5c3a"/>
+          </radialGradient>
+          <pattern id="p1" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(75)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+          </pattern>
+        </defs>
+        <!-- 細長い楕円（スギは細い） -->
+        <ellipse cx="80" cy="80" rx="32" ry="58" fill="url(#g1)"/>
+        <ellipse cx="80" cy="80" rx="32" ry="58" fill="url(#p1)"/>
+        <!-- フィボナッチ螺旋イメージ -->
+        <path d="M80,35 Q95,55 90,80 Q85,105 80,125" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+        <path d="M80,35 Q65,55 70,80 Q75,105 80,125" stroke="rgba(255,255,255,0.25)" stroke-width="0.8" fill="none"/>
+        <circle cx="80" cy="80" r="4" fill="rgba(255,255,255,0.3)"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">スギ</div>
+      <div class="tree-name-en">Cryptomeria / Cedar</div>
+      <div class="tags">
+        <span class="tag tag-origin">盛岡市産</span>
+        <span class="tag tag-feel">柔らか・温かい</span>
+      </div>
+      <p class="desc">細長い楕円シルエット。木目が縦に流れるスギの特性を活かした縦長フォルム。赤ちゃんの小さな手にすっぽり収まる。</p>
+      <div class="shape-note">→ 縦長楕円・縦横比 1:1.8</div>
+    </div>
+  </div>
+
+  <!-- 2. カラマツ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g2" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#d4a96a"/>
+            <stop offset="100%" stop-color="#8b5e2a"/>
+          </radialGradient>
+        </defs>
+        <!-- 菱形ベース・角丸 -->
+        <path d="M80,22 Q108,50 108,80 Q108,110 80,138 Q52,110 52,80 Q52,50 80,22Z" fill="url(#g2)"/>
+        <!-- 秋の反応拡散パターン -->
+        <circle cx="80" cy="65" r="18" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <circle cx="80" cy="65" r="10" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <circle cx="80" cy="95" r="12" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">カラマツ</div>
+      <div class="tree-name-en">Larch</div>
+      <div class="tags">
+        <span class="tag tag-origin">盛岡市産</span>
+        <span class="tag tag-feel">飴色・渋い</span>
+      </div>
+      <p class="desc">縦長の菱形に近い形。カラマツの飴色と節が独特の表情を生む。角が丸いので安全。秋のリズムを宿す。</p>
+      <div class="shape-note">→ 角丸菱形・縦横比 1:1.6</div>
+    </div>
+  </div>
+
+  <!-- 3. アカマツ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g3" cx="45%" cy="38%">
+            <stop offset="0%" stop-color="#c9936a"/>
+            <stop offset="100%" stop-color="#6b3a1f"/>
+          </radialGradient>
+        </defs>
+        <!-- 力強い丸みのある三角形 -->
+        <path d="M80,25 Q115,65 110,95 Q105,125 80,135 Q55,125 50,95 Q45,65 80,25Z" fill="url(#g3)"/>
+        <!-- ボロノイ風 -->
+        <path d="M80,60 L95,85 L80,110 L65,85 Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <path d="M80,45 L100,75 L80,120 L60,75 Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">アカマツ</div>
+      <div class="tree-name-en">Red Pine</div>
+      <div class="tags">
+        <span class="tag tag-origin">岩手県の木</span>
+        <span class="tag tag-feel">脂・力強い</span>
+      </div>
+      <p class="desc">上部がやや尖った丸みある卵形。岩手県の木としての力強さを表現。松脂の香りが感覚刺激になる。</p>
+      <div class="shape-note">→ 上尖り卵形・縦横比 1:1.5</div>
+    </div>
+  </div>
+
+  <!-- 4. ナラ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g4" cx="40%" cy="40%">
+            <stop offset="0%" stop-color="#c8b080"/>
+            <stop offset="100%" stop-color="#6b5030"/>
+          </radialGradient>
+          <pattern id="p4" patternUnits="userSpaceOnUse" width="8" height="8">
+            <path d="M0,4 Q4,0 8,4 Q4,8 0,4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+          </pattern>
+        </defs>
+        <!-- なら葉イメージ・波打つ輪郭を丸めた版 -->
+        <path d="M80,28 Q98,38 105,55 Q115,70 108,88 Q100,108 80,132 Q60,108 52,88 Q45,70 55,55 Q62,38 80,28Z" fill="url(#g4)"/>
+        <path d="M80,28 Q98,38 105,55 Q115,70 108,88 Q100,108 80,132 Q60,108 52,88 Q45,70 55,55 Q62,38 80,28Z" fill="url(#p4)"/>
+        <line x1="80" y1="35" x2="80" y2="125" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">ナラ</div>
+      <div class="tree-name-en">Oak</div>
+      <div class="tags">
+        <span class="tag tag-origin">盛岡市産</span>
+        <span class="tag tag-feel">虎斑・艶</span>
+      </div>
+      <p class="desc">ナラの葉を丸くシンプル化した形。虎斑（とらふ）と呼ばれる独特の木目が模様と重なり、唯一無二の表情を持つ。</p>
+      <div class="shape-note">→ 丸みある卵形・縦横比 1:1.4</div>
+    </div>
+  </div>
+
+  <!-- 5. クリ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g5" cx="42%" cy="36%">
+            <stop offset="0%" stop-color="#b8955a"/>
+            <stop offset="100%" stop-color="#5a3a18"/>
+          </radialGradient>
+        </defs>
+        <!-- 横広・力強い形 -->
+        <ellipse cx="80" cy="80" rx="55" ry="42" fill="url(#g5)"/>
+        <!-- 年輪イメージ -->
+        <ellipse cx="80" cy="80" rx="38" ry="28" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <ellipse cx="80" cy="80" rx="22" ry="16" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <ellipse cx="80" cy="80" rx="8" ry="6" fill="rgba(255,255,255,0.15)"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">クリ</div>
+      <div class="tree-name-en">Chestnut</div>
+      <div class="tags">
+        <span class="tag tag-origin">盛岡市産</span>
+        <span class="tag tag-feel">力強い年輪</span>
+      </div>
+      <p class="desc">横に広がる丸みある楕円。クリの力強い年輪が横広フォルムと合う。手のひら全体で包むような感触が生まれる。</p>
+      <div class="shape-note">→ 横長楕円・縦横比 1.3:1</div>
+    </div>
+  </div>
+
+  <!-- 6. ヤマザクラ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g6" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#e8b4b0"/>
+            <stop offset="100%" stop-color="#8b4a48"/>
+          </radialGradient>
+        </defs>
+        <!-- ハート型に近い上部の膨らみ -->
+        <path d="M80,130 Q45,100 40,72 Q35,45 58,35 Q70,28 80,42 Q90,28 102,35 Q125,45 120,72 Q115,100 80,130Z" fill="url(#g6)"/>
+        <!-- Flow Field イメージ -->
+        <path d="M65,60 Q75,75 80,90 Q85,105 78,118" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/>
+        <path d="M95,60 Q88,75 84,90 Q80,105 82,118" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">ヤマザクラ</div>
+      <div class="tree-name-en">Mountain Cherry</div>
+      <div class="tags">
+        <span class="tag tag-origin">岩手県産</span>
+        <span class="tag tag-feel">赤み・緻密</span>
+      </div>
+      <p class="desc">上部がふっくらしたハート寄りのしずく形。ヤマザクラの赤みが際立つ。出産祝いとして最も贈りやすい形と色。</p>
+      <div class="shape-note">→ 上膨らみ雫形・縦横比 1:1.3</div>
+    </div>
+  </div>
+
+  <!-- 7. オニグルミ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g7" cx="42%" cy="38%">
+            <stop offset="0%" stop-color="#9a8870"/>
+            <stop offset="100%" stop-color="#3a2e22"/>
+          </radialGradient>
+          <pattern id="p7" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(30)">
+            <line x1="0" y1="0" x2="10" y2="10" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <!-- 少し歪な自然石のような形 -->
+        <path d="M80,28 Q110,32 118,60 Q125,85 112,108 Q98,130 80,132 Q62,130 48,108 Q35,85 42,60 Q50,32 80,28Z" fill="url(#g7)"/>
+        <path d="M80,28 Q110,32 118,60 Q125,85 112,108 Q98,130 80,132 Q62,130 48,108 Q35,85 42,60 Q50,32 80,28Z" fill="url(#p7)"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">オニグルミ</div>
+      <div class="tree-name-en">Japanese Walnut</div>
+      <div class="tags">
+        <span class="tag tag-origin">岩手県産</span>
+        <span class="tag tag-feel">深褐色・滑</span>
+      </div>
+      <p class="desc">自然石のような少し不均一な丸形。深い褐色と滑らかな手触りが特徴。握るほど愛着が増す「育てる木」。</p>
+      <div class="shape-note">→ 自然石型・縦横比 1:1.1</div>
+    </div>
+  </div>
+
+  <!-- 8. イタヤカエデ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g8" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#e8dfc0"/>
+            <stop offset="100%" stop-color="#9a8858"/>
+          </radialGradient>
+        </defs>
+        <!-- カエデ葉を極力シンプル・丸めた5角形 -->
+        <path d="M80,25 Q100,32 115,55 Q125,75 112,100 Q98,122 80,130 Q62,122 48,100 Q35,75 45,55 Q60,32 80,25Z" fill="url(#g8)"/>
+        <!-- 白・金の光沢イメージ -->
+        <path d="M65,50 Q80,42 95,50" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="80" cy="80" rx="15" ry="20" fill="rgba(255,255,255,0.08)"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">イタヤカエデ</div>
+      <div class="tree-name-en">Itaya Maple</div>
+      <div class="tags">
+        <span class="tag tag-origin">岩手県産</span>
+        <span class="tag tag-feel">白肌・絹光沢</span>
+      </div>
+      <p class="desc">カエデの葉を丸くまとめたやや広い五角形ベース。白肌と絹のような光沢が最も上品な印象。プレミアムセット向き。</p>
+      <div class="shape-note">→ 丸み五角形・縦横比 1:1.1</div>
+    </div>
+  </div>
+
+  <!-- 9. ケヤキ -->
+  <div class="card">
+    <div class="leaf-wrap">
+      <svg class="leaf-svg" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="g9" cx="42%" cy="36%">
+            <stop offset="0%" stop-color="#c8a86a"/>
+            <stop offset="100%" stop-color="#5a3e1a"/>
+          </radialGradient>
+        </defs>
+        <!-- 扇形ベース・どっしりした形 -->
+        <path d="M80,40 Q115,45 125,75 Q130,100 108,118 Q94,130 80,132 Q66,130 52,118 Q30,100 35,75 Q45,45 80,40Z" fill="url(#g9)"/>
+        <!-- 冬のフラクタル分岐イメージ -->
+        <line x1="80" y1="50" x2="80" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="80" y1="75" x2="65" y2="95" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+        <line x1="80" y1="75" x2="95" y2="95" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+        <line x1="80" y1="60" x2="68" y2="78" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+        <line x1="80" y1="60" x2="92" y2="78" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="card-info">
+      <div class="tree-name-ja">ケヤキ</div>
+      <div class="tree-name-en">Zelkova</div>
+      <div class="tags">
+        <span class="tag tag-origin">岩手県産</span>
+        <span class="tag tag-feel">杢目・堅牢</span>
+      </div>
+      <p class="desc">下部がどっしりとした扇形。ケヤキの複雑な杢目が模様に深みを加える。最も重厚感があり「家宝」感が強い。</p>
+      <div class="shape-note">→ 下広がり扇形・縦横比 1.2:1</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="divider" style="margin-bottom:16px;"></div>
+  <p>とうめいしっぽ ／ Ima Design Lab × 松森木工所 ／ 盛岡市森林づかいイノベーション事業</p>
+  <p style="margin-top:8px;font-size:11px;">※ 全形状は15mm厚フローリング材・NCルーター対応を前提とした案です</p>
+</footer>
+
+</body>
+</html>
