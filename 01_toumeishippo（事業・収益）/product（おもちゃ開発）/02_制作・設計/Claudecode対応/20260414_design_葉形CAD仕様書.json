@@ -1,0 +1,166 @@
+{
+  "project": "とうめいしっぽ 葉形パネル CAD仕様書",
+  "version": "2026-04-14",
+  "author": "とうめいしっぽ（新田紗希）",
+  "contact": "toumeishippo.com",
+  "description": "松森さんへのCADデータ作成依頼用仕様書。SVGパスは実寸(mm)座標。viewBox左上が原点(0,0)。",
+
+  "common_spec": {
+    "material": "フローリング材（岩手県産各樹種）",
+    "thickness_mm": 15,
+    "finish": "食器用木守りコート（シオン社 木守り専科）",
+    "safety_standard": "こどもPSCマーク（消費生活用製品安全法）",
+    "target_age": "3ヶ月〜",
+    "process": "NCルーターまたはレーザー彫刻",
+    "design_constraints": {
+      "max_bounding_box_mm": 70,
+      "border_min_mm": 5,
+      "groove_spacing_approx_mm": 10,
+      "min_piece_size_safety_mm": 32,
+      "shape_policy": "軸なし・角なし・丸みを持たせること"
+    },
+    "notes": [
+      "全形状は70mm四方に収まる最大サイズで設計",
+      "フチ（模様のない部分）は最低5mm確保",
+      "0才児が握りやすい丸みを重視",
+      "NCルーターの吸着点100mmピッチを考慮し200mm以上の材に並べて加工"
+    ]
+  },
+
+  "species": [
+    {
+      "id": 1,
+      "name_ja": "スギ",
+      "name_en": "Japanese Cedar",
+      "latin": "Cryptomeria japonica",
+      "origin": "盛岡市産",
+      "bounding_box_mm": { "width": 38.9, "height": 70.0 },
+      "shape_type": "縦長楕円",
+      "aspect_ratio": "W:H = 1:1.80",
+      "svg_viewbox": "0 0 38.9 70",
+      "svg_element": "ellipse",
+      "svg_data": "<ellipse cx='19.45' cy='35' rx='19.45' ry='35'/>",
+      "shape_description": "完全な縦長楕円。スギの縦木目を活かした細長いフォルム。左右上下対称。"
+    },
+    {
+      "id": 2,
+      "name_ja": "カラマツ",
+      "name_en": "Larch",
+      "latin": "Larix kaempferi",
+      "origin": "盛岡市産",
+      "bounding_box_mm": { "width": 43.8, "height": 70.0 },
+      "shape_type": "角丸菱形",
+      "aspect_ratio": "W:H = 1:1.60",
+      "svg_viewbox": "0 0 43.8 70",
+      "svg_element": "path",
+      "svg_data": "<path d='M21.9,0 Q43.8,16.9 43.8,35.0 Q43.8,53.1 21.9,70.0 Q0,53.1 0,35.0 Q0,16.9 21.9,0Z'/>",
+      "shape_description": "縦長の菱形を二次ベジェ曲線で丸めた形。上下左右対称。四頂点は上(21.9,0)・右(43.8,35)・下(21.9,70)・左(0,35)。"
+    },
+    {
+      "id": 3,
+      "name_ja": "アカマツ",
+      "name_en": "Red Pine",
+      "latin": "Pinus densiflora",
+      "origin": "岩手県産（岩手県の木）",
+      "bounding_box_mm": { "width": 46.7, "height": 70.0 },
+      "shape_type": "上尖り卵形",
+      "aspect_ratio": "W:H = 1:1.50",
+      "svg_viewbox": "0 0 46.7 70",
+      "svg_element": "path",
+      "svg_data": "<path d='M23.35,0 Q46.7,25.45 43.36,44.55 Q40.03,63.64 23.35,70.0 Q6.67,63.64 3.34,44.55 Q0,25.45 23.35,0Z'/>",
+      "shape_description": "上部がやや尖り、下部が丸く広がる卵形。左右対称。上部の制御点が外に張り出すことで上尖りを表現。"
+    },
+    {
+      "id": 4,
+      "name_ja": "ナラ",
+      "name_en": "Japanese Oak / Mongolian Oak",
+      "latin": "Quercus mongolica",
+      "origin": "盛岡市産",
+      "bounding_box_mm": { "width": 50.0, "height": 70.0 },
+      "shape_type": "丸みある卵形",
+      "aspect_ratio": "W:H = 1:1.40",
+      "svg_viewbox": "0 0 50 70",
+      "svg_element": "path",
+      "svg_data": "<path d='M25,0 Q37.86,6.73 42.86,18.17 Q50,28.27 45,40.39 Q39.29,53.85 25,70 Q10.71,53.85 5,40.39 Q0,28.27 7.14,18.17 Q12.14,6.73 25,0Z'/>",
+      "shape_description": "ナラの葉を丸くシンプル化。上部が細く下部が広い。左右対称。最大幅は中央よりやや下に位置。"
+    },
+    {
+      "id": 5,
+      "name_ja": "クリ",
+      "name_en": "Japanese Chestnut",
+      "latin": "Castanea crenata",
+      "origin": "盛岡市産",
+      "bounding_box_mm": { "width": 70.0, "height": 53.8 },
+      "shape_type": "横長楕円",
+      "aspect_ratio": "W:H = 1.30:1",
+      "svg_viewbox": "0 0 70 53.8",
+      "svg_element": "ellipse",
+      "svg_data": "<ellipse cx='35' cy='26.9' rx='35' ry='26.9'/>",
+      "shape_description": "横に広がる楕円形。最大幅70mm（制約上限）。手のひら全体で包める形状。左右上下対称。"
+    },
+    {
+      "id": 6,
+      "name_ja": "ヤマザクラ",
+      "name_en": "Japanese Mountain Cherry",
+      "latin": "Prunus jamasakura",
+      "origin": "岩手県産",
+      "bounding_box_mm": { "width": 53.8, "height": 70.0 },
+      "shape_type": "上膨らみ雫形",
+      "aspect_ratio": "W:H = 1:1.30",
+      "svg_viewbox": "0 0 53.8 70",
+      "svg_element": "path",
+      "svg_data": "<path d='M26.9,70 Q5.98,49.4 2.99,30.2 Q0,11.67 13.75,4.8 Q20.92,0 26.9,9.61 Q32.88,0 40.05,4.8 Q53.8,11.67 50.81,30.2 Q47.82,49.4 26.9,70Z'/>",
+      "shape_description": "上部がふっくら丸く膨らみ、下部が絞れる逆雫形。中央上に二つの丸みが合わさったハート寄りのシルエット。左右対称。下端が1点に集まる。"
+    },
+    {
+      "id": 7,
+      "name_ja": "オニグルミ",
+      "name_en": "Japanese Walnut",
+      "latin": "Juglans mandshurica var. sachalinensis",
+      "origin": "岩手県産",
+      "bounding_box_mm": { "width": 63.6, "height": 70.0 },
+      "shape_type": "自然石型（わずかに非対称）",
+      "aspect_ratio": "W:H = 1:1.10",
+      "svg_viewbox": "0 0 63.6 70",
+      "svg_element": "path",
+      "svg_data": "<path d='M31.8,0 Q53.0,2.69 58.66,21.54 Q63.6,38.37 54.42,53.85 Q44.52,68.66 31.8,70 Q19.08,68.66 9.19,53.85 Q0,38.37 4.95,21.54 Q10.6,2.69 31.8,0Z'/>",
+      "shape_description": "自然石のようなやや不規則な丸形。右上部がわずかに外張りする非対称デザイン。全体として卵に近いが整然としすぎない有機的形状。"
+    },
+    {
+      "id": 8,
+      "name_ja": "イタヤカエデ",
+      "name_en": "Itaya Maple",
+      "latin": "Acer mono",
+      "origin": "岩手県産",
+      "bounding_box_mm": { "width": 63.6, "height": 70.0 },
+      "shape_type": "丸み五角形",
+      "aspect_ratio": "W:H = 1:1.10",
+      "svg_viewbox": "0 0 63.6 70",
+      "svg_element": "path",
+      "svg_data": "<path d='M31.8,0 Q45.94,4.67 56.54,20.0 Q63.6,33.33 54.42,50.0 Q44.52,64.67 31.8,70 Q19.08,64.67 9.19,50.0 Q0,33.33 7.07,20.0 Q17.67,4.67 31.8,0Z'/>",
+      "shape_description": "カエデの葉を丸くまとめた緩やかな五角形。5つの制御点で構成。左右対称。上部の頂点が明確でやや角ばった印象。"
+    },
+    {
+      "id": 9,
+      "name_ja": "ケヤキ",
+      "name_en": "Japanese Zelkova",
+      "latin": "Zelkova serrata",
+      "origin": "岩手県産",
+      "bounding_box_mm": { "width": 70.0, "height": 58.3 },
+      "shape_type": "下広がり扇形",
+      "aspect_ratio": "W:H = 1.20:1",
+      "svg_viewbox": "0 0 70 58.3",
+      "svg_element": "path",
+      "svg_data": "<path d='M35,0 Q59.5,3.17 66.5,22.18 Q70,38.02 54.6,49.43 Q44.8,57.03 35,58.3 Q25.2,57.03 15.4,49.43 Q0,38.02 3.5,22.18 Q10.5,3.17 35,0Z'/>",
+      "shape_description": "上部が細く下部が広い扇型。最大幅70mm（制約上限）。左右対称。ケヤキの重厚感を表す安定した形状。"
+    }
+  ],
+
+  "svg_usage_note": {
+    "coordinate_unit": "mm（ミリメートル）",
+    "origin": "左上(0,0)",
+    "curve_type": "二次ベジェ曲線（SVG Qコマンド）",
+    "how_to_use": "各speciesのsvg_dataをそれぞれのsvg_viewboxでSVGに配置すると実寸1:1の輪郭が得られる。DXF変換・CAD取り込み・CNC加工パス生成に使用可能。",
+    "reference_file": "20260414_design_葉形アウトライン.svg（実寸1:1のビジュアル確認用）"
+  }
+}

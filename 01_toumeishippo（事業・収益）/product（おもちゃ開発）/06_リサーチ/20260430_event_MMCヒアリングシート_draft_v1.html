@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>MMCヒアリングシート｜2026.4.30</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    font-size: 11pt;
+    color: #2c2c2c;
+    background: white;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+
+  .page {
+    width: 180mm;
+    margin: 0 auto;
+    padding: 10mm 0;
+  }
+
+  /* ヘッダー */
+  .header {
+    border-bottom: 2.5px solid #3a6b3a;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header h1 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #3a6b3a;
+  }
+  .header .meta {
+    font-size: 9pt;
+    color: #666;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* セクション */
+  .section {
+    margin-bottom: 12px;
+    border: 1px solid #c8dcc8;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    background: #3a6b3a;
+    color: white;
+    padding: 5px 10px;
+    font-size: 10pt;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-header .tag {
+    background: rgba(255,255,255,0.25);
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 9pt;
+    font-weight: normal;
+  }
+
+  .section-header.orange { background: #b85c00; }
+  .section-header.red    { background: #8b3a3a; }
+  .section-header.gray   { background: #555; }
+
+  .questions {
+    padding: 6px 10px;
+    background: #f9fdf9;
+  }
+
+  .q-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #d4e8d4;
+  }
+  .q-item:last-child { border-bottom: none; }
+
+  .q-num {
+    font-size: 9pt;
+    color: #3a6b3a;
+    font-weight: bold;
+    min-width: 18px;
+    margin-top: 1px;
+  }
+
+  .q-text {
+    flex: 1;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  .q-note {
+    min-width: 60mm;
+    border-bottom: 1px solid #aaa;
+    margin-left: 6px;
+    font-size: 9pt;
+    color: #999;
+    align-self: flex-end;
+    padding-bottom: 1px;
+  }
+
+  /* 重要フラグ */
+  .star {
+    color: #c8860a;
+    font-size: 10pt;
+    margin-right: 2px;
+  }
+
+  /* メモエリア */
+  .memo-box {
+    border: 1px solid #c8dcc8;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    background: #f9fdf9;
+  }
+  .memo-box .label {
+    font-size: 9pt;
+    color: #3a6b3a;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .memo-lines .line {
+    border-bottom: 1px solid #ccc;
+    height: 10mm;
+    margin-bottom: 2px;
+  }
+
+  /* フッター */
+  .footer {
+    margin-top: 10px;
+    border-top: 1px solid #c8dcc8;
+    padding-top: 6px;
+    font-size: 8.5pt;
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>MMCヒアリングシート</h1>
+    <div class="meta">
+      第2回もりおか森林づかいコレクション<br>
+      2026年4月30日（木）11:00〜16:00<br>
+      担当：新田紗希（とうめいしっぽ）
+    </div>
+  </div>
+
+  <!-- A: アイスブレイク -->
+  <div class="section">
+    <div class="section-header">
+      <span class="tag">A</span>アイスブレイク｜工作しながら最初に
+    </div>
+    <div class="questions">
+      <div class="q-item">
+        <span class="q-num">1</span>
+        <span class="q-text">木のものって、普段お家にありますか？</span>
+        <span class="q-note"></span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">2</span>
+        <span class="q-text">お孫さんや小さいお子さん、いらっしゃいますか？</span>
+        <span class="q-note"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: 出産祝い -->
+  <div class="section">
+    <div class="section-header">
+      <span class="tag">B</span>出産祝い・ギフト
+    </div>
+    <div class="questions">
+      <div class="q-item">
+        <span class="q-num">1</span>
+        <span class="q-text">出産祝い、最近何か贈ったことありますか？何を選びましたか？</span>
+        <span class="q-note"></span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">2</span>
+        <span class="q-text">赤ちゃんへのプレゼント、何を基準に選びますか？（安全性・見た目・残るかどうか、など）</span>
+        <span class="q-note"></span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">3</span>
+        <span class="q-text">名前入りのグッズって、どう思いますか？もらったことある？</span>
+        <span class="q-note"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: てもり概念テスト -->
+  <div class="section">
+    <div class="section-header orange">
+      <span class="tag">C</span>商品コンセプトを試す｜説明しながら
+    </div>
+    <div class="questions">
+      <div class="q-item">
+        <span class="q-num">1</span>
+        <span class="q-text">実は今、赤ちゃんの誕生日や体重が木の模様になるおもちゃを開発しているんですよ。どう思いますか？</span>
+        <span class="q-note"></span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">2</span>
+        <span class="q-text">「世界に一つだけの模様」って、ギフトとして使いたいと思いますか？</span>
+        <span class="q-note"></span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">3</span>
+        <span class="q-text"><span class="star">★</span>9枚セットで、いくらくらいだったら買いたいと思いますか？</span>
+        <span class="q-note"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- D: 購買・情報行動 -->
+  <div class="section">
+    <div class="section-header gray">
+      <span class="tag">D</span>情報・購買行動
+    </div>
+    <div class="questions">
+      <div class="q-item">
+        <span class="q-num">1</span>
+        <span class="q-text">こういう商品、どこで見つけると思いますか？（お店・ネット・SNS）</span>
+        <span class="q-note"></span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">2</span>
+        <span class="q-text">クラウドファンディングって、使ったことありますか？</span>
+        <span class="q-note"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- E: 締め -->
+  <div class="section">
+    <div class="section-header red">
+      <span class="tag">E</span>最後にひとこと
+    </div>
+    <div class="questions">
+      <div class="q-item">
+        <span class="q-num">1</span>
+        <span class="q-text">今日作ってみて、木の感触どうでしたか？</span>
+        <span class="q-note"></span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">2</span>
+        <span class="q-text">こういうイベント、また来たいと思いますか？</span>
+        <span class="q-note"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- メモ欄 -->
+  <div class="memo-box">
+    <div class="label">気になった声・印象メモ</div>
+    <div class="memo-lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>★ C-3「いくらくらい？」は最優先で聞く</span>
+    <span>とうめいしっぽ｜2026.4.30 MMC</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# 個人情報・非公開ファイル
+CLAUDE_private.md
+
+# Windowsシステムファイル
+desktop.ini
+Thumbs.db
+
+# Officeの一時ファイル
+~$*
+
+# その他
+.DS_Store

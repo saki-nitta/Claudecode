@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>木のおもちゃのクラウドファンディング 調査・分析レポート</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: A4 portrait; margin: 0; }
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-size: 9.5pt;
+  color: #1e1a14;
+  background: #fff;
+}
+
+.page {
+  width: 210mm;
+  padding: 14mm 16mm 12mm 16mm;
+  margin: 0 auto;
+}
+
+/* ===== 表紙ヘッダー ===== */
+.cover-head {
+  background: #3a5a40;
+  color: #fff;
+  padding: 11px 16px 10px;
+  margin: -14mm -16mm 14px -16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cover-head h1 {
+  font-size: 13pt;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.cover-head .badge {
+  font-size: 7pt;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  margin-bottom: 2px;
+}
+.cover-meta {
+  font-size: 8pt;
+  color: #888;
+  background: #f8f4ec;
+  border-left: 3px solid #b08d57;
+  padding: 5px 10px;
+  margin-bottom: 14px;
+  line-height: 1.9;
+}
+
+/* ===== セクション ===== */
+h2 {
+  font-size: 10.5pt;
+  color: #fff;
+  background: #3a5a40;
+  padding: 5px 10px;
+  margin: 14px 0 8px;
+  letter-spacing: 0.04em;
+}
+h3 {
+  font-size: 9.5pt;
+  color: #3a5a40;
+  border-left: 3px solid #3a5a40;
+  padding: 2px 8px;
+  margin: 10px 0 5px;
+  font-weight: 700;
+}
+h4 {
+  font-size: 9pt;
+  color: #2a4a30;
+  margin: 7px 0 3px;
+  font-weight: 700;
+}
+p {
+  line-height: 1.8;
+  margin-bottom: 5px;
+  font-size: 9pt;
+}
+ul, ol { padding-left: 1.3em; margin-bottom: 6px; }
+li { line-height: 1.75; font-size: 9pt; margin-bottom: 1px; }
+
+/* ===== テーブル ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+  margin: 6px 0 10px;
+}
+th {
+  background: #3a5a40;
+  color: #fff;
+  padding: 4px 7px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 8pt;
+}
+th.gold { background: #b08d57; }
+td {
+  padding: 3.5px 7px;
+  border-bottom: 1px solid #e0d8c8;
+  vertical-align: top;
+  line-height: 1.6;
+}
+tr:nth-child(even) td { background: #faf7f2; }
+.td-head { font-weight: 700; color: #3a5a40; white-space: nowrap; }
+.td-mark { text-align: center; font-weight: 700; }
+.mark3 { color: #c0392b; }
+.mark2 { color: #e67e22; }
+.mark1 { color: #888; }
+
+/* ===== PFカード ===== */
+.pf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 6px 0 10px;
+}
+.pf-card {
+  border: 1px solid #d0c8b8;
+  border-radius: 3px;
+  overflow: hidden;
+  font-size: 8.5pt;
+}
+.pf-card-head {
+  background: #3a5a40;
+  color: #fff;
+  padding: 4px 9px;
+  font-weight: 700;
+  font-size: 9pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pf-rank { font-size: 7pt; background: rgba(255,255,255,0.25); padding: 1px 6px; border-radius: 8px; }
+.pf-rank.A { background: #b08d57; }
+.pf-rank.B { background: #5a8a60; }
+.pf-card-body { padding: 6px 9px; line-height: 1.7; }
+.pf-row { display: flex; gap: 4px; margin-bottom: 1.5px; }
+.pf-label { color: #888; font-size: 7.5pt; white-space: nowrap; min-width: 52px; }
+.pf-val { color: #1e1a14; }
+
+/* ===== 失敗パターンボックス ===== */
+.fail-box {
+  border: 1px solid #e0d0c0;
+  border-left: 4px solid #c0392b;
+  border-radius: 0 3px 3px 0;
+  padding: 6px 10px;
+  margin: 6px 0 8px;
+  background: #fff8f6;
+  font-size: 8.5pt;
+}
+.fail-box .fail-title {
+  font-weight: 700;
+  color: #c0392b;
+  font-size: 9pt;
+  margin-bottom: 3px;
+}
+.fail-box .fail-case {
+  color: #666;
+  font-size: 8pt;
+  margin-bottom: 3px;
+  border-bottom: 1px dashed #e0c8c0;
+  padding-bottom: 3px;
+}
+.fail-box .tip {
+  color: #3a5a40;
+  font-size: 8pt;
+  margin-top: 3px;
+}
+
+/* ===== 比較サマリーテーブル ===== */
+.compare-good td:nth-child(2) { color: #2a6a30; font-weight: 500; }
+.compare-bad td:nth-child(3) { color: #a02020; }
+
+/* ===== ガイドボックス ===== */
+.guide-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin: 6px 0;
+}
+.guide-item {
+  border: 1px solid #c8b87a;
+  border-radius: 3px;
+  padding: 6px 9px;
+  background: #fdfaf4;
+  font-size: 8.5pt;
+}
+.guide-item .guide-q {
+  font-size: 8pt;
+  color: #5a4a1a;
+  line-height: 1.5;
+  margin-bottom: 3px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #e0d0a0;
+}
+.guide-item .guide-a {
+  font-weight: 700;
+  color: #3a5a40;
+  font-size: 9pt;
+}
+.guide-item .guide-note { font-size: 7.5pt; color: #888; }
+
+/* ===== リスクテーブル ===== */
+.risk-item {
+  border-bottom: 1px solid #e8e0d0;
+  padding: 5px 0;
+}
+.risk-item:last-child { border-bottom: none; }
+.risk-label { font-weight: 700; color: #c0392b; font-size: 9pt; }
+
+/* ===== 参考文献 ===== */
+.refs {
+  background: #f4f0e8;
+  border: 1px solid #d0c8b0;
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 7.5pt;
+  line-height: 1.9;
+  color: #5a4a38;
+}
+
+/* ===== フッター ===== */
+.footer {
+  margin-top: 10px;
+  border-top: 1px solid #c8b87a;
+  padding-top: 5px;
+  font-size: 7pt;
+  color: #aaa;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== 改ページ制御 ===== */
+.page-break { page-break-before: always; }
+.no-break { page-break-inside: avoid; }
+
+/* ===== インラインバッジ ===== */
+.badge-inline {
+  display: inline-block;
+  font-size: 7pt;
+  padding: 0 6px;
+  border-radius: 8px;
+  margin-left: 4px;
+  font-weight: 700;
+}
+.badge-good { background: #e0f0e0; color: #2a6a30; }
+.badge-warn { background: #fff0d0; color: #a06010; }
+.badge-bad  { background: #fde8e8; color: #c0392b; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ===== ヘッダー ===== -->
+<div class="cover-head">
+  <h1>木のおもちゃのクラウドファンディング<br>調査・分析レポート（改訂版）</h1>
+  <div class="badge">2版</div>
+</div>
+<div class="cover-meta">
+  作成日：2026年4月14日　／　調査実施：マルチエージェント分析（調査担当サブエージェント＋分析担当サブエージェント）<br>
+  本レポートはとうめいしっぽのクラウドファンディング戦略立案を目的とした調査・分析資料です。
+</div>
+
+<!-- ===== 1. 市場概況 ===== -->
+<h2>1. 市場概況</h2>
+<p>国内の購入型クラウドファンディング市場は2024年時点で<strong>約432億円</strong>（微成長・成熟期）。CAMPFIREが2024年に20〜30%の大幅成長を記録し、実施件数も<strong>1万4,676件</strong>に拡大。グローバル市場は2030年までに<strong>53億ドル規模</strong>に達する見込み（CAGR 17.6%）。</p>
+
+<!-- ===== 2. プラットフォーム比較 ===== -->
+<h2>2. プラットフォーム別特性（木のおもちゃ視点）</h2>
+
+<div class="pf-grid no-break">
+  <div class="pf-card">
+    <div class="pf-card-head">CAMPFIRE <span class="pf-rank A">木のおもちゃ ◎</span></div>
+    <div class="pf-card-body">
+      <div class="pf-row"><span class="pf-label">性格</span><span class="pf-val">共感・応援型</span></div>
+      <div class="pf-row"><span class="pf-label">手数料</span><span class="pf-val">約17%</span></div>
+      <div class="pf-row"><span class="pf-label">方式</span><span class="pf-val">All-or-Nothing / All-in 選択可</span></div>
+      <div class="pf-row"><span class="pf-label">審査</span><span class="pf-val">比較的緩やか・個人可</span></div>
+      <div class="pf-row"><span class="pf-label">成功率</span><span class="pf-val">約60%以上</span></div>
+      <div class="pf-row"><span class="pf-label">規模</span><span class="pf-val">累計8万件超・支援総額640億円超</span></div>
+      <div class="pf-row" style="margin-top:4px;"><span class="pf-val" style="color:#3a5a40; font-size:7.5pt;">職人の想い・地域素材・子ども教育などの物語と相性抜群。個人・小規模工房でも掲載しやすい。</span></div>
+    </div>
+  </div>
+  <div class="pf-card">
+    <div class="pf-card-head">Makuake <span class="pf-rank B">木のおもちゃ ○</span></div>
+    <div class="pf-card-body">
+      <div class="pf-row"><span class="pf-label">性格</span><span class="pf-val">先行販売・マーケティング型</span></div>
+      <div class="pf-row"><span class="pf-label">手数料</span><span class="pf-val">約20%</span></div>
+      <div class="pf-row"><span class="pf-label">方式</span><span class="pf-val">All-in（目標未達でも資金受取可）</span></div>
+      <div class="pf-row"><span class="pf-label">審査</span><span class="pf-val">厳しめ・商品完成度を重視</span></div>
+      <div class="pf-row"><span class="pf-label">成功率</span><span class="pf-val">非公開（高い傾向）</span></div>
+      <div class="pf-row"><span class="pf-label">運営</span><span class="pf-val">サイバーエージェント系</span></div>
+      <div class="pf-row" style="margin-top:4px;"><span class="pf-val" style="color:#3a5a40; font-size:7.5pt;">AIなど新規性・商品化・ブランド化を目指す場合向き。キュレーターが付くのもメリット。</span></div>
+    </div>
+  </div>
+  <div class="pf-card">
+    <div class="pf-card-head">Readyfor <span class="pf-rank B">木のおもちゃ ○</span></div>
+    <div class="pf-card-body">
+      <div class="pf-row"><span class="pf-label">性格</span><span class="pf-val">社会貢献・寄付型</span></div>
+      <div class="pf-row"><span class="pf-label">手数料</span><span class="pf-val">約17%</span></div>
+      <div class="pf-row"><span class="pf-label">方式</span><span class="pf-val">All-or-Nothing / All-in 選択可</span></div>
+      <div class="pf-row"><span class="pf-label">審査</span><span class="pf-val">中程度・社会貢献性を重視</span></div>
+      <div class="pf-row"><span class="pf-label">成功率</span><span class="pf-val">70%以上</span></div>
+      <div class="pf-row" style="margin-top:4px;"><span class="pf-val" style="color:#3a5a40; font-size:7.5pt;">非営利・教育・地域貢献プロジェクトに強い。商業色が強いと合わない。</span></div>
+    </div>
+  </div>
+  <div class="pf-card">
+    <div class="pf-card-head">Kickstarter <span class="pf-rank" style="background:rgba(255,255,255,0.2);">木のおもちゃ △</span></div>
+    <div class="pf-card-body">
+      <div class="pf-row"><span class="pf-label">性格</span><span class="pf-val">グローバル・クリエイター型</span></div>
+      <div class="pf-row"><span class="pf-label">手数料</span><span class="pf-val">約8〜10%（USD）</span></div>
+      <div class="pf-row"><span class="pf-label">方式</span><span class="pf-val">All-or-Nothing</span></div>
+      <div class="pf-row"><span class="pf-label">審査</span><span class="pf-val">厳しめ・英語必須</span></div>
+      <div class="pf-row"><span class="pf-label">成功率</span><span class="pf-val">約41%</span></div>
+      <div class="pf-row"><span class="pf-label">規模</span><span class="pf-val">支援者2,200万人超・累計76億ドル</span></div>
+      <div class="pf-row" style="margin-top:4px;"><span class="pf-val" style="color:#3a5a40; font-size:7.5pt;">北米・欧州に直接リーチ。高品質ビジュアルと英語力が絶対条件。</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. 成功事例 ===== -->
+<h2>3. 成功事例（プラットフォーム別）</h2>
+
+<table class="no-break">
+  <tr>
+    <th style="width:12%">PF</th>
+    <th style="width:30%">プロジェクト</th>
+    <th style="width:15%">調達額</th>
+    <th>成功要因</th>
+  </tr>
+  <tr>
+    <td class="td-head">CAMPFIRE</td>
+    <td><strong>PLAYmake</strong>（子ども向け木工キット）</td>
+    <td>6,725,631円<br><span style="font-size:7.5pt;color:#666;">260人支援</span></td>
+    <td>STEM教育×木工の掛け合わせ。「子どもが電動工具で加工する」体験価値が明確。All-in方式で初動から資金確保。</td>
+  </tr>
+  <tr>
+    <td class="td-head">CAMPFIRE</td>
+    <td><strong>マチノキ・プロジェクト</strong>（こまむぐ）</td>
+    <td>目標達成</td>
+    <td>「廃棄木材→子どもへの贈り物」という強い循環ストーリー。障がい者就労支援とのコラボで社会性を多層化。</td>
+  </tr>
+  <tr>
+    <td class="td-head">Readyfor</td>
+    <td><strong>バランス恐竜ブロック寄贈</strong>（岡山理大×あすなろ工房）</td>
+    <td>28万円<br><span style="font-size:7.5pt;color:#666;">目標20万円・140%</span></td>
+    <td>大学生×地元木工職人×児童館への三者連携ストーリー。</td>
+  </tr>
+  <tr>
+    <td class="td-head">Readyfor</td>
+    <td><strong>児童館に木のおもちゃを</strong>（岡山理大）</td>
+    <td>35万円<br><span style="font-size:7.5pt;color:#666;">目標30万円・117%</span></td>
+    <td>地域産木材×地元産業振興×子ども笑顔という多重の共感軸を設定。</td>
+  </tr>
+  <tr>
+    <td class="td-head">Kickstarter</td>
+    <td><strong>Kelp</strong>（Wonderbow Games）</td>
+    <td>€1,429,286</td>
+    <td>FSC認証木材使用×サステナブルテーマが欧米支援者に刺さった。</td>
+  </tr>
+</table>
+
+<!-- ===== 4. 失敗事例 ===== -->
+<div class="page-break"></div>
+<h2>4. 失敗（未達成）事例と要因分析</h2>
+
+<p style="margin-bottom:8px;">クラウドファンディングの「失敗」は大きく3種類：<strong>①目標未達成（最多）</strong>　②プロジェクト不実行（達成後の頓挫）　③炎上・トラブル（比較的稀）<br>
+全体の約<strong>80%</strong>のプロジェクトが目標未達。CAMPFIREでは支援経験のない新規起案者の達成率は約<strong>35%</strong>。</p>
+
+<div class="fail-box no-break">
+  <div class="fail-title">パターンA ／ 準備不足型</div>
+  <div class="fail-case">CAMPFIRE掲載の個人木工作家によるオリジナル積み木セット。目標50万円に対し8%（約4万円）で終了。</div>
+  <p>ローンチ前のSNS発信がなく、掲載初日に支援ゼロ → プラットフォームのアルゴリズムで露出が激減。</p>
+  <div class="tip">📊 失敗プロジェクトの78%がローンチ前準備期間1ヶ月未満。成功事例の多くは<strong>3〜6ヶ月の事前準備</strong>。</div>
+</div>
+
+<div class="fail-box no-break">
+  <div class="fail-title">パターンB ／ ターゲット不明確型</div>
+  <div class="fail-case">Makuake掲載「誰でも使える木のインテリア雑貨セット」。目標150万円に対し12%で終了。</div>
+  <p>「誰にでも」という設定が致命的。この謳い文句のプロジェクトの失敗率は<strong>92%</strong>。明確なペルソナを設定したプロジェクトの成功率は<strong>3倍以上</strong>高い。</p>
+  <div class="tip">💡 「何歳の子のどんな発達課題にどう応える」という具体性がなければ支援者に響かない。</div>
+</div>
+
+<div class="fail-box no-break">
+  <div class="fail-title">パターンC ／ リターン価値不足型</div>
+  <div class="fail-case">CAMPFIRE掲載の木工工房による工房存続支援。目標30万円に対し60%（約18万円）で終了。</div>
+  <p>リターンが「感謝メッセージカード」「ニュースレター」のみで、現物や体験が含まれなかった。</p>
+  <div class="tip">📊 成功プロジェクトは失敗プロジェクトより平均<strong>38%高い</strong>返礼品価値を提供（Readyfor調査）。体験型・限定型リターンの導入が鍵。</div>
+</div>
+
+<div class="fail-box no-break">
+  <div class="fail-title">パターンD ／ 情報発信停止型</div>
+  <div class="fail-case">CAMPFIRE掲載の木のおもちゃブランド。初週に目標の40%達成後、更新が途絶え最終65%で終了。</div>
+  <p>Makuakeの失敗プロジェクトの約<strong>65%は更新頻度が月1回以下</strong>。活動報告・SNS発信の停滞が支援者の離脱を招く。</p>
+  <div class="tip">💡 「惜しい失敗」の典型。継続的な発信があれば達成できた可能性が高い。</div>
+</div>
+
+<div class="fail-box no-break">
+  <div class="fail-title">パターンE ／ 目標金額の設定ミス型（Kickstarter）</div>
+  <div class="fail-case">日本製木製ボードゲーム。目標$50,000に対し$8,200（16%）で終了。</div>
+  <p>初回海外展開で目標を高く設定。初回プロジェクトで1,000万円超の目標を達成できたのは<strong>わずか4%</strong>。Makuakeでの初回成功の「スイートスポット」は<strong>50〜150万円</strong>。</p>
+</div>
+
+<div class="fail-box no-break">
+  <div class="fail-title">パターンF ／ 製品化・出荷トラブル型（達成後の失敗）</div>
+  <p>Makuake：超小型スマートウォッチが約1億2,000万円調達後、1年以上未発送 → 全額返金。<br>
+  CAMPFIRE：革新的バッグが6,000万円調達後、素材調達問題で製造困難 → 連絡途絶 → 返金対応。</p>
+  <div class="tip">⚠️ 木のおもちゃへの教訓：量産時の品質問題（塗装ムラ・木材ゆがみ）、供給限界、職人一人体制の限界が現実的リスク。</div>
+</div>
+
+<!-- ===== 5. 失敗要因マトリクス ===== -->
+<h2>5. 失敗要因の体系的整理（PF × 失敗パターン）</h2>
+
+<table class="no-break">
+  <tr>
+    <th>失敗要因</th>
+    <th class="gold">CAMPFIRE</th>
+    <th class="gold">Makuake</th>
+    <th class="gold">Readyfor</th>
+    <th class="gold">Kickstarter</th>
+  </tr>
+  <tr>
+    <td class="td-head">準備不足（1ヶ月未満）</td>
+    <td class="td-mark mark3">★★★</td><td class="td-mark mark2">★★</td><td class="td-mark mark1">★</td><td class="td-mark mark3">★★★</td>
+  </tr>
+  <tr>
+    <td class="td-head">ターゲット不明確</td>
+    <td class="td-mark mark3">★★★</td><td class="td-mark mark3">★★★</td><td class="td-mark mark2">★★</td><td class="td-mark mark3">★★★</td>
+  </tr>
+  <tr>
+    <td class="td-head">リターン価値不足</td>
+    <td class="td-mark mark3">★★★</td><td class="td-mark mark2">★★</td><td class="td-mark mark3">★★★</td><td class="td-mark mark2">★★</td>
+  </tr>
+  <tr>
+    <td class="td-head">更新・発信の停止</td>
+    <td class="td-mark mark2">★★</td><td class="td-mark mark3">★★★</td><td class="td-mark mark2">★★</td><td class="td-mark mark2">★★</td>
+  </tr>
+  <tr>
+    <td class="td-head">目標金額の高すぎ</td>
+    <td class="td-mark mark2">★★</td><td class="td-mark mark2">★★</td><td class="td-mark mark1">★</td><td class="td-mark mark3">★★★</td>
+  </tr>
+  <tr>
+    <td class="td-head">動画・ビジュアルの質</td>
+    <td class="td-mark mark2">★★</td><td class="td-mark mark3">★★★</td><td class="td-mark mark1">★</td><td class="td-mark mark3">★★★</td>
+  </tr>
+  <tr>
+    <td class="td-head">PFミスマッチ</td>
+    <td class="td-mark mark1">★</td><td class="td-mark mark2">★★</td><td class="td-mark mark2">★★</td><td class="td-mark mark3">★★★</td>
+  </tr>
+</table>
+<p style="font-size:7.5pt; color:#888;">★★★＝頻出・致命的　★★＝注意が必要　★＝発生するが少ない</p>
+
+<!-- ===== 6. 成功・失敗の比較 ===== -->
+<h2>6. 成功・失敗の共通点 総括比較</h2>
+
+<table class="no-break">
+  <tr><th style="width:20%">比較項目</th><th class="gold" style="width:40%">成功パターン</th><th style="width:40%;background:#8a6a60">失敗パターン</th></tr>
+  <tr><td class="td-head">準備期間</td><td style="color:#2a6a30">3〜6ヶ月</td><td style="color:#a02020">1ヶ月未満が78%</td></tr>
+  <tr><td class="td-head">ストーリー</td><td style="color:#2a6a30">「誰が・なぜ・誰のために」が明確</td><td style="color:#a02020">曖昧・汎用的</td></tr>
+  <tr><td class="td-head">ターゲット</td><td style="color:#2a6a30">明確なペルソナ（成功率3倍以上）</td><td style="color:#a02020">「誰でもOK」（失敗率92%）</td></tr>
+  <tr><td class="td-head">リターン</td><td style="color:#2a6a30">体験型・限定型を含む多段階設計</td><td style="color:#a02020">お礼状・メッセージのみ</td></tr>
+  <tr><td class="td-head">更新頻度</td><td style="color:#2a6a30">週1〜2回の活動報告</td><td style="color:#a02020">月1回以下が65%</td></tr>
+  <tr><td class="td-head">目標金額</td><td style="color:#2a6a30">初回は50〜150万円が成功ゾーン</td><td style="color:#a02020">1,000万円超（達成率4%）</td></tr>
+  <tr><td class="td-head">動画</td><td style="color:#2a6a30">あり（成功率約50%）</td><td style="color:#a02020">なし（成功率約30%）</td></tr>
+  <tr><td class="td-head">PF選択</td><td style="color:#2a6a30">目的・ジャンルに合致</td><td style="color:#a02020">ミスマッチ（特にKickstarter×国内）</td></tr>
+</table>
+
+<!-- ===== 7. 木のおもちゃ特有リスク ===== -->
+<h2>7. 木のおもちゃ特有のリスクと対策</h2>
+
+<table class="no-break">
+  <tr><th style="width:22%">リスク</th><th>内容と対策</th></tr>
+  <tr>
+    <td class="td-head" style="color:#c0392b;">原価計算の甘さ</td>
+    <td>木材コスト・職人工賃・送料・手数料（15〜20%）・梱包材を精緻に計算しないと達成後に赤字。「支援総額＝利益」ではない。</td>
+  </tr>
+  <tr>
+    <td class="td-head" style="color:#c0392b;">量産品質の維持</td>
+    <td>少量生産に慣れた工房が大量注文を受けると品質ばらつきが生じやすい。量産前の工程標準化と品質チェック体制整備が不可欠。</td>
+  </tr>
+  <tr>
+    <td class="td-head" style="color:#c0392b;">安全基準の未対応</td>
+    <td>子ども向け製品のためこどもPSCマーク等の取得状況をページで明示しないと保護者層の信頼を得られない。</td>
+  </tr>
+  <tr>
+    <td class="td-head" style="color:#c0392b;">ビジュアルの過小評価</td>
+    <td>画像5枚未満の成功率は約20%、6〜11枚では約50%以上という明確な相関がある。木の温もり・手仕事感は映像でしか伝わらない。</td>
+  </tr>
+</table>
+
+<!-- ===== 8. PF選択ガイド ===== -->
+<h2>8. プラットフォーム選択ガイド（木のおもちゃ版）</h2>
+
+<div class="guide-box no-break">
+  <div class="guide-item">
+    <div class="guide-q">職人の想い・地域材・社会貢献を伝えたい</div>
+    <div class="guide-a">CAMPFIRE</div>
+    <div class="guide-note">共感型・ストーリー重視。個人起案可。</div>
+  </div>
+  <div class="guide-item">
+    <div class="guide-q">完成した商品を販路開拓と同時に展開したい</div>
+    <div class="guide-a">Makuake</div>
+    <div class="guide-note">先行販売・バイヤー連携。新規性が武器。</div>
+  </div>
+  <div class="guide-item">
+    <div class="guide-q">児童館・福祉施設への寄贈・支援活動をしたい</div>
+    <div class="guide-a">Readyfor</div>
+    <div class="guide-note">社会貢献型。寄付意識の高い支援者層。</div>
+  </div>
+  <div class="guide-item">
+    <div class="guide-q">グローバル市場に打って出たい（英語対応済み）</div>
+    <div class="guide-a">Kickstarter</div>
+    <div class="guide-note">北米・欧州市場に直接リーチ。</div>
+  </div>
+</div>
+<p style="margin-top:6px; font-size:8.5pt; color:#3a5a40;">💡 <strong>CAMPFIRE → Makuake → Kickstarter</strong> のステップアップ戦略も有効。</p>
+
+<!-- ===== 参考文献 ===== -->
+<h2>参考情報源</h2>
+<div class="refs">
+CAMPFIRE公式統計データ（2024年）／ Readyfor プロジェクト事例（岡山理科大学・2026年1月）／ こまむぐ（Comomg）マチノキ・プロジェクト ／ スバキリ商店「クラウドファンディング失敗の本当の理由：300件の事例から」（2025年）／ スバキリ商店「成功事例集16ジャンル48選」（2024年）／ ITmedia NEWS「クラウドファンディング、製品来ないまま倒産」（Makuake事例）／ Kickstarter統計データ（Statista, 2023-2024）／ LaunchBoom「Tabletop Games Market Trends 2025」／ 国内クラウドファンディング市場規模調査（りょうかん, 2025年2月）／ Research and Markets「Crowdfunding Industry Report 2025」／ わたしば「MakuakeとCAMPFIREを徹底比較」（2025年）／ inakaonline「CAMPFIRE vs Makuake / Kickstarter 比較」（2025年）
+</div>
+
+<div class="footer">
+  <span>木のおもちゃのクラウドファンディング 調査・分析レポート（改訂版）　2026年4月14日</span>
+  <span>マルチエージェント分析による調査資料 ／ とうめいしっぽ</span>
+</div>
+
+</div>
+</body>
+</html>
