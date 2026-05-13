@@ -11,5 +11,11 @@ Thumbs.db
 # Officeの一時ファイル
 ~$*
 
+# Google Driveの一時フォルダ
+.tmp.driveupload/
+
+# セキュリティ
+パスワード.txt
+
 # その他
 .DS_Store
