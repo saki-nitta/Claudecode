@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem *)",
+      "mcp__claude_ai_Google_Calendar__list_events",
+      "mcp__todoist__get_tasks_list",
+      "mcp__claude_ai_Todoist__find-tasks",
+      "mcp__claude_ai_Google_Drive__read_file_content",
+      "mcp__claude_ai_Google_Drive__search_files",
+      "mcp__todoist__get_tasks_by_filter"
+    ],
+    "deny": [
+      "Bash(rm -rf*)",
+      "Bash(git push --force*)",
+      "Bash(curl*)",
+      "Bash(wget*)",
+      "Bash(ssh*)",
+      "PowerShell(Remove-Item -Recurse -Force*)",
+      "PowerShell(git push --force*)",
+      "PowerShell(curl*)",
+      "PowerShell(Invoke-WebRequest*)",
+      "PowerShell(wget*)",
+      "PowerShell(ssh*)"
+    ]
+  }
+}
