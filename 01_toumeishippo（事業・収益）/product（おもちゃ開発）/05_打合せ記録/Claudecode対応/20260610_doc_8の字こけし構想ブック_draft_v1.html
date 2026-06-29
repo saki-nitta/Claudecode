@@ -1,0 +1,341 @@
+﻿<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8の字こけし 構想ブック — かたち と 体験（とうめいしっぽ・チーム共有検討用）</title>
+<style>
+  :root{ --bg:#efe9dd; --paper:#f7f3ea; --panel:#f1e9da; --ink:#2a2620; --soft:#5c554a; --muted:#857b6b; --gold:#b8935a; --line:#ddd2bd; --ok:#5b7d4f; --forest:#2f5d50 }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;line-height:1.95;font-size:16px}
+  .doc{max-width:880px;margin:0 auto;background:var(--paper);box-shadow:0 1px 0 #fff inset, 0 10px 40px rgba(60,48,30,.10)}
+  .cover{padding:72px 64px 44px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#f4efe4,#f7f3ea)}
+  .cover .kicker{font-size:12.5px;letter-spacing:.3em;color:var(--gold);margin:0 0 20px}
+  .cover h1{font-size:31px;font-weight:600;letter-spacing:.04em;margin:0 0 6px;line-height:1.4}
+  .cover h1 small{display:block;font-size:16px;color:var(--soft);font-weight:400;margin-top:10px}
+  .cover .foot{margin-top:26px;font-size:12.5px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+  main{padding:8px 64px 40px}
+  section.s{padding:34px 0 8px;border-bottom:1px solid var(--line)}
+  .snum{font-size:12px;letter-spacing:.28em;color:var(--gold);font-weight:600}
+  .s h3{font-size:21px;font-weight:600;margin:6px 0 14px;line-height:1.4}
+  .s p{margin:0 0 14px;letter-spacing:.02em}
+  .s p.lead{font-size:16.5px;color:var(--soft);line-height:2.05}
+  .sub{color:var(--soft);font-size:14px}
+  strong{font-weight:600}
+  em{font-style:normal;color:var(--gold);font-weight:600}
+  .woods{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;align-items:center}
+  .woods span{font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:5px 13px;color:var(--soft)}
+  .woods .arr{background:none;border:0;padding:0;color:var(--gold)}
+  .tl{margin:12px 0 6px;padding:0;list-style:none}
+  .tl li{position:relative;padding:0 0 18px 28px;border-left:2px solid var(--line)}
+  .tl li:last-child{border-left-color:transparent}
+  .tl li:before{content:"";position:absolute;left:-7px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--paper)}
+  .tl .t{display:block;font-size:14px;letter-spacing:.04em}
+  .tl b{font-weight:600}
+  .tl .d{font-size:13px;color:var(--muted);line-height:1.8;margin-top:2px;display:block}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:16px 0 6px}
+  @media(max-width:720px){.cards{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 18px}
+  .card h4{margin:0 0 6px;font-size:15px;font-weight:600}
+  .card p{margin:0;font-size:13px;color:var(--soft);line-height:1.8}
+  .card.hero{border-left:3px solid var(--forest);background:#eef3f0}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:10px 0 6px}
+  .two h4{font-size:14px;letter-spacing:.1em;color:var(--gold);margin:0 0 10px;font-weight:600}
+  .two ul{margin:0;padding:0;list-style:none}
+  .two li{font-size:14px;padding:6px 0 6px 15px;position:relative;border-bottom:1px dashed var(--line);line-height:1.75}
+  .two li:last-child{border-bottom:0}
+  .two li:before{content:"—";position:absolute;left:0;color:var(--gold)}
+  .fab{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:13.5px}
+  .fab th,.fab td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  .fab th{background:var(--panel);color:var(--soft);font-weight:600;font-size:12.5px}
+  .fab td.method{font-weight:600;white-space:nowrap}
+  .fab tr.def td{background:#efe4c9;box-shadow:inset 3px 0 0 var(--gold)}
+  .note{margin:16px 0 6px;padding:14px 18px;background:#f3efe2;border:1px dashed var(--line);border-radius:8px;font-size:13.5px;color:var(--soft);line-height:1.85}
+  .quote{margin:20px 0;padding:16px 24px;border-left:3px solid var(--gold);background:var(--panel);font-size:15px;line-height:2}
+  .scene{margin:16px 0 6px;border-radius:12px;overflow:hidden}
+  .scene svg{width:100%;max-width:680px;display:block}
+  .figrow{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:center;margin:14px 0 6px}
+  @media(max-width:720px){.figrow{grid-template-columns:1fr}}
+  .figrow .art{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;align-items:center;justify-content:center}
+  .figrow .art svg{width:70%;height:auto}
+  .steps{display:grid;grid-template-columns:1fr 18px 1fr 18px 1fr 18px 1fr 18px 1fr;gap:6px;align-items:stretch;margin:16px 0 8px}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 8px 9px;text-align:center}
+  .step .ic svg{width:38px;height:38px}
+  .step b{display:block;font-size:13px;margin:3px 0 1px}
+  .step span{font-size:10.5px;color:var(--muted);line-height:1.55;display:block}
+  .arrow{color:var(--gold);font-size:15px;align-self:center;text-align:center}
+  @media(max-width:720px){.steps{grid-template-columns:1fr 1fr}.arrow{display:none}}
+  .card .cic svg{width:34px;height:34px;display:block;margin-bottom:5px}
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:14px 0 8px}
+  @media(max-width:720px){.stages{grid-template-columns:1fr 1fr}}
+  .stage{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 10px 11px;text-align:center}
+  .stage svg{width:58%;height:auto;display:block;margin:0 auto}
+  .stage b{display:block;font-size:13px;margin-top:7px}
+  .stage span{font-size:11px;color:var(--muted);display:block;line-height:1.65;margin-top:2px}
+  .prefs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:14px 0 6px}
+  @media(max-width:720px){.prefs{grid-template-columns:repeat(3,1fr)}}
+  .pref h5{margin:0 0 7px;font-size:12.5px;color:var(--forest);letter-spacing:.08em;border-bottom:2px solid var(--line);padding-bottom:3px}
+  .pref h5 small{color:var(--gold);margin-left:4px;font-size:10px}
+  .kchip{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 8px;margin-bottom:6px}
+  .kchip b{display:block;font-size:12.5px}
+  .kchip span{font-size:10.5px;color:var(--muted);line-height:1.55;display:block}
+  .kchip.hot{background:#efe4c9;border-color:var(--gold);box-shadow:inset 3px 0 0 var(--gold)}
+  .chap{margin:34px 0 0;padding:16px 0 10px;border-bottom:2px solid var(--forest)}
+  .chap .big{font-size:12px;letter-spacing:.4em;color:var(--forest);font-weight:600}
+  .chap h2{font-size:24px;font-weight:600;margin:4px 0 0}
+  .chap p{margin:6px 0 0;color:var(--soft);font-size:14px}
+  .facewrap{display:grid;gap:16px;margin:14px 0 6px}
+  .facewrap figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+  .facewrap .art{padding:14px;display:flex;align-items:center;justify-content:center;flex:1}
+  .facewrap .art svg{width:100%;height:auto}
+  .facewrap figcaption{padding:8px 12px 12px;font-size:12.5px;color:var(--soft);text-align:center;line-height:1.6}
+  .facewrap figcaption b{display:block;font-size:13.5px;color:var(--ink)}
+  @media(max-width:720px){.facewrap{grid-template-columns:1fr 1fr !important}}
+  .live{border:1px solid #cfe0d8;background:#eef3f0}
+  .live .ctrl{padding:4px 14px 12px;text-align:center}
+  .live input[type=range]{width:90%;accent-color:#2f5d50}
+  .live #facelbl{font-size:13px;color:var(--forest);font-weight:600}
+  .notes{margin:16px 0 0;padding:15px 22px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;font-size:13.5px;line-height:1.95}
+  .closing{padding:40px 64px 28px;background:var(--panel);border-top:2px solid var(--gold);text-align:center}
+  .closing p{font-size:17px;letter-spacing:.05em;line-height:2.2;margin:0 auto;max-width:640px}
+  footer{padding:22px 64px 56px;color:var(--muted);font-size:12px;line-height:1.9}
+  footer .credit{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  @media print{ body{background:#fff;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact} .doc{max-width:none;box-shadow:none}
+    .cover,main,.closing,footer{padding-left:16mm;padding-right:16mm} section.s,.card,.tl li,.quote,.fab tr,.figrow{break-inside:avoid} }
+</style></head>
+<body><div class="doc">
+
+<header class="cover">
+  <p class="kicker">CHILD × WOOD × KOGIN ｜ チーム共有・検討用ドラフト</p>
+  <h1>8の字こけし 構想ブック — かたち と 体験<small>第1章 かたち＝顔らしさ・陰陽とゆらゆら・板取り・箸置き ／ 第2章 体験＝アプリ生成 → 絵付け → 育てる（6/10 MTG⑪の発展）</small></h1>
+  <div class="foot"><span>2026年6月10日</span><span>作り手＝ima Design Lab ｜ 松森木工所</span><span>寸法・価格はすべて検討用の仮置き</span></div>
+</header>
+
+<main>
+
+<!-- ============ 第1章 かたち ============ -->
+<div class="chap"><div class="big">第 1 章</div><h2>かたち — 8の字こけし</h2><p>下ふっくら・頭は腰より小さく・首の引っ掛かりなし・底に揺り弧。住宅フロア材（幅70・t15・岩手県産）から生まれる一枚。</p></div>
+
+<section class="s">
+  <div class="snum">1-1 — 顔らしさをパラメトリックに</div>
+  <h3>同じ菱だけで、顔の気配を盛る/引く</h3>
+  <p class="lead">目・鼻・口もすべて<strong>菱（こぎんの最小単位）</strong>で建てる——伝統こけしの描き顔は借りない、という線をかたちの言葉で守る。左3つは段階の例、右端は<em>実際に動くスライダー</em>（「顔らしさ」を親が選べるレバー案）。</p>
+  <div class="facewrap" style="grid-template-columns:repeat(4,1fr)">
+    <figure><div class="art"><svg viewBox="0 0 70 78" xmlns="http://www.w3.org/2000/svg"><g transform="translate(35,2) scale(0.78)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="2" stroke-linejoin="round"/></g><g transform="translate(0,4)"><path d="M 35 42.8 L 40.2 48 L 35 53.2 L 29.8 48 Z" fill="none" stroke="#6b4a2f" stroke-width="1.4"/><path d="M 35 45.4 L 37.6 48 L 35 50.6 L 32.4 48 Z" fill="#6b4a2f"/><path d="M 35 37 L 37 39 L 35 41 L 33 39 Z" fill="#a07840"/><path d="M 35 55 L 37 57 L 35 59 L 33 57 Z" fill="#a07840"/><path d="M 26 46 L 28 48 L 26 50 L 24 48 Z" fill="#a07840"/><path d="M 44 46 L 46 48 L 44 50 L 42 48 Z" fill="#a07840"/><circle cx="28.5" cy="41.5" r="0.9" fill="#7a9bb5"/><circle cx="41.5" cy="41.5" r="0.9" fill="#7a9bb5"/><circle cx="28.5" cy="54.5" r="0.9" fill="#7a9bb5"/><circle cx="41.5" cy="54.5" r="0.9" fill="#7a9bb5"/></g><g><path opacity="1" d="M 30.5 12.3 L 32.2 14 L 30.5 15.7 L 28.8 14 Z" fill="#6b4a2f"/><path opacity="1" d="M 39.5 12.3 L 41.2 14 L 39.5 15.7 L 37.8 14 Z" fill="#6b4a2f"/><path d="M 35 16.3 L 37.2 18.5 L 35 20.7 L 32.8 18.5 Z" fill="#a07840"/><path opacity="1" d="M 35 21.7 L 38 23 L 35 24.3 L 32 23 Z" fill="#6b4a2f"/></g></svg></div><figcaption><b>顔とわかる</b>目・鼻・口の三点</figcaption></figure>
+    <figure><div class="art"><svg viewBox="0 0 70 78" xmlns="http://www.w3.org/2000/svg"><g transform="translate(35,2) scale(0.78)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="2" stroke-linejoin="round"/></g><g transform="translate(0,4)"><path d="M 35 42.8 L 40.2 48 L 35 53.2 L 29.8 48 Z" fill="none" stroke="#6b4a2f" stroke-width="1.4"/><path d="M 35 45.4 L 37.6 48 L 35 50.6 L 32.4 48 Z" fill="#6b4a2f"/><path d="M 35 37 L 37 39 L 35 41 L 33 39 Z" fill="#a07840"/><path d="M 35 55 L 37 57 L 35 59 L 33 57 Z" fill="#a07840"/><path d="M 26 46 L 28 48 L 26 50 L 24 48 Z" fill="#a07840"/><path d="M 44 46 L 46 48 L 44 50 L 42 48 Z" fill="#a07840"/><circle cx="28.5" cy="41.5" r="0.9" fill="#7a9bb5"/><circle cx="41.5" cy="41.5" r="0.9" fill="#7a9bb5"/><circle cx="28.5" cy="54.5" r="0.9" fill="#7a9bb5"/><circle cx="41.5" cy="54.5" r="0.9" fill="#7a9bb5"/></g><g><path opacity="0.45" d="M 30.5 12.3 L 32.2 14 L 30.5 15.7 L 28.8 14 Z" fill="#6b4a2f"/><path opacity="0.45" d="M 39.5 12.3 L 41.2 14 L 39.5 15.7 L 37.8 14 Z" fill="#6b4a2f"/><path d="M 35 16.3 L 37.2 18.5 L 35 20.7 L 32.8 18.5 Z" fill="#a07840"/><path opacity="0" d="M 35 21.7 L 38 23 L 35 24.3 L 32 23 Z" fill="#6b4a2f"/></g></svg></div><figcaption><b>ほのかな気配</b>目は淡く・口は消える</figcaption></figure>
+    <figure><div class="art"><svg viewBox="0 0 70 78" xmlns="http://www.w3.org/2000/svg"><g transform="translate(35,2) scale(0.78)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="2" stroke-linejoin="round"/></g><g transform="translate(0,4)"><path d="M 35 42.8 L 40.2 48 L 35 53.2 L 29.8 48 Z" fill="none" stroke="#6b4a2f" stroke-width="1.4"/><path d="M 35 45.4 L 37.6 48 L 35 50.6 L 32.4 48 Z" fill="#6b4a2f"/><path d="M 35 37 L 37 39 L 35 41 L 33 39 Z" fill="#a07840"/><path d="M 35 55 L 37 57 L 35 59 L 33 57 Z" fill="#a07840"/><path d="M 26 46 L 28 48 L 26 50 L 24 48 Z" fill="#a07840"/><path d="M 44 46 L 46 48 L 44 50 L 42 48 Z" fill="#a07840"/><circle cx="28.5" cy="41.5" r="0.9" fill="#7a9bb5"/><circle cx="41.5" cy="41.5" r="0.9" fill="#7a9bb5"/><circle cx="28.5" cy="54.5" r="0.9" fill="#7a9bb5"/><circle cx="41.5" cy="54.5" r="0.9" fill="#7a9bb5"/></g><g><path opacity="0" d="M 30.5 12.3 L 32.2 14 L 30.5 15.7 L 28.8 14 Z" fill="#6b4a2f"/><path opacity="0" d="M 39.5 12.3 L 41.2 14 L 39.5 15.7 L 37.8 14 Z" fill="#6b4a2f"/><path d="M 35 16.3 L 37.2 18.5 L 35 20.7 L 32.8 18.5 Z" fill="#a07840"/><path opacity="0" d="M 35 21.7 L 38 23 L 35 24.3 L 32 23 Z" fill="#6b4a2f"/></g></svg></div><figcaption><b>鼻だけ</b>目のない、気配の顔</figcaption></figure>
+    <figure class="live"><div class="art"><svg viewBox="0 0 70 78" xmlns="http://www.w3.org/2000/svg"><g transform="translate(35,2) scale(0.78)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="2" stroke-linejoin="round"/></g><g transform="translate(0,4)"><path d="M 35 42.8 L 40.2 48 L 35 53.2 L 29.8 48 Z" fill="none" stroke="#6b4a2f" stroke-width="1.4"/><path d="M 35 45.4 L 37.6 48 L 35 50.6 L 32.4 48 Z" fill="#6b4a2f"/><path d="M 35 37 L 37 39 L 35 41 L 33 39 Z" fill="#a07840"/><path d="M 35 55 L 37 57 L 35 59 L 33 57 Z" fill="#a07840"/><path d="M 26 46 L 28 48 L 26 50 L 24 48 Z" fill="#a07840"/><path d="M 44 46 L 46 48 L 44 50 L 42 48 Z" fill="#a07840"/><circle cx="28.5" cy="41.5" r="0.9" fill="#7a9bb5"/><circle cx="41.5" cy="41.5" r="0.9" fill="#7a9bb5"/><circle cx="28.5" cy="54.5" r="0.9" fill="#7a9bb5"/><circle cx="41.5" cy="54.5" r="0.9" fill="#7a9bb5"/></g><g id="liveface"></g></svg></div><div class="ctrl"><div id="facelbl">顔とわかる</div><input type="range" id="face" min="0" max="100" value="100"></div><figcaption><b>スライダーで調整</b>親が選べるレバー案</figcaption></figure>
+  </div>
+</section>
+
+<section class="s">
+  <div class="snum">1-2 — ひとつの8の字で両立</div>
+  <h3>寝かせて陰陽・立ててゆらゆら</h3>
+  <p class="lead">くびれの凹みの半径を<strong>頭と同じ18mm</strong>で設計すると、倒立の頭が正立のくびれに「ぴたり」と沿う（同半径＝構築的に接する・ロックはせず寄り添う関係）。陰陽の接点は底の切り上げ部分に触れない＝<strong>同じ一体が、寝かせれば陰陽に組め、立てればゆらゆら揺れる</strong>。</p>
+  <div class="facewrap" style="grid-template-columns:1fr 1.7fr .65fr">
+    <figure><div class="art"><svg viewBox="-31 -45 98 138" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0.0,0)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><g transform="translate(33.7,48.7) rotate(180)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g></svg></div><figcaption><b>陰陽のペア</b>倒立の頭が、正立のくびれにぴたり</figcaption></figure>
+    <figure><div class="art"><svg viewBox="-31 -45 166 138" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0.0,0)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><g transform="translate(33.7,48.7) rotate(180)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><g transform="translate(67.4,0)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><g transform="translate(101.1,48.7) rotate(180)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g></svg></div><figcaption><b>連なりの波</b>互い違いに寄り添う家族の連なり</figcaption></figure>
+    <figure><div class="art"><svg viewBox="-36 -96 72 190" xmlns="http://www.w3.org/2000/svg"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/><g transform="translate(3,-89) rotate(4)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g></svg></div><figcaption><b>縦積み</b>頭の上に腰を乗せるバランス遊び</figcaption></figure>
+  </div>
+  <p class="sub" style="margin-top:10px">立てたとき＝<strong>起き上がり小法師と同じ原理</strong>（同じ東北の玩具）。揺り弧の中心（高さ45〜60）が重心（概算41mm）より上→傾けても自分で戻る。底Rは「ゆらゆらの強さ」のレバー＝R45でとろり、R60でしっかり。奥行きt15＝そっと置く前提。数値はすべて概算・実物で確認。</p>
+  <div class="facewrap" style="grid-template-columns:1fr 1fr;max-width:640px">
+    <figure><div class="art"><svg viewBox="-62 -8 124 106" xmlns="http://www.w3.org/2000/svg"><line x1="-60" y1="86" x2="60" y2="86" stroke="#a8997f" stroke-width="1.5"/><g transform="rotate(-14 0 86)" opacity="0.30"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><g transform="rotate(14 0 86)" opacity="0.30"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/><path d="M -30 8 A 34 34 0 0 1 30 8" fill="none" stroke="#a07840" stroke-width="1.1" stroke-dasharray="3 3"/><text x="0" y="-1" font-size="8.5" fill="#a07840" text-anchor="middle">ゆらゆら</text></svg></div><figcaption><b>ゆらゆら自立</b>底の揺り弧で、倒れない程度に揺れる</figcaption></figure>
+    <figure><div class="art"><svg viewBox="-66 -8 178 106" xmlns="http://www.w3.org/2000/svg"><line x1="-64" y1="86" x2="108" y2="86" stroke="#a8997f" stroke-width="1.5"/><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/><circle cx="0" cy="41" r="45" fill="none" stroke="#7a9bb5" stroke-width="1" stroke-dasharray="3 3"/><circle cx="0" cy="41" r="2.2" fill="#7a9bb5"/><line x1="2" y1="41" x2="32" y2="34" stroke="#7a9bb5" stroke-width="0.7"/><text x="34" y="36" font-size="8" fill="#7a9bb5">弧の中心（高さ45）</text><circle cx="0" cy="45" r="2.2" fill="#b35a4a"/><line x1="2" y1="46" x2="32" y2="54" stroke="#b35a4a" stroke-width="0.7"/><text x="34" y="57" font-size="8" fill="#b35a4a">重心（概算41）</text></svg></div><figcaption><b>起き上がる原理</b>弧の中心が重心より上＝自分で戻る</figcaption></figure>
+  </div>
+</section>
+
+<section class="s">
+  <div class="snum">1-3 — 板取り</div>
+  <h3>幅70mm材に、φ6スパイラルでのネスティング</h3>
+  <p class="lead">外形カットは<strong>φ6mmスパイラルストレート</strong>前提＝隣り合う外形の間に<strong>6mmの工具通路を1本共有</strong>して並べる（縁からも6mm以上）。外形 幅56×長さ≈86（仮）→ ピッチ≈92mm／体。くびれの凹R18は工具R3より十分大きい＝<strong>この形はφ6で素直に彫れる</strong>。</p>
+  <svg viewBox="0 0 352 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;display:block;background:#f1e9da;border:1px solid #ddd2bd;border-radius:12px;padding:12px"><rect x="2" y="12" width="324" height="70" fill="#efe7d6" stroke="#ddd2bd"/><path d="M 2 18 Q 90 16.5 170 19 T 326 17" fill="none" stroke="#e4d9c2" stroke-width="1"/><path d="M 2 27 Q 90 25.5 170 28 T 326 26" fill="none" stroke="#e4d9c2" stroke-width="1"/><path d="M 2 36 Q 90 34.5 170 37 T 326 35" fill="none" stroke="#e4d9c2" stroke-width="1"/><path d="M 2 45 Q 90 43.5 170 46 T 326 44" fill="none" stroke="#e4d9c2" stroke-width="1"/><path d="M 2 54 Q 90 52.5 170 55 T 326 53" fill="none" stroke="#e4d9c2" stroke-width="1"/><path d="M 2 63 Q 90 61.5 170 64 T 326 62" fill="none" stroke="#e4d9c2" stroke-width="1"/><path d="M 2 72 Q 90 70.5 170 73 T 326 71" fill="none" stroke="#e4d9c2" stroke-width="1"/><line x1="113" y1="12" x2="113" y2="82" stroke="#c9b690" stroke-width="6" opacity="0.5"/><line x1="205" y1="12" x2="205" y2="82" stroke="#c9b690" stroke-width="6" opacity="0.5"/><g transform="translate(24,47) rotate(-90)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><g transform="translate(116,47) rotate(-90)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><g transform="translate(208,47) rotate(-90)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f1e9da" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/></g><line x1="330" y1="12" x2="330" y2="82" stroke="#857b6b" stroke-width="1"/><text x="336" y="41" font-size="9" fill="#857b6b" writing-mode="tb">材幅 70</text><text x="113" y="9" font-size="8.5" fill="#a07840" text-anchor="middle">φ6 通路（隣と共有）</text><text x="24" y="93" font-size="9" fill="#5c554a">外形 幅56×長さ≈86（仮）・縁の余白7≥φ6・ピッチ≈92／体</text><text x="24" y="104" font-size="9" fill="#5c554a">くびれ最小幅≈31 ≫ φ6・凹R18 ≧ 工具R3＝素直に彫れる</text></svg>
+</section>
+
+<section class="s">
+  <div class="snum">1-4 — 箸置きという第二の顔</div>
+  <h3>首の窪みに、箸が座る</h3>
+  <p class="lead">横に寝かせ、<strong>首（くびれ）の上面を少し大きめのボールエンドミルで浅くさらう</strong>——箸の丸断面がコロンと納まるR窪み（深さ2〜3mm目安・要試作）。子のおもちゃが、いつか大人の食卓の道具へ。</p>
+  <div class="facewrap" style="grid-template-columns:1.7fr 1fr;max-width:760px">
+    <figure><div class="art"><svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="saddle" cx="50%" cy="45%" r="60%"><stop offset="0%" stop-color="#c9b285"/><stop offset="85%" stop-color="#f2ead9" stop-opacity="0"/></radialGradient></defs><ellipse cx="95" cy="70" rx="56" ry="9" fill="#ded2b8" opacity="0.55"/><g transform="translate(50,57) scale(1,0.5) rotate(-90)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#cdb88e" stroke="#b08a52" stroke-width="1.4"/></g><g transform="translate(50,48) scale(1,0.5) rotate(-90)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f2ead9" stroke="#b8935a" stroke-width="1.4"/></g><ellipse cx="83.5" cy="48" rx="10" ry="5.5" fill="url(#saddle)"/><g stroke="#8a6a45" stroke-width="4.5" stroke-linecap="round" opacity="0.92"><line x1="79" y1="22" x2="87" y2="78"/><line x1="90" y1="23" x2="98" y2="79"/></g><text x="150" y="32" font-size="9" fill="#5c554a">首の窪みに、箸が座る</text><text x="150" y="44" font-size="8" fill="#857b6b">斜めから・厚みはt15</text></svg></div><figcaption><b>斜めから</b>くびれ×R窪みに箸がコロンと座る</figcaption></figure>
+    <figure><div class="art"><svg viewBox="0 0 142 64" xmlns="http://www.w3.org/2000/svg"><path d="M 8 28 L 45 28 A 34 34 0 0 0 75 28 L 112 28 L 112 43 L 8 43 Z" fill="#e6d9bd" stroke="#b08a52" stroke-width="1.2"/><path d="M 45 28 A 34 34 0 0 0 75 28" fill="none" stroke="#a07840" stroke-width="1.4" stroke-dasharray="3 2"/><circle cx="60" cy="27.7" r="3.8" fill="#8a6a45"/><text x="8" y="54" font-size="7" fill="#5c554a">大きめボールのR窪み（深さ2〜3mm）</text><text x="8" y="62" font-size="7" fill="#5c554a">に、箸の丸断面が納まる</text><text x="86" y="24" font-size="7" fill="#857b6b">t=15</text></svg></div><figcaption><b>断面</b>窪みのRと箸の丸断面の相性で納まる</figcaption></figure>
+  </div>
+</section>
+
+<section class="s">
+  <div class="snum">1-5 — 遊びの広がりと検討メモ</div>
+  <h3>立つ・揺れる・組める・積める・受ける</h3>
+  <div class="notes" style="border-left-color:var(--forest);background:#eef3f0">
+    <b>・大きさの違う家族</b>＝体重→腰の太さ、のいまの配線思想をそのまま8の字へ——兄弟で太さの違う8が並ぶ
+    <b>・バランス積み</b>＝頭の上に次の子の腰を乗せる（1-2の縦積み）
+    <b>・並べ替え遊び</b>＝大きい順・樹種の色の濃い順
+    <b>・ドミノ</b>＝t15の厚みは立てて倒せる
+    <b>・くびれに指を掛けて回す・滑らせる</b>＝0歳の握りにも、くびれは指の居場所
+  </div>
+  <div class="notes">
+    <b>検討メモ：</b>① 赤ちゃんは<b>顔をいちばん長く見る</b>＝0歳要件（丸・対称・コントラスト）と顔らしさは相性が良い
+    ② 非模倣の線＝<b>顔も全部「菱」で建てる</b>（伝統こけしの絵付け・描き顔は借りない）
+    ③ 8の字は滑らか＝<b>ロックせず「沿う」</b>（陰陽）
+    ④ <b>t15・表のみ片面加工</b>＝彫り深さ2〜4mm目安（残り厚≥10mm・要試作）・反転治具不要
+    ⑤ 木目は材の長さ方向＝8の字の軸方向＝くびれに有利な向き（最小幅≈31mm・強度は試験で確定）
+    ⑥ 仕様メモ＝現行の<b>外形≤65mmは葉パネル前提</b>の値→8の字の長さ（仮≈86mm）は採用なら外形仕様を決め直す一項。
+  </div>
+</section>
+
+<!-- ============ 第2章 体験 ============ -->
+<div class="chap"><div class="big">第 2 章</div><h2>体験 — 生まれてから、育つまで</h2><p>アプリで生まれ、工房で彫られ、家族の手で色と顔を与えられ、暮らしの中で育つ。</p></div>
+
+<section class="s">
+  <div class="snum">2-1 — 体験の全体像</div>
+  <h3>生まれてから、育つまで — ひとつながりの体験</h3>
+  <p class="lead">お客さまの体験は「買って終わり」ではなく、<strong>生む → 選ぶ → 彫る → 受け取る → 育てる</strong>のひとつながり。受け取り方に<em>「絵付け体験」</em>という道を加えることで、商品が「体験」になります。</p>
+  <div class="steps">
+  <div class="step"><div class="ic"><svg viewBox="0 0 40 40"><rect x="11" y="5" width="18" height="30" rx="4" fill="#f6efdf" stroke="#5c554a" stroke-width="1.6"/><path d="M 20 12 Q 26 16 20 25 Q 14 16 20 12 Z" fill="none" stroke="#a07840" stroke-width="1.5"/><circle cx="20" cy="30.5" r="1.2" fill="#5c554a"/></svg></div><b>1 アプリで生む</b><span>その場で、その子の一枚</span></div><div class="arrow">→</div>
+  <div class="step"><div class="ic"><svg viewBox="0 0 40 40"><circle cx="12" cy="13" r="6" fill="#e9dfc8" stroke="#a07840" stroke-width="1.4"/><path d="M 28 7 L 34 13 L 28 19 L 22 13 Z" fill="none" stroke="#5c554a" stroke-width="1.5"/><rect x="14" y="24" width="12" height="10" rx="2" fill="none" stroke="#5c554a" stroke-width="1.5"/></svg></div><b>2 選ぶ</b><span>樹種・形・加工・受け取り方</span></div><div class="arrow">→</div>
+  <div class="step"><div class="ic"><svg viewBox="0 0 40 40"><rect x="6" y="24" width="28" height="9" rx="2" fill="#e9dfc8" stroke="#5c554a" stroke-width="1.4"/><path d="M 17 24 L 20 28.5 L 23 24" fill="none" stroke="#a07840" stroke-width="1.4"/><path d="M 18 7 L 22 7 L 21 17 L 20 19 L 19 17 Z" fill="#5c554a"/><line x1="20" y1="19" x2="20" y2="23" stroke="#5c554a" stroke-width="1.4"/></svg></div><b>3 工房が彫る</b><span>その子の模様まで職人が</span></div><div class="arrow">→</div>
+  <div class="step"><div class="ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="8" r="2.8" fill="#a07840"/><path d="M 20 11 L 8 26 M 20 11 L 20 26 M 20 11 L 32 26" stroke="#5c554a" stroke-width="1.5" fill="none"/><text x="5.5" y="35" font-size="8" fill="#857b6b">A</text><text x="17.5" y="35" font-size="8" fill="#857b6b">B</text><text x="29.5" y="35" font-size="8" fill="#857b6b">C</text></svg></div><b>4 受け取る</b><span>3つの道から</span></div><div class="arrow">→</div>
+  <div class="step"><div class="ic"><svg viewBox="0 0 40 40"><path d="M 8 19 L 20 8 L 32 19" fill="none" stroke="#5c554a" stroke-width="1.6"/><path d="M 11 18 L 11 32 L 29 32 L 29 18" fill="none" stroke="#5c554a" stroke-width="1.6"/><path d="M 20 30 Q 20 23 25 21" fill="none" stroke="#a07840" stroke-width="1.5"/><circle cx="25.5" cy="20.5" r="1.6" fill="#a07840"/></svg></div><b>5 育てる</b><span>遊ぶ→飾る→道具へ</span></div>
+</div>
+  <ul class="tl">
+    <li><span class="t"><b>1. アプリで生む</b>（ご家庭・スマホ/PC）</span><span class="d">お名前・誕生日・体重・身長・樹種を入れると、その場でその子だけの一枚（こぎん模様）が画面に現れる。</span></li>
+    <li><span class="t"><b>2. 選ぶ</b></span><span class="d">樹種（岩手の9種）・形・加工（レーザー/V溝NC/Hybrid）——そして<b>受け取り方</b>もここで選ぶ。</span></li>
+    <li><span class="t"><b>3. 工房が彫る</b>（松森木工所）</span><span class="d">生成IDから同じ一枚を再生成し、NC/レーザーで彫る → 脱バリ → 安全R → サンドブラスト。<b>その子の模様が彫り上がった状態</b>まで職人が仕上げる。</span></li>
+    <li><span class="t"><b>4. 受け取る — 3つの道</b></span><span class="d">下の A / B / C。どの道でも「その子の彫り」は同じ品質。</span></li>
+    <li><span class="t"><b>5. 育てる</b></span><span class="d">遊ぶ（0歳〜）→ 飾る → 箸置きなど暮らしの道具へ → いつか同じ生成IDで、もう一度。</span></li>
+  </ul>
+  <div class="cards">
+    <div class="card"><div class="cic"><svg viewBox="0 0 40 40"><rect x="8" y="15" width="24" height="15" rx="2" fill="#f6efdf" stroke="#5c554a" stroke-width="1.5"/><path d="M 8 20 L 32 20 M 20 15 L 20 20" stroke="#5c554a" stroke-width="1.1"/><path d="M 14 15 L 17 9 L 23 9 L 26 15" fill="none" stroke="#5c554a" stroke-width="1.3"/><circle cx="20" cy="25" r="2" fill="#a07840"/></svg></div><h4>A：完成品お届け</h4><p>木守りコートまで職人が仕上げて、ご家庭へ。<b>3歳未満の「遊ぶ」用途はこの道が基本</b>（安全認証つきの商品として）。</p></div>
+    <div class="card hero"><div class="cic"><svg viewBox="0 0 40 40"><g transform="translate(12,5) scale(0.34)"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f6efdf" stroke="#b8935a" stroke-width="3.4"/></g><g transform="rotate(38 29 21)"><rect x="27.6" y="7" width="3" height="19" rx="1.4" fill="#9a7a50"/><path d="M 27.6 26 L 30.6 26 L 29.6 31 Q 29 32.5 28.4 31 Z" fill="#b3493d"/></g></svg></div><h4>B：絵付け体験（工房WS）★今後の展開</h4><p>彫り上がった「その子の一枚」に、<b>家族が自分の手で色を差し、顔を与える</b>。工房見学つき。仕上げて当日お持ち帰り。</p></div>
+    <div class="card"><div class="cic"><svg viewBox="0 0 40 40"><rect x="7" y="17" width="26" height="14" rx="2" fill="#f6efdf" stroke="#5c554a" stroke-width="1.5"/><path d="M 7 17 L 13 10 L 27 10 L 33 17" fill="none" stroke="#5c554a" stroke-width="1.4"/><line x1="12" y1="24" x2="20" y2="24" stroke="#b3493d" stroke-width="2.4" stroke-linecap="round"/><circle cx="26" cy="24" r="2.4" fill="none" stroke="#3f5b78" stroke-width="1.4"/></svg></div><h4>C：おうち絵付けキット</h4><p>彫り上がった一枚＋色差しの道具を同梱。遠方のご家族向け。Bの体験を家庭に届ける形。</p></div>
+  </div>
+  <div class="figrow">
+    <div class="art"><svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" role="img">
+      <defs><clipPath id="lc-v052-kogin-f3abacb9"><path d="M31.8 0 L 32.15 0.05 L 32.49 0.09 L 32.84 0.14 L 33.19 0.2 L 33.53 0.25 L 33.88 0.31 L 34.22 0.37 L 34.57 0.43 L 34.91 0.5 L 35.25 0.57 L 35.6 0.64 L 35.94 0.71 L 36.28 0.79 L 36.62 0.87 L 36.96 0.95 L 37.3 1.04 L 37.64 1.12 L 37.98 1.22 L 38.31 1.31 L 38.65 1.41 L 38.98 1.51 L 39.32 1.61 L 39.65 1.72 L 39.98 1.83 L 40.31 1.94 L 40.64 2.06 L 40.97 2.18 L 41.3 2.31 L 41.63 2.43 L 41.95 2.56 L 42.27 2.7 L 42.6 2.84 L 42.92 2.98 L 43.24 3.12 L 43.55 3.27 L 43.87 3.42 L 44.18 3.58 L 44.49 3.74 L 44.8 3.9 L 45.11 4.06 L 45.42 4.23 L 45.72 4.41 L 46.02 4.59 L 46.32 4.77 L 46.62 4.95 L 46.91 5.14 L 47.21 5.33 L 47.5 5.53 L 47.78 5.73 L 48.07 5.93 L 48.35 6.14 L 48.63 6.35 L 48.91 6.56 L 49.18 6.78 L 49.45 7 L 49.72 7.23 L 49.98 7.46 L 50.25 7.69 L 50.5 7.93 L 50.76 8.17 L 51.01 8.41 L 51.26 8.65 L 51.51 8.9 L 51.75 9.16 L 51.99 9.41 L 52.22 9.67 L 52.46 9.93 L 52.69 10.2 L 52.91 10.46 L 53.13 10.74 L 53.35 11.01 L 53.57 11.29 L 53.78 11.56 L 53.98 11.85 L 54.19 12.13 L 54.39 12.42 L 54.58 12.71 L 54.78 13 L 54.97 13.29 L 55.15 13.59 L 55.33 13.89 L 55.51 14.19 L 55.69 14.49 L 55.86 14.8 L 56.03 15.11 L 56.19 15.42 L 56.35 15.73 L 56.51 16.04 L 56.66 16.35 L 56.81 16.67 L 56.96 16.99 L 57.1 17.31 L 57.24 17.63 L 57.38 17.95 L 57.51 18.27 L 57.64 18.6 L 57.77 18.92 L 57.89 19.25 L 58.01 19.58 L 58.13 19.91 L 58.24 20.24 L 58.36 20.57 L 58.46 20.91 L 58.57 21.24 L 58.67 21.57 L 58.77 21.91 L 58.86 22.25 L 58.95 22.59 L 59.04 22.92 L 59.13 23.26 L 59.21 23.6 L 59.29 23.94 L 59.37 24.28 L 59.45 24.63 L 59.52 24.97 L 59.59 25.31 L 59.66 25.65 L 59.73 26 L 59.79 26.34 L 59.85 26.69 L 59.9 27.03 L 59.96 27.38 L 60.01 27.73 L 60.05 28.07 L 60.1 28.42 L 60.14 28.77 L 60.18 29.12 L 60.21 29.46 L 60.24 29.81 L 60.27 30.16 L 60.3 30.51 L 60.32 30.86 L 60.34 31.21 L 60.35 31.56 L 60.37 31.91 L 60.38 32.26 L 60.38 32.61 L 60.39 32.96 L 60.39 33.31 L 60.38 33.66 L 60.38 34.01 L 60.37 34.36 L 60.36 34.71 L 60.34 35.06 L 60.32 35.41 L 60.3 35.76 L 60.27 36.11 L 60.24 36.45 L 60.21 36.8 L 60.17 37.15 L 60.14 37.5 L 60.09 37.85 L 60.05 38.19 L 60 38.54 L 59.95 38.89 L 59.89 39.23 L 59.83 39.58 L 59.77 39.92 L 59.71 40.26 L 59.64 40.61 L 59.57 40.95 L 59.5 41.29 L 59.42 41.63 L 59.34 41.97 L 59.25 42.31 L 59.17 42.65 L 59.08 42.99 L 58.99 43.33 L 58.89 43.67 L 58.79 44 L 58.69 44.34 L 58.58 44.67 L 58.48 45 L 58.37 45.34 L 58.25 45.67 L 58.14 46 L 58.02 46.33 L 57.9 46.66 L 57.77 46.98 L 57.65 47.31 L 57.52 47.63 L 57.38 47.96 L 57.25 48.28 L 57.11 48.6 L 56.97 48.92 L 56.83 49.24 L 56.68 49.56 L 56.53 49.88 L 56.38 50.19 L 56.23 50.51 L 56.07 50.82 L 55.92 51.13 L 55.76 51.45 L 55.59 51.76 L 55.43 52.06 L 55.26 52.37 L 55.09 52.68 L 54.92 52.98 L 54.75 53.29 L 54.57 53.59 L 54.39 53.89 L 54.2 54.18 L 54 54.47 L 53.8 54.76 L 53.6 55.05 L 53.4 55.33 L 53.2 55.62 L 52.99 55.9 L 52.78 56.18 L 52.57 56.46 L 52.36 56.74 L 52.15 57.02 L 51.94 57.3 L 51.72 57.57 L 51.5 57.85 L 51.28 58.12 L 51.06 58.39 L 50.84 58.66 L 50.61 58.93 L 50.38 59.19 L 50.16 59.46 L 49.92 59.72 L 49.69 59.98 L 49.45 60.24 L 49.22 60.5 L 48.98 60.75 L 48.74 61 L 48.49 61.25 L 48.25 61.5 L 48 61.75 L 47.75 62 L 47.5 62.24 L 47.24 62.48 L 46.98 62.72 L 46.72 62.95 L 46.46 63.18 L 46.2 63.41 L 45.93 63.64 L 45.67 63.87 L 45.39 64.09 L 45.12 64.31 L 44.85 64.52 L 44.57 64.74 L 44.29 64.95 L 44.01 65.15 L 43.72 65.36 L 43.44 65.56 L 43.15 65.76 L 42.86 65.95 L 42.56 66.14 L 42.27 66.33 L 41.97 66.51 L 41.67 66.69 L 41.36 66.87 L 41.06 67.04 L 40.75 67.2 L 40.44 67.37 L 40.13 67.53 L 39.82 67.68 L 39.5 67.83 L 39.18 67.98 L 38.86 68.12 L 38.54 68.26 L 38.22 68.39 L 37.89 68.52 L 37.57 68.65 L 37.24 68.77 L 36.91 68.88 L 36.57 68.99 L 36.24 69.1 L 35.9 69.2 L 35.57 69.29 L 35.23 69.38 L 34.89 69.47 L 34.55 69.55 L 34.21 69.62 L 33.86 69.69 L 33.52 69.75 L 33.18 69.81 L 32.83 69.87 L 32.48 69.92 L 32.14 69.96 L 31.79 70 L 31.44 69.96 L 31.09 69.91 L 30.75 69.87 L 30.4 69.81 L 30.06 69.75 L 29.71 69.69 L 29.37 69.62 L 29.03 69.54 L 28.69 69.46 L 28.35 69.37 L 28.01 69.28 L 27.67 69.19 L 27.34 69.09 L 27 68.98 L 26.67 68.87 L 26.34 68.76 L 26.01 68.64 L 25.68 68.51 L 25.36 68.39 L 25.04 68.25 L 24.71 68.11 L 24.39 67.97 L 24.08 67.82 L 23.76 67.67 L 23.45 67.52 L 23.14 67.36 L 22.83 67.19 L 22.52 67.03 L 22.22 66.85 L 21.91 66.68 L 21.61 66.5 L 21.32 66.31 L 21.02 66.13 L 20.73 65.94 L 20.43 65.74 L 20.15 65.54 L 19.86 65.34 L 19.57 65.14 L 19.29 64.93 L 19.01 64.72 L 18.74 64.51 L 18.46 64.29 L 18.19 64.07 L 17.92 63.85 L 17.65 63.62 L 17.38 63.4 L 17.12 63.17 L 16.86 62.93 L 16.6 62.7 L 16.34 62.46 L 16.09 62.22 L 15.84 61.98 L 15.59 61.73 L 15.34 61.48 L 15.09 61.24 L 14.85 60.98 L 14.61 60.73 L 14.37 60.48 L 14.13 60.22 L 13.9 59.96 L 13.66 59.7 L 13.43 59.43 L 13.2 59.17 L 12.98 58.9 L 12.75 58.64 L 12.53 58.37 L 12.31 58.1 L 12.09 57.82 L 11.87 57.55 L 11.65 57.27 L 11.44 57 L 11.23 56.72 L 11.02 56.44 L 10.81 56.16 L 10.6 55.88 L 10.4 55.59 L 10.19 55.31 L 9.99 55.02 L 9.79 54.73 L 9.59 54.45 L 9.4 54.16 L 9.2 53.87 L 9.02 53.56 L 8.85 53.26 L 8.67 52.96 L 8.5 52.65 L 8.33 52.35 L 8.17 52.04 L 8 51.73 L 7.84 51.42 L 7.68 51.11 L 7.52 50.8 L 7.37 50.48 L 7.21 50.17 L 7.06 49.85 L 6.91 49.53 L 6.77 49.22 L 6.63 48.9 L 6.49 48.58 L 6.35 48.25 L 6.21 47.93 L 6.08 47.61 L 5.95 47.28 L 5.82 46.96 L 5.7 46.63 L 5.58 46.3 L 5.46 45.97 L 5.34 45.64 L 5.23 45.31 L 5.12 44.98 L 5.01 44.64 L 4.91 44.31 L 4.81 43.97 L 4.71 43.64 L 4.61 43.3 L 4.52 42.96 L 4.43 42.63 L 4.34 42.29 L 4.26 41.95 L 4.18 41.61 L 4.1 41.27 L 4.03 40.92 L 3.96 40.58 L 3.89 40.24 L 3.83 39.89 L 3.77 39.55 L 3.71 39.2 L 3.65 38.86 L 3.6 38.51 L 3.55 38.16 L 3.51 37.82 L 3.47 37.47 L 3.43 37.12 L 3.39 36.77 L 3.36 36.43 L 3.33 36.08 L 3.31 35.73 L 3.28 35.38 L 3.26 35.03 L 3.25 34.68 L 3.24 34.33 L 3.23 33.98 L 3.22 33.63 L 3.22 33.28 L 3.22 32.93 L 3.22 32.58 L 3.23 32.23 L 3.24 31.88 L 3.25 31.53 L 3.27 31.18 L 3.29 30.83 L 3.31 30.48 L 3.34 30.13 L 3.37 29.78 L 3.4 29.44 L 3.43 29.09 L 3.47 28.74 L 3.51 28.39 L 3.56 28.04 L 3.61 27.7 L 3.66 27.35 L 3.71 27.01 L 3.77 26.66 L 3.83 26.32 L 3.89 25.97 L 3.95 25.63 L 4.02 25.28 L 4.09 24.94 L 4.16 24.6 L 4.24 24.26 L 4.32 23.92 L 4.4 23.58 L 4.49 23.24 L 4.57 22.9 L 4.66 22.56 L 4.76 22.22 L 4.85 21.88 L 4.95 21.55 L 5.05 21.21 L 5.15 20.88 L 5.26 20.55 L 5.37 20.21 L 5.49 19.88 L 5.6 19.55 L 5.73 19.23 L 5.85 18.9 L 5.98 18.57 L 6.11 18.25 L 6.24 17.92 L 6.38 17.6 L 6.52 17.28 L 6.66 16.96 L 6.81 16.64 L 6.96 16.33 L 7.11 16.01 L 7.27 15.7 L 7.43 15.39 L 7.59 15.08 L 7.76 14.77 L 7.93 14.47 L 8.11 14.17 L 8.29 13.86 L 8.47 13.57 L 8.65 13.27 L 8.84 12.98 L 9.04 12.68 L 9.23 12.39 L 9.43 12.11 L 9.64 11.82 L 9.85 11.54 L 10.06 11.26 L 10.27 10.99 L 10.49 10.71 L 10.71 10.44 L 10.94 10.17 L 11.17 9.91 L 11.4 9.65 L 11.64 9.39 L 11.87 9.13 L 12.12 8.88 L 12.36 8.63 L 12.61 8.39 L 12.87 8.14 L 13.12 7.91 L 13.38 7.67 L 13.64 7.44 L 13.91 7.21 L 14.18 6.98 L 14.45 6.76 L 14.72 6.55 L 15 6.33 L 15.28 6.12 L 15.56 5.91 L 15.84 5.71 L 16.13 5.51 L 16.42 5.32 L 16.71 5.12 L 17.01 4.94 L 17.31 4.75 L 17.61 4.57 L 17.91 4.39 L 18.21 4.22 L 18.52 4.05 L 18.83 3.88 L 19.14 3.72 L 19.45 3.56 L 19.76 3.41 L 20.08 3.26 L 20.4 3.11 L 20.71 2.96 L 21.03 2.82 L 21.36 2.68 L 21.68 2.55 L 22 2.42 L 22.33 2.29 L 22.66 2.17 L 22.99 2.05 L 23.32 1.93 L 23.65 1.82 L 23.98 1.71 L 24.31 1.6 L 24.65 1.5 L 24.98 1.4 L 25.32 1.3 L 25.66 1.21 L 25.99 1.12 L 26.33 1.03 L 26.67 0.94 L 27.01 0.86 L 27.35 0.78 L 27.69 0.7 L 28.04 0.63 L 28.38 0.56 L 28.72 0.49 L 29.07 0.43 L 29.41 0.36 L 29.76 0.3 L 30.1 0.25 L 30.45 0.19 L 30.79 0.14 L 31.14 0.09 L 31.49 0.04 Z" transform="translate(3.2 0)"/></clipPath></defs>
+      <rect x="0" y="0" width="70" height="70" fill="#f1e9da"/>
+      <g clip-path="url(#lc-v052-kogin-f3abacb9)"><path d="M35 12.29 L37.26 15 L35 17.71 L32.74 15 Z" fill="#f1e9da"/><path d="M35 13.65 L36.13 15 L35 16.35 L33.87 15 Z" fill="#5b3a1c"/><path d="M30.43 13.89 L31.35 15 L30.43 16.11 L29.51 15 Z" fill="#9c6f3e"/><path d="M39.57 13.89 L40.49 15 L39.57 16.11 L38.65 15 Z" fill="#9c6f3e"/><path d="M35 22.29 L37.26 25 L35 27.71 L32.74 25 Z" fill="#f1e9da"/><path d="M35 23.65 L36.13 25 L35 26.35 L33.87 25 Z" fill="#5b3a1c"/><path d="M27.99 23.89 L28.91 25 L27.99 26.11 L27.07 25 Z" fill="#9c6f3e"/><path d="M42.01 23.89 L42.93 25 L42.01 26.11 L41.09 25 Z" fill="#9c6f3e"/><path d="M35 30.94 L38.38 35 L35 39.06 L31.62 35 Z" fill="#5b3a1c"/><path d="M35 32.29 L37.26 35 L35 37.71 L32.74 35 Z" fill="#f1e9da"/><path d="M35 33.65 L36.13 35 L35 36.35 L33.87 35 Z" fill="#5b3a1c"/><path d="M27.66 32.79 L29.5 35 L27.66 37.21 L25.82 35 Z" fill="#f1e9da"/><path d="M27.66 33.89 L28.58 35 L27.66 36.11 L26.74 35 Z" fill="#9c6f3e"/><path d="M42.34 32.79 L44.18 35 L42.34 37.21 L40.5 35 Z" fill="#f1e9da"/><path d="M42.34 33.89 L43.26 35 L42.34 36.11 L41.42 35 Z" fill="#9c6f3e"/><path d="M35 42.29 L37.26 45 L35 47.71 L32.74 45 Z" fill="#f1e9da"/><path d="M35 43.65 L36.13 45 L35 46.35 L33.87 45 Z" fill="#5b3a1c"/><path d="M27.99 43.89 L28.91 45 L27.99 46.11 L27.07 45 Z" fill="#9c6f3e"/><path d="M42.01 43.89 L42.93 45 L42.01 46.11 L41.09 45 Z" fill="#9c6f3e"/><path d="M35 52.29 L37.26 55 L35 57.71 L32.74 55 Z" fill="#f1e9da"/><path d="M35 53.65 L36.13 55 L35 56.35 L33.87 55 Z" fill="#5b3a1c"/><path d="M30.43 53.89 L31.35 55 L30.43 56.11 L29.51 55 Z" fill="#9c6f3e"/><path d="M39.57 53.89 L40.49 55 L39.57 56.11 L38.65 55 Z" fill="#9c6f3e"/><path d="M35 9.52 L35.56 10.19 L35 10.87 L34.44 10.19 Z" fill="#9c6f3e"/><path d="M38.66 10.86 L39.23 11.54 L38.66 12.21 L38.1 11.54 Z" fill="#9c6f3e"/><path d="M44.45 20.76 L45.01 21.43 L44.45 22.11 L43.88 21.43 Z" fill="#9c6f3e"/><path d="M45.94 28.23 L46.5 28.91 L45.94 29.59 L45.37 28.91 Z" fill="#9c6f3e"/><path d="M46.24 36.37 L46.81 37.05 L46.24 37.73 L45.68 37.05 Z" fill="#9c6f3e"/><path d="M45.33 44.29 L45.9 44.97 L45.33 45.64 L44.77 44.97 Z" fill="#9c6f3e"/><path d="M43.3 51.12 L43.87 51.8 L43.3 52.48 L42.74 51.8 Z" fill="#9c6f3e"/><path d="M36.86 58.79 L37.42 59.47 L36.86 60.15 L36.29 59.47 Z" fill="#9c6f3e"/><path d="M33.14 58.79 L33.71 59.47 L33.14 60.15 L32.58 59.47 Z" fill="#9c6f3e"/><path d="M26.7 51.12 L27.26 51.8 L26.7 52.48 L26.14 51.8 Z" fill="#9c6f3e"/><path d="M24.67 44.29 L25.23 44.97 L24.67 45.64 L24.1 44.97 Z" fill="#9c6f3e"/><path d="M23.76 36.37 L24.32 37.05 L23.76 37.73 L23.19 37.05 Z" fill="#9c6f3e"/><path d="M24.06 28.23 L24.63 28.91 L24.06 29.59 L23.5 28.91 Z" fill="#9c6f3e"/><path d="M25.56 20.76 L26.12 21.43 L25.56 22.11 L24.99 21.43 Z" fill="#9c6f3e"/><path d="M31.34 10.86 L31.9 11.54 L31.34 12.21 L30.77 11.54 Z" fill="#9c6f3e"/><path d="M32.5 19.32 L33.06 20 L32.5 20.68 L31.94 20 Z" fill="#84acba"/><path d="M37.5 19.32 L38.06 20 L37.5 20.68 L36.94 20 Z" fill="#84acba"/><path d="M25 24.32 L25.56 25 L25 25.68 L24.44 25 Z" fill="#84acba"/><path d="M45 24.32 L45.56 25 L45 25.68 L44.44 25 Z" fill="#84acba"/><path d="M27.5 29.32 L28.06 30 L27.5 30.68 L26.94 30 Z" fill="#84acba"/><path d="M42.5 29.32 L43.06 30 L42.5 30.68 L41.94 30 Z" fill="#84acba"/><path d="M22.5 39.32 L23.06 40 L22.5 40.68 L21.94 40 Z" fill="#84acba"/><path d="M27.5 39.32 L28.06 40 L27.5 40.68 L26.94 40 Z" fill="#84acba"/><path d="M42.5 39.32 L43.06 40 L42.5 40.68 L41.94 40 Z" fill="#84acba"/><path d="M47.5 39.32 L48.06 40 L47.5 40.68 L46.94 40 Z" fill="#84acba"/><path d="M32.5 49.32 L33.06 50 L32.5 50.68 L31.94 50 Z" fill="#84acba"/><path d="M37.5 49.32 L38.06 50 L37.5 50.68 L36.94 50 Z" fill="#84acba"/></g>
+      <path d="M31.8 0 L 32.15 0.05 L 32.49 0.09 L 32.84 0.14 L 33.19 0.2 L 33.53 0.25 L 33.88 0.31 L 34.22 0.37 L 34.57 0.43 L 34.91 0.5 L 35.25 0.57 L 35.6 0.64 L 35.94 0.71 L 36.28 0.79 L 36.62 0.87 L 36.96 0.95 L 37.3 1.04 L 37.64 1.12 L 37.98 1.22 L 38.31 1.31 L 38.65 1.41 L 38.98 1.51 L 39.32 1.61 L 39.65 1.72 L 39.98 1.83 L 40.31 1.94 L 40.64 2.06 L 40.97 2.18 L 41.3 2.31 L 41.63 2.43 L 41.95 2.56 L 42.27 2.7 L 42.6 2.84 L 42.92 2.98 L 43.24 3.12 L 43.55 3.27 L 43.87 3.42 L 44.18 3.58 L 44.49 3.74 L 44.8 3.9 L 45.11 4.06 L 45.42 4.23 L 45.72 4.41 L 46.02 4.59 L 46.32 4.77 L 46.62 4.95 L 46.91 5.14 L 47.21 5.33 L 47.5 5.53 L 47.78 5.73 L 48.07 5.93 L 48.35 6.14 L 48.63 6.35 L 48.91 6.56 L 49.18 6.78 L 49.45 7 L 49.72 7.23 L 49.98 7.46 L 50.25 7.69 L 50.5 7.93 L 50.76 8.17 L 51.01 8.41 L 51.26 8.65 L 51.51 8.9 L 51.75 9.16 L 51.99 9.41 L 52.22 9.67 L 52.46 9.93 L 52.69 10.2 L 52.91 10.46 L 53.13 10.74 L 53.35 11.01 L 53.57 11.29 L 53.78 11.56 L 53.98 11.85 L 54.19 12.13 L 54.39 12.42 L 54.58 12.71 L 54.78 13 L 54.97 13.29 L 55.15 13.59 L 55.33 13.89 L 55.51 14.19 L 55.69 14.49 L 55.86 14.8 L 56.03 15.11 L 56.19 15.42 L 56.35 15.73 L 56.51 16.04 L 56.66 16.35 L 56.81 16.67 L 56.96 16.99 L 57.1 17.31 L 57.24 17.63 L 57.38 17.95 L 57.51 18.27 L 57.64 18.6 L 57.77 18.92 L 57.89 19.25 L 58.01 19.58 L 58.13 19.91 L 58.24 20.24 L 58.36 20.57 L 58.46 20.91 L 58.57 21.24 L 58.67 21.57 L 58.77 21.91 L 58.86 22.25 L 58.95 22.59 L 59.04 22.92 L 59.13 23.26 L 59.21 23.6 L 59.29 23.94 L 59.37 24.28 L 59.45 24.63 L 59.52 24.97 L 59.59 25.31 L 59.66 25.65 L 59.73 26 L 59.79 26.34 L 59.85 26.69 L 59.9 27.03 L 59.96 27.38 L 60.01 27.73 L 60.05 28.07 L 60.1 28.42 L 60.14 28.77 L 60.18 29.12 L 60.21 29.46 L 60.24 29.81 L 60.27 30.16 L 60.3 30.51 L 60.32 30.86 L 60.34 31.21 L 60.35 31.56 L 60.37 31.91 L 60.38 32.26 L 60.38 32.61 L 60.39 32.96 L 60.39 33.31 L 60.38 33.66 L 60.38 34.01 L 60.37 34.36 L 60.36 34.71 L 60.34 35.06 L 60.32 35.41 L 60.3 35.76 L 60.27 36.11 L 60.24 36.45 L 60.21 36.8 L 60.17 37.15 L 60.14 37.5 L 60.09 37.85 L 60.05 38.19 L 60 38.54 L 59.95 38.89 L 59.89 39.23 L 59.83 39.58 L 59.77 39.92 L 59.71 40.26 L 59.64 40.61 L 59.57 40.95 L 59.5 41.29 L 59.42 41.63 L 59.34 41.97 L 59.25 42.31 L 59.17 42.65 L 59.08 42.99 L 58.99 43.33 L 58.89 43.67 L 58.79 44 L 58.69 44.34 L 58.58 44.67 L 58.48 45 L 58.37 45.34 L 58.25 45.67 L 58.14 46 L 58.02 46.33 L 57.9 46.66 L 57.77 46.98 L 57.65 47.31 L 57.52 47.63 L 57.38 47.96 L 57.25 48.28 L 57.11 48.6 L 56.97 48.92 L 56.83 49.24 L 56.68 49.56 L 56.53 49.88 L 56.38 50.19 L 56.23 50.51 L 56.07 50.82 L 55.92 51.13 L 55.76 51.45 L 55.59 51.76 L 55.43 52.06 L 55.26 52.37 L 55.09 52.68 L 54.92 52.98 L 54.75 53.29 L 54.57 53.59 L 54.39 53.89 L 54.2 54.18 L 54 54.47 L 53.8 54.76 L 53.6 55.05 L 53.4 55.33 L 53.2 55.62 L 52.99 55.9 L 52.78 56.18 L 52.57 56.46 L 52.36 56.74 L 52.15 57.02 L 51.94 57.3 L 51.72 57.57 L 51.5 57.85 L 51.28 58.12 L 51.06 58.39 L 50.84 58.66 L 50.61 58.93 L 50.38 59.19 L 50.16 59.46 L 49.92 59.72 L 49.69 59.98 L 49.45 60.24 L 49.22 60.5 L 48.98 60.75 L 48.74 61 L 48.49 61.25 L 48.25 61.5 L 48 61.75 L 47.75 62 L 47.5 62.24 L 47.24 62.48 L 46.98 62.72 L 46.72 62.95 L 46.46 63.18 L 46.2 63.41 L 45.93 63.64 L 45.67 63.87 L 45.39 64.09 L 45.12 64.31 L 44.85 64.52 L 44.57 64.74 L 44.29 64.95 L 44.01 65.15 L 43.72 65.36 L 43.44 65.56 L 43.15 65.76 L 42.86 65.95 L 42.56 66.14 L 42.27 66.33 L 41.97 66.51 L 41.67 66.69 L 41.36 66.87 L 41.06 67.04 L 40.75 67.2 L 40.44 67.37 L 40.13 67.53 L 39.82 67.68 L 39.5 67.83 L 39.18 67.98 L 38.86 68.12 L 38.54 68.26 L 38.22 68.39 L 37.89 68.52 L 37.57 68.65 L 37.24 68.77 L 36.91 68.88 L 36.57 68.99 L 36.24 69.1 L 35.9 69.2 L 35.57 69.29 L 35.23 69.38 L 34.89 69.47 L 34.55 69.55 L 34.21 69.62 L 33.86 69.69 L 33.52 69.75 L 33.18 69.81 L 32.83 69.87 L 32.48 69.92 L 32.14 69.96 L 31.79 70 L 31.44 69.96 L 31.09 69.91 L 30.75 69.87 L 30.4 69.81 L 30.06 69.75 L 29.71 69.69 L 29.37 69.62 L 29.03 69.54 L 28.69 69.46 L 28.35 69.37 L 28.01 69.28 L 27.67 69.19 L 27.34 69.09 L 27 68.98 L 26.67 68.87 L 26.34 68.76 L 26.01 68.64 L 25.68 68.51 L 25.36 68.39 L 25.04 68.25 L 24.71 68.11 L 24.39 67.97 L 24.08 67.82 L 23.76 67.67 L 23.45 67.52 L 23.14 67.36 L 22.83 67.19 L 22.52 67.03 L 22.22 66.85 L 21.91 66.68 L 21.61 66.5 L 21.32 66.31 L 21.02 66.13 L 20.73 65.94 L 20.43 65.74 L 20.15 65.54 L 19.86 65.34 L 19.57 65.14 L 19.29 64.93 L 19.01 64.72 L 18.74 64.51 L 18.46 64.29 L 18.19 64.07 L 17.92 63.85 L 17.65 63.62 L 17.38 63.4 L 17.12 63.17 L 16.86 62.93 L 16.6 62.7 L 16.34 62.46 L 16.09 62.22 L 15.84 61.98 L 15.59 61.73 L 15.34 61.48 L 15.09 61.24 L 14.85 60.98 L 14.61 60.73 L 14.37 60.48 L 14.13 60.22 L 13.9 59.96 L 13.66 59.7 L 13.43 59.43 L 13.2 59.17 L 12.98 58.9 L 12.75 58.64 L 12.53 58.37 L 12.31 58.1 L 12.09 57.82 L 11.87 57.55 L 11.65 57.27 L 11.44 57 L 11.23 56.72 L 11.02 56.44 L 10.81 56.16 L 10.6 55.88 L 10.4 55.59 L 10.19 55.31 L 9.99 55.02 L 9.79 54.73 L 9.59 54.45 L 9.4 54.16 L 9.2 53.87 L 9.02 53.56 L 8.85 53.26 L 8.67 52.96 L 8.5 52.65 L 8.33 52.35 L 8.17 52.04 L 8 51.73 L 7.84 51.42 L 7.68 51.11 L 7.52 50.8 L 7.37 50.48 L 7.21 50.17 L 7.06 49.85 L 6.91 49.53 L 6.77 49.22 L 6.63 48.9 L 6.49 48.58 L 6.35 48.25 L 6.21 47.93 L 6.08 47.61 L 5.95 47.28 L 5.82 46.96 L 5.7 46.63 L 5.58 46.3 L 5.46 45.97 L 5.34 45.64 L 5.23 45.31 L 5.12 44.98 L 5.01 44.64 L 4.91 44.31 L 4.81 43.97 L 4.71 43.64 L 4.61 43.3 L 4.52 42.96 L 4.43 42.63 L 4.34 42.29 L 4.26 41.95 L 4.18 41.61 L 4.1 41.27 L 4.03 40.92 L 3.96 40.58 L 3.89 40.24 L 3.83 39.89 L 3.77 39.55 L 3.71 39.2 L 3.65 38.86 L 3.6 38.51 L 3.55 38.16 L 3.51 37.82 L 3.47 37.47 L 3.43 37.12 L 3.39 36.77 L 3.36 36.43 L 3.33 36.08 L 3.31 35.73 L 3.28 35.38 L 3.26 35.03 L 3.25 34.68 L 3.24 34.33 L 3.23 33.98 L 3.22 33.63 L 3.22 33.28 L 3.22 32.93 L 3.22 32.58 L 3.23 32.23 L 3.24 31.88 L 3.25 31.53 L 3.27 31.18 L 3.29 30.83 L 3.31 30.48 L 3.34 30.13 L 3.37 29.78 L 3.4 29.44 L 3.43 29.09 L 3.47 28.74 L 3.51 28.39 L 3.56 28.04 L 3.61 27.7 L 3.66 27.35 L 3.71 27.01 L 3.77 26.66 L 3.83 26.32 L 3.89 25.97 L 3.95 25.63 L 4.02 25.28 L 4.09 24.94 L 4.16 24.6 L 4.24 24.26 L 4.32 23.92 L 4.4 23.58 L 4.49 23.24 L 4.57 22.9 L 4.66 22.56 L 4.76 22.22 L 4.85 21.88 L 4.95 21.55 L 5.05 21.21 L 5.15 20.88 L 5.26 20.55 L 5.37 20.21 L 5.49 19.88 L 5.6 19.55 L 5.73 19.23 L 5.85 18.9 L 5.98 18.57 L 6.11 18.25 L 6.24 17.92 L 6.38 17.6 L 6.52 17.28 L 6.66 16.96 L 6.81 16.64 L 6.96 16.33 L 7.11 16.01 L 7.27 15.7 L 7.43 15.39 L 7.59 15.08 L 7.76 14.77 L 7.93 14.47 L 8.11 14.17 L 8.29 13.86 L 8.47 13.57 L 8.65 13.27 L 8.84 12.98 L 9.04 12.68 L 9.23 12.39 L 9.43 12.11 L 9.64 11.82 L 9.85 11.54 L 10.06 11.26 L 10.27 10.99 L 10.49 10.71 L 10.71 10.44 L 10.94 10.17 L 11.17 9.91 L 11.4 9.65 L 11.64 9.39 L 11.87 9.13 L 12.12 8.88 L 12.36 8.63 L 12.61 8.39 L 12.87 8.14 L 13.12 7.91 L 13.38 7.67 L 13.64 7.44 L 13.91 7.21 L 14.18 6.98 L 14.45 6.76 L 14.72 6.55 L 15 6.33 L 15.28 6.12 L 15.56 5.91 L 15.84 5.71 L 16.13 5.51 L 16.42 5.32 L 16.71 5.12 L 17.01 4.94 L 17.31 4.75 L 17.61 4.57 L 17.91 4.39 L 18.21 4.22 L 18.52 4.05 L 18.83 3.88 L 19.14 3.72 L 19.45 3.56 L 19.76 3.41 L 20.08 3.26 L 20.4 3.11 L 20.71 2.96 L 21.03 2.82 L 21.36 2.68 L 21.68 2.55 L 22 2.42 L 22.33 2.29 L 22.66 2.17 L 22.99 2.05 L 23.32 1.93 L 23.65 1.82 L 23.98 1.71 L 24.31 1.6 L 24.65 1.5 L 24.98 1.4 L 25.32 1.3 L 25.66 1.21 L 25.99 1.12 L 26.33 1.03 L 26.67 0.94 L 27.01 0.86 L 27.35 0.78 L 27.69 0.7 L 28.04 0.63 L 28.38 0.56 L 28.72 0.49 L 29.07 0.43 L 29.41 0.36 L 29.76 0.3 L 30.1 0.25 L 30.45 0.19 L 30.79 0.14 L 31.14 0.09 L 31.49 0.04 Z" transform="translate(3.2 0)" fill="none" stroke="#b8935a" stroke-width="0.5"/>
+    </svg></div>
+    <div><p class="sub"><strong>「1 アプリで生む」の実物</strong>——現在の生成エンジンが実際に出力した一枚（葉形・代表児の例・色分けは加工層の理解用）。8の字こけし外形は検討中の候補で、採用が決まれば<strong>同じ模様の仕組みがそのまま8の字に宿ります</strong>。</p></div>
+  </div>
+</section>
+
+<section class="s">
+  <div class="snum">2-2 — 絵付け体験の実像</div>
+  <h3>「彫りが、そのまま下絵になる」色差し体験</h3>
+  <p class="lead">白い無地に一から描くのではありません。<strong>その子の情報から生まれたこぎん模様が、すでに彫られている</strong>——その溝とドットに、好きな色を差していく。<em>彫りに導かれる絵付け</em>だから、絵心がなくても失敗しにくく、できあがりは必ず「その子だけの一枚」になります。</p>
+  <div class="scene"><svg viewBox="0 0 340 150" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="340" height="150" rx="10" fill="#e9dfc8"/>
+  <rect x="6" y="6" width="328" height="138" rx="7" fill="none" stroke="#d6c8a6" stroke-width="1"/>
+  <g transform="translate(124,38) scale(1.05)">
+    <path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f6efdf" stroke="#b8935a" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M 0 11.6 L 2.4 14 L 0 16.4 L -2.4 14 Z" fill="#a07840"/>
+    <path d="M 0 50.6 L 5.4 56 L 0 61.4 L -5.4 56 Z" fill="none" stroke="#6b4a2f" stroke-width="1.4"/><path d="M 0 53.2 L 2.8 56 L 0 58.8 L -2.8 56 Z" fill="#b3493d"/>
+    <path d="M 0 44 L 2 46 L 0 48 L -2 46 Z" fill="#b3493d"/><path d="M -9.5 54 L -7.5 56 L -9.5 58 L -11.5 56 Z" fill="#3f5b78"/><path d="M 9.5 54 L 11.5 56 L 9.5 58 L 7.5 56 Z" fill="#a07840"/><path d="M 0 64 L 2 66 L 0 68 L -2 66 Z" fill="#a07840"/>
+    <circle cx="-6.8" cy="49.5" r="1" fill="#b3493d"/><circle cx="6.8" cy="49.5" r="1" fill="#7a9bb5"/><circle cx="-6.8" cy="62.5" r="1" fill="#3f5b78"/><circle cx="6.8" cy="62.5" r="1" fill="#7a9bb5"/>
+    <path d="M 0 29.2 L 1.8 31 L 0 32.8 L -1.8 31 Z" fill="#a07840"/>
+  </g>
+  <g transform="rotate(34 232 66)"><rect x="226" y="22" width="7" height="74" rx="3.4" fill="#9a7a50"/><path d="M 226 96 L 233 96 L 231.5 110 Q 229.5 114 228 110 Z" fill="#b3493d"/></g>
+  <circle cx="282" cy="118" r="13" fill="#f6efdf" stroke="#d6c8a6"/><circle cx="282" cy="118" r="6" fill="#b3493d"/>
+  <circle cx="312" cy="104" r="13" fill="#f6efdf" stroke="#d6c8a6"/><circle cx="312" cy="104" r="6" fill="#3f5b78"/>
+  <text x="22" y="28" font-size="10" fill="#5c554a">彫りが、そのまま下絵に</text>
+  <text x="22" y="42" font-size="8.5" fill="#857b6b">その子のこぎん模様に、色を差していく</text>
+  <text x="216" y="136" font-size="8.5" fill="#857b6b">摘んだ色＝その子の好きな色</text>
+</svg></div>
+  <p class="sub">※ イメージ図。左＝色を差したドット（例：赤・藍）、右＝彫りのままのドット。<b>全部に差しても、少しだけでも、差さなくても美しい</b>——どこで筆を置くかも、その家族の選択。</p>
+
+  <div class="snum" style="margin-top:26px">自由を、どう設計するか（作り手からの推奨案）</div>
+  <p style="margin-top:6px">こけしの絵付け体験のような「白地に何でも」とは、少し違う形を提案します——<strong>ゾーンで設計された自由</strong>。胴の模様（その子のデータが決めた、この商品の心臓）は色差しで守り、いちばん大切な自由＝<em>顔を与えること</em>を、ご家族の手に渡す。</p>
+  <div class="stages">
+  <div class="stage"><svg viewBox="-34 -4 68 96"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f6efdf" stroke="#b8935a" stroke-width="1.8" stroke-linejoin="round"/><path d="M 0 29.2 L 1.8 31 L 0 32.8 L -1.8 31 Z" fill="#c9b690"/><path d="M 0 51 L 5 56 L 0 61 L -5 56 Z" fill="none" stroke="#c9b690" stroke-width="1.4"/><path d="M 0 53.4 L 2.6 56 L 0 58.6 L -2.6 56 Z" fill="#c9b690"/><path d="M -9.5 54.2 L -7.7 56 L -9.5 57.8 L -11.3 56 Z" fill="#c9b690"/><path d="M 9.5 54.2 L 11.3 56 L 9.5 57.8 L 7.7 56 Z" fill="#c9b690"/><path d="M 0 44.2 L 1.8 46 L 0 47.8 L -1.8 46 Z" fill="#c9b690"/><path d="M 0 64.2 L 1.8 66 L 0 67.8 L -1.8 66 Z" fill="#c9b690"/><path d="M 0 12 L 2 14 L 0 16 L -2 14 Z" fill="#c9b690"/></svg><b>① 彫りのまま</b><span>これだけで美しい（南部系の精神）</span></div>
+  <div class="stage"><svg viewBox="-34 -4 68 96"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f6efdf" stroke="#b8935a" stroke-width="1.8" stroke-linejoin="round"/><path d="M 0 29.2 L 1.8 31 L 0 32.8 L -1.8 31 Z" fill="#a07840"/><path d="M 0 51 L 5 56 L 0 61 L -5 56 Z" fill="none" stroke="#6b4a2f" stroke-width="1.4"/><path d="M 0 53.4 L 2.6 56 L 0 58.6 L -2.6 56 Z" fill="#b3493d"/><path d="M -9.5 54.2 L -7.7 56 L -9.5 57.8 L -11.3 56 Z" fill="#3f5b78"/><path d="M 9.5 54.2 L 11.3 56 L 9.5 57.8 L 7.7 56 Z" fill="#a07840"/><path d="M 0 44.2 L 1.8 46 L 0 47.8 L -1.8 46 Z" fill="#b3493d"/><path d="M 0 64.2 L 1.8 66 L 0 67.8 L -1.8 66 Z" fill="#a07840"/><circle cx="-6.8" cy="49.5" r="0.9" fill="#b3493d"/><circle cx="6.8" cy="49.5" r="0.9" fill="#7a9bb5"/><circle cx="-6.8" cy="62.5" r="0.9" fill="#3f5b78"/><circle cx="6.8" cy="62.5" r="0.9" fill="#7a9bb5"/><path d="M 0 12 L 2 14 L 0 16 L -2 14 Z" fill="#a07840"/></svg><b>② 胴に色を差す</b><span>彫りが下絵——その子の模様は守られる</span></div>
+  <div class="stage"><svg viewBox="-34 -4 68 96"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f6efdf" stroke="#b8935a" stroke-width="1.8" stroke-linejoin="round"/><path d="M 0 29.2 L 1.8 31 L 0 32.8 L -1.8 31 Z" fill="#a07840"/><path d="M 0 51 L 5 56 L 0 61 L -5 56 Z" fill="none" stroke="#6b4a2f" stroke-width="1.4"/><path d="M 0 53.4 L 2.6 56 L 0 58.6 L -2.6 56 Z" fill="#b3493d"/><path d="M -9.5 54.2 L -7.7 56 L -9.5 57.8 L -11.3 56 Z" fill="#3f5b78"/><path d="M 9.5 54.2 L 11.3 56 L 9.5 57.8 L 7.7 56 Z" fill="#a07840"/><path d="M 0 44.2 L 1.8 46 L 0 47.8 L -1.8 46 Z" fill="#b3493d"/><path d="M 0 64.2 L 1.8 66 L 0 67.8 L -1.8 66 Z" fill="#a07840"/><circle cx="-6.8" cy="49.5" r="0.9" fill="#b3493d"/><circle cx="6.8" cy="49.5" r="0.9" fill="#7a9bb5"/><circle cx="-6.8" cy="62.5" r="0.9" fill="#3f5b78"/><circle cx="6.8" cy="62.5" r="0.9" fill="#7a9bb5"/><g stroke="#3f5b78" stroke-width="1.2" fill="none" stroke-linecap="round"><circle cx="-4.6" cy="14" r=".9" fill="#3f5b78" stroke="none"/><circle cx="4.6" cy="14" r=".9" fill="#3f5b78" stroke="none"/><path d="M -3.6 19.5 Q 0 22 3.6 19.5"/></g></svg><b>③ 頭に顔を与える</b><span>ここは完全に自由。<b>顔は、ご家族の手で</b></span></div>
+  <div class="stage"><svg viewBox="-34 -4 68 96"><path d="M 0 0 A 18 18 0 0 1 16.9 24.3 A 18 18 0 0 0 20.5 42.9 A 28 28 0 0 1 20.6 81 A 45 45 0 0 1 -20.6 81 A 28 28 0 0 1 -20.5 42.9 A 18 18 0 0 0 -16.9 24.3 A 18 18 0 0 1 0 0 Z" fill="#f6efdf" stroke="#b8935a" stroke-width="1.8" stroke-linejoin="round"/><text x="0" y="42" font-size="6.5" fill="#3f5b78" text-anchor="middle" transform="rotate(-4 0 42)">2026.6.10</text><text x="0" y="54" font-size="8" fill="#3f5b78" text-anchor="middle" transform="rotate(-3 0 52)">ひかり</text><path d="M -8 64 Q 0 68 8 64" stroke="#b3493d" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg><b>④ 裏は自由帳</b><span>日付・名前・ことば——まっさらなキャンバス</span></div>
+</div>
+  <div class="note"><strong>三つのゾーン（推奨）：</strong><b>胴＝彫りに導かれる色差し</b>（その子の模様は塗り潰されない）／<b>頭＝完全な自由</b>（顔を描くも描かないも、何を描くも、ご家族のもの——作り手は顔を描かない、という私たちの線が、そのまま体験の設計になる）／<b>裏＝まっさらな自由帳</b>（日付・名前・ことば・手形）。<br>
+  <strong>白地一枚まるごと自由</strong>のメニューは、団体WS・イベント向けの補助案として別途検討（こけし絵付けWSの実例形式）。</div>
+  <div class="two" style="margin-top:16px">
+    <div><h4>体験の流れ（60分型・仮案）</h4><ul>
+      <li><b>工房を見る</b>（10分）——木の香り、機械、職人の手</li>
+      <li><b>「あなたの子の数え方」</b>（10分）——名前がどの模様になったか、彫りを指でなぞって聞く</li>
+      <li><b>色を差す</b>（30分）——彫りのドットに、選んだ色を</li>
+      <li><b>仕上げ・乾燥</b>（10分）——当日お持ち帰り</li>
+    </ul></div>
+    <div><h4>体験設計の含み</h4><ul>
+      <li>0歳の主役は見ているだけでいい——<b>手を動かすのは家族</b>（出産祝いの贈り主・祖父母・きょうだい）</li>
+      <li>彫り済みだから<b>所要が読める</b>＝工房の段取りに乗る</li>
+      <li>自由の範囲は<b>ゾーンで設計</b>（下の推奨案）——守るものと渡すものを分ける</li>
+    </ul></div>
+  </div>
+  <div class="note"><strong>実例ベンチマーク（一次資料からの引用）：</strong>青森の絵付け体験（こけし工房 tsuN'agaru・tsugarukokeshi.com/experience・2026-06-10閲覧）＝白地の木製品（こけし型ペン立て・けん玉・だるま落とし等）にスタッフ・工人の指導つきで絵付け。<b>料金 1,600〜3,800円／約60分／2名2品以上・事前予約制／作品は当日持ち帰り</b>・団体は最大200名規模まで。「自分だけのオリジナルの作品を作っちゃおう♪」——<b>とうめいしっぽ版の価格・定員・会場設計はこれから</b>（この数字は参考実例であり、当方の価格ではありません）。</div>
+</section>
+
+<section class="s">
+  <div class="snum">2-3 — 東北こけし文化への接続</div>
+  <h3>こけしは「子どものための土産」として生まれた</h3>
+  <p class="lead">こけしは江戸時代後期、椀や盆を作っていた<strong>木地師</strong>が、湯治場で売る<strong>子ども向けの土産</strong>として木人形に顔や模様を描いたのが始まりとされ、師匠から弟子へ型が継承されて今も作り続けられています（tsugarukokeshi.com/history より）。——<em>子どものために、木に手で意味を加える</em>。とうめいしっぽは、この東北の文化の形式を、デジタルの入口（アプリ）から受け継ぎ直す試みです。</p>
+  <div class="prefs"><div class="pref"><h5>青森</h5><div class="kchip"><b>津軽系</b><span>オカッパ頭・ねぶた絵の牡丹やダルマ</span></div></div><div class="pref"><h5>岩手<small>← ここ</small></h5><div class="kchip hot"><b>南部系</b><span>頭が動く・無彩色が多い</span><span style="color:var(--forest);font-weight:600">→「木一色・彫りで模様」のとうめいしっぽは、この精神に近い</span></div></div><div class="pref"><h5>秋田</h5><div class="kchip"><b>木地山系</b><span>らっきょう型の頭・太い胴</span></div></div><div class="pref"><h5>宮城</h5><div class="kchip"><b>鳴子系</b><span>首を回すと「キュッキュッ」と鳴る</span></div><div class="kchip"><b>作並系</b><span>細い胴・カニ菊模様</span></div><div class="kchip"><b>遠刈田系</b><span>放射状の赤い髪飾り</span></div><div class="kchip"><b>弥治郎系</b><span>ベレー帽型の頭・カラフル</span></div></div><div class="pref"><h5>山形</h5><div class="kchip"><b>肘折系</b><span>太い胴・小豆入り</span></div><div class="kchip"><b>山形系</b><span>小さい頭・細い胴</span></div><div class="kchip"><b>蔵王高湯系</b><span>どっしりした胴体</span></div></div><div class="pref"><h5>福島</h5><div class="kchip"><b>土湯系</b><span>赤い髪飾り「かせ」</span></div><div class="kchip"><b>中ノ沢系</b><span>大きな目に赤い縁取り</span></div></div></div>
+  <p class="sub">全12系統・すべて東北（北から南へ）。出典＝tsugarukokeshi.com/history（2026-06-10閲覧）の解説を要約。</p>
+  <div class="two" style="margin-top:14px">
+    <div><h4>学ぶもの（文化の形式）</h4><ul>
+      <li>「子どものための木地玩具」という<b>器の文化</b></li>
+      <li>木に<b>手で意味を加える</b>体験（絵付けWSの形式）</li>
+      <li>湯治場土産＝<b>場所と結びついた体験</b>（→工房ツーリズム）</li>
+    </ul></div>
+    <div><h4>写さないもの</h4><ul>
+      <li>各系統の<b>固有の意匠</b>（ねぶた絵の牡丹・ダルマ・髪飾り等）</li>
+      <li><b>顔の描彩</b>——私たちは顔を描かない（菱の気配まで）。<b>顔を与えるのは、ご家族</b>（02節・頭の自由ゾーン）</li>
+      <li>系統名・産地の<b>呼称をまとう</b>こと</li>
+    </ul></div>
+  </div>
+  <div class="quote">岩手の<strong>南部系</strong>こけしは「頭が動く・<strong>無彩色が多い</strong>」系統（同上）。——木一色のまま、彫りと木目で模様を立たせるとうめいしっぽの本体は、実はこの<strong>地元・南部系の無彩色の精神</strong>に近い。そこに、津軽などの<strong>絵付け文化</strong>を「体験」として迎える。岩手の木地に、東北の手の文化が重なる。</div>
+</section>
+
+<section class="s">
+  <div class="snum">2-4 — 安全と規制の整理（検討項目・正直に）</div>
+  <h3>「遊ぶ一枚」と「育てる一枚」を分けて考える</h3>
+  <div class="two">
+    <div><h4>整理の方向（仮説）</h4><ul>
+      <li><b>A：完成品（職人仕上げ）＝商品</b>——PSC/ST の認証ルートに乗せる本流。0〜3歳の「遊ぶ」はこちら</li>
+      <li><b>B/C：絵付け体験の作品</b>——お客さま自身が仕上げる「体験の作品」。<b>飾る・記念・箸置き</b>寄りの位置づけ案（遊ぶ用途と区別）</li>
+    </ul></div>
+    <div><h4>決めるべきこと</h4><ul>
+      <li>絵付け作品の<b>法規上の扱い</b>（商品か・体験作品か・表示）→ 要整理</li>
+      <li><b>絵の具・塗料の選定</b>（口に入れる前提かどうかで変わる・「舐めても安全」とは断定しない）</li>
+      <li>絵付け後の<b>仕上げ層</b>（木守りコートとの相性・乾燥時間）</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="s">
+  <div class="snum">2-5 — 事業の絵（アイデア・すべて検討段階）</div>
+  <h3>体験が、リターンと再訪を生む</h3>
+  <div class="cards">
+    <div class="card"><h4>Makuake リターン候補</h4><p>「完成品」「完成品＋<b>絵付け体験券</b>」「完成品＋<b>おうちキット</b>」の3層。体験つきは単価と物語の両方を持ち上げる。</p></div>
+    <div class="card"><h4>工房ツーリズム</h4><p>湯治場土産の現代形＝<b>盛岡・松森木工所に来る理由</b>を作る。見学＋絵付け＋木の香り。地域・銀行系の関心とも重なる。</p></div>
+    <div class="card"><h4>もう一度、の動機</h4><p>きょうだいの誕生・1歳の記念日・同じIDでの再生成——<b>家族の節目ごとに戻ってくる</b>体験の設計。</p></div>
+  </div>
+  <div class="note"><strong>これから決める枠（数字は入れない）：</strong>体験の価格帯／定員・頻度（工房の段取りと両立する回数）／会場（工房内のスペース・出張WS・イベント出展）／キットの構成と送料／予約の受け方。——実例（02節の引用）が相場感の出発点。</div>
+</section>
+
+</main>
+
+<div class="closing">
+  <p>コードが生み、木が受けとめ、職人が彫り、<br>最後のひと差しを、家族の手に渡す。<br>その一枚は、遊ばれて、飾られて、暮らしの道具になって、育っていく。</p>
+</div>
+
+<footer>
+  本資料は「8の字こけし」構想（かたち＋体験）の検討用ドラフト（作り手＝松森木工所）。第1章の寸法・物理値はすべて仮置き（採用時はエンジン実装＋フチ5mm・安全の再検証を通す）。葉の図は現在の生成エンジンの実出力、8の字・絵付けシーンは検討用イメージ。絵付け体験は今後の展開の検討案であり、価格・定員・規制整理は未確定。<br>
+  出典：こけしの歴史・12系統＝ https://tsugarukokeshi.com/history ／ 絵付け体験の実例＝ https://tsugarukokeshi.com/experience（いずれも2026-06-10閲覧・要約）。
+  <div class="credit">制作　ima Design Lab ｜ 松森木工所　／　お問い合わせ：mori@ima.design</div>
+</footer>
+
+</div>
+<script>
+(function(){
+var BR='#6b4a2f',BR2='#a07840';
+function d(x,y,s,f,sy,o){sy=sy||s;return '<path d="M '+x+' '+(y-sy)+' L '+(x+s)+' '+y+' L '+x+' '+(y+sy)+' L '+(x-s)+' '+y+' Z" fill="'+f+'"'+(o!=null?' opacity="'+o+'"':'')+'/>';}
+function parts(e,m){return d(30.5,14,1.7,BR,null,e)+d(39.5,14,1.7,BR,null,e)+d(35,18.5,2.2,BR2)+d(35,23,3,BR,1.3,m);}
+var live=document.getElementById('liveface'),lbl=document.getElementById('facelbl'),sl=document.getElementById('face');
+if(live&&lbl&&sl){
+  var upd=function(v){var t=v/100,m=Math.max(0,t*1.3-0.3);live.innerHTML=parts(t.toFixed(2),m.toFixed(2));lbl.textContent=t>0.66?'顔とわかる':t>0.25?'ほのかな気配':'鼻だけ（気配）';};
+  sl.addEventListener('input',function(e){upd(e.target.value)});upd(100);
+}
+})();
+</script>
+</body></html>
