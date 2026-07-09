@@ -1,7 +1,7 @@
 # AIチーム共有ログ
 
 > 涼子（Claude Code）が毎朝更新。クロ・ジェームズはこのファイルを起動時に参照してください。
-> 固定パス：https://raw.githubusercontent.com/saki-nitta/toumei-shippo-public/main/ai-team-log.md
+> 固定パス：https://raw.githubusercontent.com/saki-nitta/Claudecode/main/ai-team-log.md
 
 ---
 
