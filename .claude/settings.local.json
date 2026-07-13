@@ -3,7 +3,8 @@
     "allow": [
       "mcp__claude_ai_Google_Calendar__gcal_create_event",
       "mcp__claude_ai_Google_Calendar__list_events",
-      "mcp__claude_ai_Todoist__add-tasks"
+      "mcp__claude_ai_Todoist__add-tasks",
+      "WebSearch"
     ]
   }
 }
