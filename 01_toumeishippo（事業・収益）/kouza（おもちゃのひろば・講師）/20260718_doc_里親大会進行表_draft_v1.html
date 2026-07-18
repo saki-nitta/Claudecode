@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>里親大会 工作教室 進行表</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Meiryo", "Yu Gothic", sans-serif;
+      background: #fff;
+      color: #333;
+      font-size: 10pt;
+      line-height: 1.6;
+      padding: 20px 40px;
+    }
+
+    /* ===== ヘッダー ===== */
+    .page-header {
+      border-bottom: 3px solid #333;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .page-header h1 {
+      font-size: 19pt;
+      font-weight: bold;
+    }
+
+    .page-header .sub {
+      font-size: 9.5pt;
+      color: #777;
+      margin-top: 2px;
+    }
+
+    .page-header .meta {
+      font-size: 9pt;
+      color: #777;
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    .info-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .info-box {
+      flex: 1;
+      background: #f5f5f5;
+      border-left: 5px solid #555;
+      padding: 6px 12px;
+      font-size: 9.5pt;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .info-box strong { display: block; font-size: 8.5pt; color: #777; font-weight: bold; }
+
+    .theme-bar {
+      background: #fffde7;
+      border-left: 5px solid #f9c300;
+      padding: 8px 14px;
+      margin-bottom: 14px;
+      font-size: 10.5pt;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ===== セクション見出し ===== */
+    .section-title {
+      font-size: 11pt;
+      font-weight: bold;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid #ccc;
+    }
+
+    /* ===== タイムフロー ===== */
+    .flow-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 9.5pt;
+    }
+
+    .flow-table th {
+      background: #333;
+      color: #fff;
+      padding: 6px 10px;
+      text-align: left;
+      font-size: 9pt;
+      font-weight: bold;
+    }
+
+    .flow-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: top;
+    }
+
+    .flow-table tr:last-child td { border-bottom: none; }
+
+    .flow-table .col-no    { width: 4%;  text-align: center; }
+    .flow-table .col-seg   { width: 13%; font-weight: bold; }
+    .flow-table .col-time  { width: 9%;  text-align: center; color: #555; }
+    .flow-table .col-cont  { width: 40%; }
+    .flow-table .col-note  { width: 34%; color: #555; font-size: 9pt; }
+
+    .row-setup  { background: #f5f5f5; }
+    .row-open   { background: #fffde7; }
+    .row-base   { background: #f1f8e9; }
+    .row-back   { background: #e3f2fd; }
+    .row-main   { background: #fff3e0; }
+    .row-finish { background: #f3e5f5; }
+    .row-clean  { background: #f5f5f5; }
+
+    .seg-badge {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 8pt;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .badge-setup  { background: #9e9e9e; }
+    .badge-open   { background: #f9c300; }
+    .badge-base   { background: #66bb6a; }
+    .badge-back   { background: #42a5f5; }
+    .badge-main   { background: #ffa726; }
+    .badge-finish { background: #ab47bc; }
+    .badge-clean  { background: #9e9e9e; }
+
+    /* ===== 2カラムレイアウト ===== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ===== 準備物 ===== */
+    .prep-section {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 14px 16px;
+      background: #fafafa;
+    }
+
+    .prep-category { margin-bottom: 10px; }
+    .prep-category:last-child { margin-bottom: 0; }
+
+    .prep-category-title {
+      font-size: 9pt;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 5px;
+      background: #eee;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .prep-list { list-style: none; padding-left: 4px; }
+
+    .prep-list li {
+      font-size: 9.5pt;
+      padding: 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .check-box {
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      border: 1.5px solid #999;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ===== 役割分担・注意事項 ===== */
+    .role-section {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 14px 16px;
+      background: #fafafa;
+      margin-bottom: 14px;
+    }
+
+    .role-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+    .role-table th {
+      background: #607d8b;
+      color: #fff;
+      padding: 5px 8px;
+      text-align: left;
+      font-size: 8.5pt;
+    }
+    .role-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: top;
+    }
+    .role-table tr:last-child td { border-bottom: none; }
+    .role-table .col-who { width: 30%; font-weight: bold; }
+
+    .care-section {
+      border: 1px solid #f0c0c0;
+      border-radius: 6px;
+      padding: 12px 16px;
+      background: #fff8f8;
+      font-size: 9.5pt;
+    }
+
+    .care-section ul { padding-left: 18px; margin-top: 4px; }
+    .care-section li { padding: 1px 0; }
+
+    /* ===== ラミネート運用 ===== */
+    .lami-box {
+      border: 1px dashed #90a4ae;
+      border-radius: 6px;
+      padding: 10px 14px;
+      background: #eceff1;
+      font-size: 9pt;
+      margin-top: 12px;
+    }
+    .lami-box strong { color: #37474f; }
+
+    /* ===== メモ欄 ===== */
+    .memo-section {
+      border: 1.5px dashed #bbb;
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin-top: 12px;
+      min-height: 50px;
+    }
+
+    .memo-label { font-size: 8.5pt; color: #999; margin-bottom: 6px; }
+
+    /* ===== 印刷設定 ===== */
+    @media print {
+      body { background: #fff !important; padding: 0; }
+      @page { size: A4; margin: 10mm 14mm; }
+      .two-col { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <div class="page-header">
+    <div>
+      <h1>里親大会｜工作教室 進行表</h1>
+      <div class="sub">令和8年度 東北地区里親研修会 岩手大会　子ども企画</div>
+    </div>
+    <div class="meta">
+      2026年7月19日（日）9:00〜12:00<br>
+      ホテルメトロポリタン盛岡 本館4階「はやちね」
+    </div>
+  </div>
+
+  <!-- 基本情報 -->
+  <div class="info-bar">
+    <div class="info-box"><strong>対象</strong>児童12名（幼児4・小学生6・中学生1・大学生1名付添）</div>
+    <div class="info-box"><strong>講師</strong>新田紗希（とうめいしっぽ）</div>
+    <div class="info-box"><strong>スタッフ</strong>施設職員が児童1名につき1名配置／未就学児は別室で託児</div>
+  </div>
+
+  <div class="theme-bar">
+    <strong>テーマ：レイヤーアート水族館をつくろう！</strong>　　後景・中景・前景の3枚のカードを重ねて木製スタンドに差し込む工作　　制作時間：実質約2時間（9:30〜11:30）
+  </div>
+
+  <!-- タイムフロー -->
+  <div class="section-title">▶ タイムフロー</div>
+  <table class="flow-table">
+    <thead>
+      <tr>
+        <th class="col-no">#</th>
+        <th class="col-seg">セグメント</th>
+        <th class="col-time">時間</th>
+        <th class="col-cont">内容・進め方</th>
+        <th class="col-note">準備・ポイント</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-setup">
+        <td class="col-no">1</td>
+        <td class="col-seg"><span class="seg-badge badge-setup">設営</span></td>
+        <td class="col-time">9:00〜9:30</td>
+        <td class="col-cont">会場設営・材料セット</td>
+        <td class="col-note">机に材料を並べる／完成見本・工程バラし見本を飾る／受付9:00〜のため児童が入室してきても気にせず設営を継続</td>
+      </tr>
+      <tr class="row-open">
+        <td class="col-no">2</td>
+        <td class="col-seg"><span class="seg-badge badge-open">オープニング</span></td>
+        <td class="col-time">9:30〜9:40</td>
+        <td class="col-cont">完成見本を見せながら工程説明（10分以内）</td>
+        <td class="col-note">「正解はないよ、自分だけの水族館を作ってね」を最初に伝える</td>
+      </tr>
+      <tr class="row-base">
+        <td class="col-no">3</td>
+        <td class="col-seg"><span class="seg-badge badge-base">台座づくり</span></td>
+        <td class="col-time">9:40〜10:00</td>
+        <td class="col-cont">角棒4本＋台紙を両面テープで固定（全員同じ工程）</td>
+        <td class="col-note">低学年フォローをスタッフに巡回依頼</td>
+      </tr>
+      <tr class="row-back">
+        <td class="col-no">4</td>
+        <td class="col-seg"><span class="seg-badge badge-back">後景づくり</span></td>
+        <td class="col-time">10:00〜10:10</td>
+        <td class="col-cont">スズランテープを貼る</td>
+        <td class="col-note">できた子からラミネート担当スタッフへ順次持っていく</td>
+      </tr>
+      <tr class="row-main">
+        <td class="col-no">5</td>
+        <td class="col-seg"><span class="seg-badge badge-main">中景・前景づくり</span></td>
+        <td class="col-time">10:10〜11:00</td>
+        <td class="col-cont">図案（簡単・ふつう・むずかしめ）から選んで制作</td>
+        <td class="col-note">スタッフが個別巡回サポート／ラミネートは専任1名が並行対応／早くできた子は追加でもう1セットOK</td>
+      </tr>
+      <tr class="row-finish">
+        <td class="col-no">6</td>
+        <td class="col-seg"><span class="seg-badge badge-finish">完成・仕上げ</span></td>
+        <td class="col-time">11:00〜11:15</td>
+        <td class="col-cont">台座に3枚差し込んで奥行きを確認・微調整</td>
+        <td class="col-note">持ち帰り袋を渡す準備</td>
+      </tr>
+      <tr class="row-clean">
+        <td class="col-no">7</td>
+        <td class="col-seg"><span class="seg-badge badge-clean">片付け・鑑賞</span></td>
+        <td class="col-time">11:15〜11:30</td>
+        <td class="col-cont">スタッフと片付け／全員の作品を並べて鑑賞・記念撮影</td>
+        <td class="col-note">忘れ物チェック（名札・材料の余りなど）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 役割分担 -->
+  <div class="section-title">▶ 役割分担</div>
+  <div class="role-section">
+    <table class="role-table">
+      <thead>
+        <tr><th class="col-who">担当</th><th>役割</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-who">新田（講師）</td><td>全体進行・工程説明・子どもたちの全体フォロー</td></tr>
+        <tr><td class="col-who">スタッフ専任1名</td><td>ラミネート機の操作・管理</td></tr>
+        <tr><td class="col-who">施設職員（各児童1名）</td><td>担当児童の制作補助・図案選びのサポート</td></tr>
+      </tbody>
+    </table>
+    <div class="lami-box">
+      <strong>ラミネート運用：</strong>A3対応機でA4フィルムにA6を2枚並べて同時ラミネート（1枚約30秒→36枚を2枚同時で約9分）。後景→中景→前景の順に、できた子から持ってくる。待ち時間は台座の確認・装飾追加でつなぐ。
+    </div>
+  </div>
+
+  <!-- 準備物 ＆ 配慮事項 -->
+  <div class="two-col">
+
+    <!-- 準備物 -->
+    <div>
+      <div class="section-title">▶ 持ち物チェック</div>
+      <div class="prep-section">
+        <div class="prep-category">
+          <div class="prep-category-title">① 台座材料</div>
+          <ul class="prep-list">
+            <li><span class="check-box"></span>角棒（10cmカット済・48本分）</li>
+            <li><span class="check-box"></span>台紙（厚紙）</li>
+            <li><span class="check-box"></span>強力両面テープ</li>
+          </ul>
+        </div>
+        <div class="prep-category">
+          <div class="prep-category-title">② レイヤーカード材料</div>
+          <ul class="prep-list">
+            <li><span class="check-box"></span>透明フィルム（OHPシート）</li>
+            <li><span class="check-box"></span>セロファン（青系）／スズランテープ</li>
+            <li><span class="check-box"></span>デザイン折り紙・色画用紙</li>
+            <li><span class="check-box"></span>マステ・シール</li>
+            <li><span class="check-box"></span>トレーシングペーパー</li>
+            <li><span class="check-box"></span>ペン・クレヨン</li>
+          </ul>
+        </div>
+        <div class="prep-category">
+          <div class="prep-category-title">③ 仕上げ・見本</div>
+          <ul class="prep-list">
+            <li><span class="check-box"></span>ラミネートフィルム（A4）</li>
+            <li><span class="check-box"></span>ラミネート機・電源タップ</li>
+            <li><span class="check-box"></span>完成品見本／工程バラし見本</li>
+            <li><span class="check-box"></span>図案見本（簡単・ふつう・むずかしめ＋左右反転版）</li>
+            <li><span class="check-box"></span>持ち帰り袋（12名分）</li>
+            <li><span class="check-box"></span>参加児童名簿</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 配慮事項 -->
+    <div>
+      <div class="section-title">▶ 配慮が必要な子について</div>
+      <div class="care-section">
+        名簿の12名の中に、以下のような配慮点を持つ子が含まれる（詳細は名簿PDF参照）。
+        <ul>
+          <li>知的障がい（療育手帳B）の子</li>
+          <li>偏食がある子（工作材料に食品は使用しないため制作自体には影響なし）</li>
+          <li>初めて1人で参加し不安を感じやすい子</li>
+          <li>活発で誰とでも友達になれる子</li>
+        </ul>
+        いずれも付き添いの施設職員が1対1でフォローする体制のため、講師は全体進行に専念しつつ、様子が気になる子には積極的に声をかける。
+      </div>
+      <div class="memo-section">
+        <div class="memo-label">メモ・当日の気づき</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
