@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MTG⑫（7/22）事前確認事項</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #3a5a40;
+  --gold: #b08d57;
+  --cream: #f8f4ec;
+  --ink: #1e1a14;
+  --muted: #4a4438;
+  --border: #c8b87a;
+  --red: #a0433a;
+  --redbg: #f6ece9;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.85;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+.header {
+  border-top: 3px solid var(--forest);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0 16px;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 26px;
+  color: var(--forest);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 2;
+}
+.meta b { color: var(--ink); }
+
+.premise {
+  background: #fff;
+  border-left: 3px solid var(--gold);
+  padding: 14px 18px;
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.9;
+  border-radius: 0 6px 6px 0;
+}
+
+section.item {
+  margin-bottom: 34px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+section.item:last-of-type { border-bottom: none; }
+
+.item h2 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 19px;
+  color: var(--forest);
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item.urgent h2 { color: var(--red); }
+.badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+.badge.critical { background: var(--red); color: #fff; }
+.badge.important { background: var(--gold); color: #fff; }
+
+h3.sub {
+  font-size: 13px;
+  color: var(--forest);
+  letter-spacing: 0.1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.item p { font-size: 14px; margin-bottom: 10px; }
+.item ul, .item ol { margin: 8px 0 12px 22px; font-size: 14px; }
+.item li { margin-bottom: 6px; }
+
+.callout {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.callout.alert {
+  background: var(--redbg);
+  border-color: #e0b8b2;
+  color: #6b2f28;
+}
+.callout.alert b { color: var(--red); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 13px;
+  background: #fff;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: #f1e9d8;
+  color: var(--forest);
+  font-weight: 700;
+  font-size: 12px;
+}
+tr.reco td { background: #eef3ec; box-shadow: inset 3px 0 0 var(--forest); }
+td.num { text-align: right; }
+
+.decide-box {
+  background: #fdf8ec;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.decide-box .label {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+
+.ref-table th { background: var(--forest); color: #fff; }
+tr.total td { font-weight: 700; background: #f1e9d8; }
+
+footer {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: 11.5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media print {
+  body { background: #fff; }
+  .page { max-width: none; padding: 10mm 14mm; }
+  section.item { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>MTG⑫（7/22）事前確認事項</h1>
+    <div class="meta">
+      <div><b>作成日：</b>2026年7月18日</div>
+      <div><b>作成者：</b>新田紗希</div>
+      <div><b>目的：</b>もりんこ Makuakeページ制作・リターン設計の過程で浮かび上がった、7/22 MTG⑫で決定が必要な事項をまとめる</div>
+    </div>
+  </div>
+
+  <div class="premise">
+    <b>前提：</b>商品名・形状を「もりんこ・ひとのかたち」にピボット済み（チーム内共有済み）。Makuakeページ本文は①〜⑩を確定、⑪（スケジュール）のみ製造工程・PSC試験の再設計待ちで保留中。以下はすべて、7/22までに方向性を決めたい事項。
+  </div>
+
+  <section class="item urgent">
+    <h2><span class="badge critical">最重要</span>① 寄贈コースのネーミング・仕様</h2>
+
+    <h3 class="sub">背景</h3>
+    <p>寄贈型のリターンコースについて、「里親コース」という仮称は使用しないことに決定済み（実在の児童福祉制度と紛らわしいため）。ネーミングと仕様を新たに決める必要がある。</p>
+
+    <h3 class="sub">決めること</h3>
+    <ol>
+      <li><b>ネーミング</b>（案：「贈り木コース」「森からの贈りものコース」「おすそわけコース」等）</li>
+      <li><b>寄贈先に刻む模様のデータ元</b>（模様は7つのデータがないと生まれない仕様のため、どれかに決める必要あり）</li>
+    </ol>
+
+    <table>
+      <tr><th>案</th><th>内容</th><th>コメント</th></tr>
+      <tr class="reco"><td>A. 園の設立日のデータで模様を作る</td><td>「この園の生まれた日」という物語が立つ</td><td>推奨案</td></tr>
+      <tr><td>B. 模様なしの無地版を寄贈する</td><td>核となる価値（唯一無二の模様）と矛盾する</td><td>非推奨</td></tr>
+      <tr><td>C. 寄贈先の子ども1人を園に選んでもらう</td><td>選ばれない子が出るため、園側が対応に困る</td><td>非推奨</td></tr>
+    </table>
+
+    <p><b>3. 購入者への見返り：</b>¥13,000〜24,000相当を払って手元に何も届かないのは成立しづらいため、寄贈先からのお礼状・写真レポート等をリターンとして付けるかどうか</p>
+  </section>
+
+  <section class="item">
+    <h2>② 応援ボードコース（¥500）の掲載先</h2>
+    <p><b>背景：</b>現在の仮案では「Makuakeページ／公式サイト」の書き分けが未確定。</p>
+    <p><b>決めること：</b>Makuakeページ側で購入者名を後から掲載できる仕様があるか、キュレーターに確認。できない場合は公式サイト一択で確定。</p>
+    <div class="callout alert"><b>⚠️忘れずに：</b>応援ボード¥500が採用された場合、¥1,000応援コースに「お名前の掲載」を追加すること。採否だけ決めて終わらせないこと。</div>
+  </section>
+
+  <section class="item">
+    <h2>③ スタンダードの固定4樹種</h2>
+    <p><b>背景：</b>スタンダード（4体セット）は「厳選した4樹種の固定セット」（選べない仕様）に決定済みだが、具体的にどの4種かが未定。</p>
+    <div class="callout">過去の材料調査（2025年4月）では「市産材で用意しやすいのはナラ・クリ・カラマツ・スギ・アカマツ」という記録あり（盛岡市産5種のうち）。現行の仕様確定前の情報のため、そのまま採用してよいかは要確認。</div>
+    <p><b>決めること：</b>在庫・供給量を確認のうえ、4種を確定。<b>この4種が決まらないと、スタンダードの商品撮影（8月中旬〜下旬予定）が撮れない。最優先で確認すること。</b></p>
+  </section>
+
+  <section class="item">
+    <h2>④ プレミアムの供給量</h2>
+    <p><b>背景：</b>ページ本文では9樹種の物語を伝える構成になっている一方、9樹種フルセットを購入できるのはプレミアム先行4＋プレミアム通常4＋相談3＝<b>11人のみ</b>。9つ全部欲しいと思っても、大半の人は買えない設計になっている。</p>
+    <p><b>決めること：</b>増産余地を確認。</p>
+    <ul>
+      <li>増やせるなら、そのまま増量</li>
+      <li>増やせないなら、ページ本文側で期待値を調整する一文を検討</li>
+    </ul>
+  </section>
+
+  <section class="item">
+    <h2>⑤ 一般販売タイミングの開示可否</h2>
+    <p><b>背景：</b>Makuake終了後、Studioサイト等で一般販売の予定がある。ただしMakuakeページ本文にはこの情報が一切書かれていない。</p>
+    <p><b>リスク：</b>超早割（¥9,800）で購入した人が、後から一般販売価格の方が安いと知った場合、不公平感につながる可能性がある。</p>
+    <p><b>決めること：</b>スケジュールセクションに一般販売時期を明記するか、しないか。明記しない場合は意図的な判断として記録すること。キュレーターに相談することを推奨。</p>
+  </section>
+
+  <section class="item" style="border-bottom:none">
+    <h2>参考：リターン構成（確定・生産数上限230体）</h2>
+    <table class="ref-table">
+      <tr><th>コース</th><th>内容</th><th>価格</th><th>数量</th><th>体数</th></tr>
+      <tr><td>応援コース</td><td>メール＋進捗レポート（商品なし）</td><td>¥1,000</td><td>無制限</td><td class="num">—</td></tr>
+      <tr><td>スタンダード 超早割</td><td>4体セット</td><td>¥9,800</td><td>10</td><td class="num">40</td></tr>
+      <tr><td>スタンダード 早割</td><td>4体セット</td><td>¥11,000</td><td>12</td><td class="num">48</td></tr>
+      <tr><td>スタンダード 通常</td><td>4体セット</td><td>¥13,000</td><td>8</td><td class="num">32</td></tr>
+      <tr><td>プレミアム 先行</td><td>9体（9樹種）フルセット</td><td>¥21,000（仮）</td><td>4</td><td class="num">36</td></tr>
+      <tr><td>プレミアム 通常</td><td>9体（9樹種）フルセット</td><td>¥24,000</td><td>4</td><td class="num">36</td></tr>
+      <tr><td>相談コース</td><td>9体フルセット＋オンライン相談30分</td><td>¥29,800（仮）</td><td>3</td><td class="num">27</td></tr>
+      <tr class="total"><td colspan="4">合計</td><td class="num">219体（上限230体に対し11体の余裕）</td></tr>
+    </table>
+    <div class="callout">超早割・早割・先行は先着順（数量に達し次第終了）。ご購入は出産後のみ。妊娠中の方は出産後にあらためて申し込み。</div>
+  </section>
+
+  <footer>
+    もりんこ Makuakeプロジェクト｜7/22 MTG⑫にてご確認をお願いします。
+  </footer>
+
+</div>
+</body>
+</html>

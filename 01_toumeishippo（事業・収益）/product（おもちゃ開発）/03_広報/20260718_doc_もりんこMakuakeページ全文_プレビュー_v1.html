@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>もりんこ Makuakeページ本文（全文プレビュー）</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #3a5a40;
+  --gold: #b08d57;
+  --cream: #f8f4ec;
+  --paper: #fbf8f2;
+  --ink: #2a2620;
+  --soft: #5c554a;
+  --muted: #857b6b;
+  --border: #ddd2bd;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 2;
+}
+
+.doc {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--paper);
+  box-shadow: 0 10px 40px rgba(60,48,30,.10);
+}
+
+.cover {
+  padding: 80px 48px 56px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg,#f4efe4,#fbf8f2);
+}
+.cover .kicker { font-size: 12px; letter-spacing: .4em; color: var(--gold); margin-bottom: 22px; }
+.cover h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.cover p.sub { font-size: 15px; color: var(--soft); line-height: 2; }
+
+main { padding: 8px 48px 60px; }
+
+section.sec {
+  padding: 44px 0 8px;
+  border-bottom: 1px solid var(--border);
+}
+section.sec:last-of-type { border-bottom: none; }
+
+.secnum { font-size: 12px; letter-spacing: .3em; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
+.sec h2 { font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; margin-bottom: 18px; line-height: 1.6; }
+
+.sec p { margin-bottom: 16px; letter-spacing: .02em; }
+.sec p.lead { font-size: 17px; color: var(--soft); }
+
+.block { margin: 26px 0; }
+.block h3 { font-family: 'Shippori Mincho B1', serif; font-size: 16.5px; font-weight: 700; color: var(--forest); margin-bottom: 10px; }
+
+.divider { text-align: center; color: var(--border); margin: 30px 0; letter-spacing: .5em; font-size: 12px; }
+
+.spec { list-style: none; background: #f1ece0; border-radius: 10px; padding: 20px 24px; margin: 14px 0; }
+.spec li { padding: 6px 0; font-size: 14.5px; border-bottom: 1px dashed var(--border); }
+.spec li:last-child { border-bottom: none; }
+.spec li b { color: var(--forest); }
+
+.steps { margin: 20px 0; }
+.step { display: flex; gap: 16px; margin-bottom: 22px; align-items: flex-start; }
+.step .n {
+  flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--forest); color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; font-family: 'Shippori Mincho B1', serif;
+}
+.step .body h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.step .body p { font-size: 14px; margin-bottom: 6px; color: var(--soft); }
+
+.reasons { margin: 10px 0; }
+.reason { margin-bottom: 28px; padding-left: 18px; border-left: 3px solid var(--gold); }
+.reason h4 { font-size: 15.5px; font-weight: 700; color: var(--forest); margin-bottom: 8px; }
+
+table.team { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13.5px; }
+table.team th, table.team td { border: 1px solid var(--border); padding: 9px 12px; text-align: left; }
+table.team th { background: #f1ece0; color: var(--forest); font-size: 12.5px; }
+
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+@media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
+.card {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;
+}
+.card.tbd { background: #f4f0e4; border-style: dashed; }
+.card .price { font-family: 'Shippori Mincho B1', serif; font-size: 19px; color: var(--forest); font-weight: 700; }
+.card .name { font-size: 12.5px; color: var(--muted); letter-spacing: .05em; margin-bottom: 4px; }
+.card .qty { font-size: 12px; color: var(--muted); margin: 4px 0 10px; }
+.card p { font-size: 13px; color: var(--soft); margin-bottom: 0; }
+.tag { display: inline-block; font-size: 10px; background: var(--gold); color: #fff; padding: 1px 8px; border-radius: 10px; margin-left: 6px; letter-spacing: .05em; }
+.tag.wip { background: var(--muted); }
+
+.notice {
+  background: #f1ece0; border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
+  padding: 14px 18px; font-size: 13px; color: var(--muted); margin: 16px 0;
+}
+
+table.sched { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13.5px; }
+table.sched th, table.sched td { border: 1px solid var(--border); padding: 9px 12px; }
+table.sched th { background: #f1ece0; color: var(--forest); }
+
+.closing { padding: 48px; background: #f1ece0; text-align: center; }
+.closing p { font-size: 17px; letter-spacing: .05em; line-height: 2.2; max-width: 520px; margin: 0 auto; color: var(--soft); }
+
+@media print {
+  body { background: #fff; }
+  .doc { box-shadow: none; max-width: none; }
+}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<header class="cover">
+  <p class="kicker">MORINKO — MAKUAKE PAGE PREVIEW</p>
+  <h1>この子と、ずっと。</h1>
+  <p class="sub">生まれた日の7つの記録が、岩手の木に模様として刻まれる。<br>あなたのお子さんへ。大切な人の赤ちゃんへ。世界にひとつの、小さなひとのかたち。</p>
+</header>
+
+<main>
+
+<section class="sec">
+  <div class="secnum">02 — まだない新しいもの</div>
+  <h2>その子の物語が、宿っているおもちゃ</h2>
+
+  <p class="lead">あなたのお子さんが、この世界に生まれたその瞬間は、二度と繰り返されない。</p>
+  <p>日付も、時刻も、体重も、天気も——すべてが、その子だけのもの。でも多くのおもちゃは、その子が誰であるかを知りません。</p>
+
+  <div class="divider">・・・</div>
+
+  <p>もりんこは、その「瞬間」を木に刻みます。赤ちゃんの7つの記録を入力すると、独自のアルゴリズムが模様を生み出します。</p>
+  <ul class="spec">
+    <li>お名前</li><li>生年月日</li><li>出生時刻</li><li>体重</li><li>身長</li><li>生まれたときの天気</li><li>出生地</li>
+  </ul>
+  <p>この7つが組み合わさって、世界にひとつの模様が生まれます。同じ模様は、地球上にふたつと存在しません。</p>
+
+  <div class="divider">・・・</div>
+
+  <p>お子さんが生まれた日のこと、覚えていますか。何時何分に産声を上げたか。外はどんな空だったか。初めて抱き上げたときの、あの重さ。その記憶が模様になって、木の中に生きつづけます。</p>
+
+  <div class="divider">・・・</div>
+
+  <p>「木に彫る」ではなく「木から生まれる」模様。データは単純に刻印されるのではありません。7つの記録が、木の繊維や素材の個性と重なり合いながら、その樹種にしかできない模様として現れます。</p>
+  <p>スギには、スギとしての模様が。ヤマザクラには、ヤマザクラとしての模様が。機械が作るのに、機械的ではない。それが、もりんこの模様です。</p>
+
+  <div class="divider">・・・</div>
+
+  <p>その物語は、ひとのかたちの中に宿ります。</p>
+  <p>同じ子は、いない。同じ木も、いない。だから、あなたのもとに届くもりんこは、世界にたった一体。お子さんが生まれた日そのものを、手元に置いておけるおもちゃです。</p>
+</section>
+
+<section class="sec">
+  <div class="secnum">03 — どんなふうに使えるか</div>
+  <h2>子どもが大きくなっても、そこにいる</h2>
+
+  <p class="lead">3ヶ月から、ずっと遊べる。それが、もりんこの考え方です。</p>
+
+  <div class="block">
+    <h3>3ヶ月〜　まずは、「感じる」から始まる</h3>
+    <p>赤ちゃんが最初にする遊びは、手に持って、口に入れて、両手でカチカチ打ち合わせること。もりんこは、その全部に応えるように作られています。</p>
+    <p>木の温かさは、プラスチックのように手の熱を奪いません。まるみのある輪郭は、小さな手のひらにちょうど収まります。打ち合わせれば、木ならではのやわらかい音が鳴ります。その手ざわりと音が、赤ちゃんにはおもしろい。</p>
+  </div>
+
+  <div class="block">
+    <h3>1歳〜　「並べる・積む・見つける」へ</h3>
+    <p>手でしっかり持てるようになると、遊び方が変わります。並べてみる。積んでみる。崩してみる。また積む。</p>
+    <p>そして、もう一つ。9体（または4体）の中には、倒しても倒しても起き上がる子がいます。どの子がそうなのか、お子さんと一緒に、触って確かめてみてください。</p>
+    <p>秘密は、底のゆるやかな丸み。ゆらゆらと揺れながら、自分でバランスを探し続けます。</p>
+  </div>
+
+  <div class="block">
+    <h3>3歳〜　「この子は誰？」人格を見立てる遊びへ</h3>
+    <p>ひとのかたちをした9体は、「ただの人形」ではありません。まっすぐ立つ子。どっしり構える子。少し肩をすくめた子。木の個性が、そのまま佇まいになっています。</p>
+    <p>子どもは、いつのまにか名前をつけ、家族にし、物語を作り始めます。</p>
+  </div>
+
+  <div class="block">
+    <h3>5歳〜　フィットを探す遊びへ</h3>
+    <p>どの子とどの子なら、ぴたっとはまるかな。正解はひとつじゃありません。組んでみて、初めてわかります。</p>
+    <p>木目の違いで樹種を当てるクイズも、どれが一番重い？と比べっこも、大人と一緒に楽しめます。</p>
+  </div>
+
+  <div class="block">
+    <h3>そして、いつか</h3>
+    <p>おもちゃを卒業しても、もりんこは押し入れにしまわれません。箸置きになる。ペーパーウエイトになる。窓辺に置かれる。壁に立てかけて飾られる。</p>
+    <p>遊ぶものから、暮らしの中にあるものへ。かたちを変えずに、役割だけが少しずつ変わっていきます。</p>
+    <p>ふと目に留まるたび、あなたはこう思うかもしれません。「これ、生まれた日のやつだ」と。手放さなくていい理由は、そこにあります。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="secnum">04 — これを選ぶ理由</div>
+  <h2>「かわいい木のおもちゃ」は、他にもたくさんある</h2>
+
+  <p>正直に言うと、もりんこより安いものも、有名なブランドのものもある。それでも、もりんこを選ぶ理由が、3つある。</p>
+
+  <div class="reasons">
+    <div class="reason">
+      <h4>理由1｜「量産品」ではなく「あなたのお子さん専用」</h4>
+      <p>もりんこは、注文が入ってから、その子のデータで模様を作り、その子のためだけに1体1体仕上げます。それは非効率かもしれません。でも、記念品には、それが必要だと思いました。</p>
+      <p>「みんなと同じ」を配るのではなく、「あなたのお子さん」だけに向けて作る。受注生産は、もりんこにとって手間ではなく、こだわりです。</p>
+    </div>
+    <div class="reason">
+      <h4>理由2｜安全基準を、きちんと満たしている</h4>
+      <p>赤ちゃんが口に入れても、舐めても、握りしめても大丈夫なように。もりんこは、こどもPSCマークを取得しています。国の安全基準をクリアした製品だけにつく、あのマークです。</p>
+      <p>記念品である前に、おもちゃです。だから、安全であることは、最低条件でした。</p>
+    </div>
+    <div class="reason">
+      <h4>理由3｜何世代も愛されてきた形を、臨床心理士が選んだ</h4>
+      <p>だるま。マトリョーシカ。ゆきだるま。国も時代も違うのに、丸みを帯びた「ひとのかたち」は、なぜかどこにでもあります。</p>
+      <p>もりんこは、臨床心理士が設計したおもちゃです。子どもの発達を12年間そばで見てきた目で、この普遍的な形を選び、岩手の職人たちと、ひとつずつ仕上げています。</p>
+      <p>大量生産のラインではなく、岩手の森と、盛岡の工房から、あなたの家族のもとへ。顔の見えるものづくりだから、託せることがあると思っています。</p>
+    </div>
+  </div>
+
+  <div class="divider">・・・</div>
+  <p>そしてもうひとつ。倒れても、また立つ。もりんこがそうであるように、あなたのお子さんも、これから何度も転んで、また立ちます。倒れても起き上がるその姿を、お子さんのそばに置いておきたい。そう思って、この形にしました。</p>
+</section>
+
+<section class="sec">
+  <div class="secnum">05 — 安全性と品質</div>
+  <h2>赤ちゃんにも安心の仕上げと設計</h2>
+  <ul class="spec">
+    <li><b>対象年齢：</b>3ヶ月〜</li>
+    <li><b>塗装：</b>シオン社・食器用木守りコート（食器に使うのと同じ、舐めても安全な塗料です）</li>
+    <li><b>角の処理：</b>研磨仕上げ（しらたき工房）</li>
+    <li><b>安全基準：</b>こどもPSCマーク取得済み</li>
+    <li><b>素材：</b>岩手県産フローリング材・15mm厚（9樹種）</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <div class="secnum">06 — 模様が生まれる仕組み</div>
+  <h2>「独自のアルゴリズム」を、そのまま見せます</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="n">1</div>
+      <div class="body"><h4>7つのデータを入力する</h4><p>あの7つのデータを、専用のWebアプリに入力します。</p></div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="body"><h4>データが、木の模様に変換される</h4>
+        <p>入力された瞬間、画面の中でリアルタイムに模様が生まれます。数字も、文字も、天気も——すべてが計算式に変換され、線と面のパターンとして現れます。</p>
+        <p>同じ体重でも、生年月日が違えば模様は変わります。同じ日に生まれても、時刻が違えば模様は変わります。7つの組み合わせが、ほんの少しでも違えば、模様はまったくの別物になります。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="body"><h4>木そのものに、刻まれる</h4>
+        <p>生まれた模様データは、そのままNC加工機とレーザーへ送られます。木を彫るのではなく、木の繊維や色味と模様が重なり合いながら、1枚の板の上に定着していきます。</p>
+        <p>画面の中の模様が、岩手の木という現実の質感を得て、初めて「もりんこ」になる瞬間です。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">・・・</div>
+  <p><b>なぜ、これが「唯一無二」と言えるのか。</b>もりんこの模様は、ランダムではありません。その子の生まれた日・時刻・場所・数字という、動かしようのない事実だけから計算されています。だから、同じ模様は二度と生まれません。複製ではなく、記録。それが、もりんこの模様の正体です。</p>
+</section>
+
+<section class="sec">
+  <div class="secnum">07 — 岩手の木である理由</div>
+  <h2>もりんこは、岩手の木でできています</h2>
+
+  <div class="reasons">
+    <div class="reason">
+      <h4>理由1｜森が、使われないと弱っていく</h4>
+      <p>盛岡・岩手の森は、木を育てるための手入れが必要です。でも、木材として使われる機会が減れば、森は放置され、弱っていきます。</p>
+      <p>もりんこが1体売れるということは、岩手の森の木が1本、ちゃんと「使われた」ということ。使うことが、森を守ることにつながっています。</p>
+    </div>
+    <div class="reason">
+      <h4>理由2｜9つの木には、9つの物語がある</h4>
+      <p>スギ、カラマツ、アカマツ、ナラ、クリ——盛岡市産の5樹種。ヤマザクラ、オニグルミ、イタヤカエデ、ケヤキ——岩手県産の4樹種。</p>
+      <p>まっすぐに育つスギ。荒れた土地に真っ先に根を張るカラマツ。長寿の象徴とされるアカマツ。木にはそれぞれ、古くから伝わる意味と物語があります。</p>
+      <p>スタンダードコースでは、厳選した4樹種の模様と物語が届きます。プレミアム・相談コースなら、9樹種すべての物語がまるごと届きます。</p>
+    </div>
+    <div class="reason">
+      <h4>理由3｜もりんこが売れると、森が動く</h4>
+      <p>もりんこは、盛岡市森林づかいイノベーション事業の一環として、開発されてきました。地域の木を、地域の技術で、価値あるものに変える。</p>
+      <p>もりんこを届けることは、単なる買い物ではなく、岩手の森の未来に関わる一歩でもあります。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="secnum">08 — チーム紹介</div>
+  <h2>このプロジェクトを届ける5つの手</h2>
+  <table class="team">
+    <tr><th>担当</th><th>役割</th></tr>
+    <tr><td>とうめいしっぽ（新田紗希）</td><td>企画・販売</td></tr>
+    <tr><td>松森木工所（松森政仁）</td><td>木工制作・NC加工・Webアプリ開発</td></tr>
+    <tr><td>のはら（阿部拓也）</td><td>ブランドデザイン・パッケージ</td></tr>
+    <tr><td>manordaいわて（本間麻衣・内藤晶）</td><td>事業計画・外部調整</td></tr>
+    <tr><td>しらたき工房</td><td>研磨・梱包</td></tr>
+  </table>
+</section>
+
+<section class="sec">
+  <div class="secnum">09 — リターン紹介</div>
+  <h2>お届けするコース</h2>
+
+  <div class="notice">スタンダード各コースは、厳選した4樹種の固定セットです（樹種はお選びいただけません）。超早割・早割・先行は数量に達し次第終了（先着順）。ご購入は出産後にお願いしています。</div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="name">応援コース</div>
+      <div class="price">¥1,000</div>
+      <div class="qty">無制限</div>
+      <p>もりんこの誕生を、そばで見守ってほしい。活動レポートと感謝のメールをお届けします。</p>
+    </div>
+    <div class="card">
+      <div class="name">スタンダード 超早割</div>
+      <div class="price">¥9,800</div>
+      <div class="qty">4体セット・数量10</div>
+      <p>一番はじめに応援してくれる人への、最大のありがとう。この価格になる理由は、それだけです。</p>
+    </div>
+    <div class="card">
+      <div class="name">スタンダード 早割</div>
+      <div class="price">¥11,000</div>
+      <div class="qty">4体セット・数量12</div>
+      <p>超早割を逃した方も、まだ間に合います。一足早く決めてくれたことへの、お礼です。</p>
+    </div>
+    <div class="card">
+      <div class="name">スタンダード 通常</div>
+      <div class="price">¥13,000</div>
+      <div class="qty">4体セット・数量8</div>
+      <p>量産品と比べれば割高に見えるかもしれません。でも、その分、他のどこにもない模様が刻まれます。</p>
+    </div>
+    <div class="card">
+      <div class="name">プレミアム 先行<span class="tag">仮</span></div>
+      <div class="price">¥21,000</div>
+      <div class="qty">9体（9樹種）フルセット・数量4</div>
+      <p>9つすべてを、迷わず選んでくれた方へ。早く決めてくれたことへの感謝を込めました。</p>
+    </div>
+    <div class="card">
+      <div class="name">プレミアム 通常</div>
+      <div class="price">¥24,000</div>
+      <div class="qty">9体（9樹種）フルセット・数量4</div>
+      <p>9つの木、9つの物語、すべてを贈りたい方へ。いちばん納得のいく形にしました。</p>
+    </div>
+    <div class="card">
+      <div class="name">相談コース<span class="tag">仮</span></div>
+      <div class="price">¥29,800</div>
+      <div class="qty">9体フルセット＋相談30分・数量3</div>
+      <p>臨床心理士でもある企画者と、遊ばせ方について直接話せる30分をセットにしました。</p>
+    </div>
+    <div class="card tbd">
+      <div class="name">応援ボード<span class="tag wip">検討中</span></div>
+      <div class="price">¥500</div>
+      <p>名前だけでも、そばで見ていたい方へ。掲載先を含め、7/22のMTGで採否決定予定です。</p>
+    </div>
+    <div class="card tbd">
+      <div class="name">寄贈コース（仮称）<span class="tag wip">検討中</span></div>
+      <div class="price">未定</div>
+      <p>贈りたい相手が、自分の家じゃない方へ。ネーミング・仕様とも7/22のMTGで検討予定です。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="secnum">10 — 応援購入の流れ</div>
+  <h2>もりんこを、画面の向こうから買う</h2>
+
+  <p class="lead">「本当に届くの？」「いつ届くの？」——そう思うのは、当然のことです。</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="n">1</div>
+      <div class="body"><h4>応援購入する</h4><p>Makuakeのページから、リターンを選んで応援購入します。決済が完了した時点で、あなたともりんこの物語が始まります。</p></div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="body"><h4>7つのデータを入力する</h4>
+        <p>購入後、専用フォームからあの7つの情報を入力していただきます。出産祝いとしてご購入の場合は、入力用のURLをお届けしますので、ご家族に直接ご入力いただけます。</p>
+        <p>※ご購入は、出産後にお願いしています。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="body"><h4>模様が生まれ、木に刻まれる</h4><p>入力されたデータをもとに模様を生成。盛岡・松森木工所でNC加工とレーザー刻印によって、岩手の木に刻んでいきます。その後、しらたき工房が一体一体、研磨と仕上げを行います。</p></div>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <div class="body"><h4>手元に届く</h4><p>お選びいただいたセットを、丁寧に梱包してお届けします。受注生産のため、Makuakeのプロジェクト終了後に制作を開始し、順次発送します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="border-bottom:none">
+  <div class="secnum">11 — スケジュール・配送　<span class="tag wip">調整中</span></div>
+  <h2>いつ届くか、正直にお伝えします</h2>
+
+  <p>もりんこは受注生産です。応援購入いただいてすぐに手元に届くわけではありません。その代わり、いつ・どんな流れで届くのかを、先にお伝えします。</p>
+
+  <table class="sched">
+    <tr><th>時期</th><th>内容</th></tr>
+    <tr><td>2026年11月ごろ〜（調整中）</td><td>Makuakeにて応援購入受付を予定</td></tr>
+    <tr><td>応援購入期間終了後</td><td>赤ちゃんデータの受付・模様生成を開始</td></tr>
+    <tr><td>順次</td><td>NC加工・レーザー刻印・研磨・梱包</td></tr>
+    <tr><td>（調整中）</td><td>発送完了予定</td></tr>
+  </table>
+
+  <p>一体ずつ手作業に近い工程を踏むため、時間をいただきます。でも、だからこそ、量産品にはない「その子だけの模様」が生まれます。急いで届けることより、ちゃんと届けることを大切にしています。</p>
+</section>
+
+</main>
+
+<div class="closing">
+  <p>手放さなくていい、世界にひとつの誕生記念おもちゃ。<br>もりんこ。</p>
+</div>
+
+</div>
+</body>
+</html>
