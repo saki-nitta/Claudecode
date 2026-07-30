@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>本間さん打合せ資料｜リターン価格改定のご相談</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #3a5a40;
+  --gold: #b08d57;
+  --cream: #f8f4ec;
+  --ink: #1e1a14;
+  --muted: #4a4438;
+  --border: #c8b87a;
+  --red: #a0433a;
+  --redbg: #f6ece9;
+  --green: #2f6b4f;
+  --greenbg: #eaf3ee;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.85;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+.header {
+  border-top: 3px solid var(--forest);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0 16px;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 24px;
+  color: var(--forest);
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 2;
+}
+.meta b { color: var(--ink); }
+
+.premise {
+  background: #fff;
+  border-left: 3px solid var(--gold);
+  padding: 14px 18px;
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.9;
+  border-radius: 0 6px 6px 0;
+}
+
+section.item {
+  margin-bottom: 34px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+section.item:last-of-type { border-bottom: none; }
+
+.item h2 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 19px;
+  color: var(--forest);
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item.urgent h2 { color: var(--red); }
+.badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+.badge.critical { background: var(--red); color: #fff; }
+.badge.important { background: var(--gold); color: #fff; }
+.badge.ask { background: var(--forest); color: #fff; }
+
+h3.sub {
+  font-size: 13px;
+  color: var(--forest);
+  letter-spacing: 0.1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.item p { font-size: 14px; margin-bottom: 10px; }
+.item ul, .item ol { margin: 8px 0 12px 22px; font-size: 14px; }
+.item li { margin-bottom: 6px; }
+
+.callout {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.callout.alert {
+  background: var(--redbg);
+  border-color: #e0b8b2;
+  color: #6b2f28;
+}
+.callout.alert b { color: var(--red); }
+
+.callout.good {
+  background: var(--greenbg);
+  border-color: #b9d6c4;
+  color: #244a37;
+}
+.callout.good b { color: var(--green); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 13px;
+  background: #fff;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: #f1e9d8;
+  color: var(--forest);
+  font-weight: 700;
+  font-size: 12px;
+}
+tr.reco td { background: #eef3ec; box-shadow: inset 3px 0 0 var(--forest); }
+tr.loss td { background: #fbf1ef; }
+td.num { text-align: right; }
+td.plus { color: var(--green); font-weight: 700; }
+td.minus { color: var(--red); font-weight: 700; }
+
+.decide-box {
+  background: #fdf8ec;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.decide-box .label {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+
+.ref-table th { background: var(--forest); color: #fff; }
+tr.total td { font-weight: 700; background: #f1e9d8; }
+
+footer {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: 11.5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media print {
+  body { background: #fff; }
+  .page { max-width: none; padding: 10mm 14mm; }
+  section.item { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>もりんこ リターン価格改定のご相談</h1>
+    <div class="meta">
+      <div><b>作成日：</b>2026年7月30日</div>
+      <div><b>作成者：</b>新田紗希</div>
+      <div><b>打合せ日：</b>2026年8月10日（月）13:00〜14:00　本間さん</div>
+      <div><b>目的：</b>Makuakeリターンの価格設計について、現状の赤字リスクと改定案を共有し、事業計画の観点でご意見をいただく</div>
+    </div>
+  </div>
+
+  <div class="premise">
+    <b>前提：</b>リターン構成は生産キャパ230体上限に対して219体で確定済み（2026-07-18）。プレミアム通常はマクアケ後の自社EC継続販売を見据え¥24,000→¥25,000へ改定済み（2026-07-24）。今回は、その後さらに踏み込んだ「原価割れコースの価格是正案」を財務観点でまとめたもの。9体セットの正式原価は松森さんの見積もり待ち（8月以降）のため、本資料の9体側の数字は暫定値であることに留意。
+  </div>
+
+  <section class="item urgent">
+    <h2><span class="badge critical">最重要</span>① 今のままだと「完売しても赤字」の構造</h2>
+    <h3 class="sub">背景</h3>
+    <p>Makuake手数料22%を差し引いた手取りが原価を下回っているコースが複数あり、そこが売れるほど赤字が積み上がる設計になっている。全219体が完売した最良シナリオでも、変動費ベースで<b>▲29,928円</b>、そこにPSC安全検査費用（4樹種×35,000円＝140,000円・固定費）を足すと<b>合計▲169,928円の赤字</b>という試算結果が出ている。</p>
+
+    <h3 class="sub">1体あたりの損益（現行価格）</h3>
+    <table>
+      <tr><th>コース</th><th>原価</th><th>現行価格</th><th>1体あたり損益</th></tr>
+      <tr class="loss"><td>超早割（4体）</td><td class="num">¥9,200</td><td class="num">¥9,800</td><td class="num minus">▲¥1,556</td></tr>
+      <tr class="loss"><td>早割（4体）</td><td class="num">¥9,200</td><td class="num">¥11,000</td><td class="num minus">▲¥620</td></tr>
+      <tr><td>通常（4体）</td><td class="num">¥9,200</td><td class="num">¥13,000</td><td class="num plus">+¥940</td></tr>
+      <tr class="loss"><td>プレミアム先行（9体）</td><td class="num">¥20,700（暫定）</td><td class="num">¥21,000</td><td class="num minus">▲¥4,320</td></tr>
+      <tr class="loss"><td>プレミアム通常（9体）</td><td class="num">¥20,700（暫定）</td><td class="num">¥25,000</td><td class="num minus">▲¥1,200</td></tr>
+      <tr><td>相談コース（9体）</td><td class="num">¥20,700（暫定）</td><td class="num">¥29,800</td><td class="num plus">+¥2,544</td></tr>
+    </table>
+    <div class="callout alert"><b>⚠️注意：</b>「売れないと赤字」ではなく、このプランは逆。赤字コース（超早割・早割・プレミアム先行・プレミアム通常）が予想以上に売れると赤字が拡大し、黒字コース（通常・相談）が振るわないと赤字がさらに膨らむ。</div>
+  </section>
+
+  <section class="item">
+    <h2>② 価格改定のご提案</h2>
+    <p>松竹梅のお得感（早割・先行は通常より安い、という序列）を崩さない範囲で、原価割れしている早割・プレミアム2ティアのみ引き上げる案。超早割は「初速をつけるための広報投資」として据え置きを提案。</p>
+
+    <table>
+      <tr><th>コース</th><th>現行価格</th><th>改定案</th><th>改定後の1体損益</th><th>コメント</th></tr>
+      <tr><td>超早割（4体）</td><td class="num">¥9,800</td><td class="num">¥9,800（据え置き）</td><td class="num minus">▲¥1,556</td><td>広報投資として許容</td></tr>
+      <tr class="reco"><td>早割（4体）</td><td class="num">¥11,000</td><td class="num">¥11,800</td><td class="num plus">+¥4</td><td>損益分岐点まで是正</td></tr>
+      <tr><td>通常（4体）</td><td class="num">¥13,000</td><td class="num">¥13,000（据え置き）</td><td class="num plus">+¥940</td><td>既に健全</td></tr>
+      <tr class="reco"><td>プレミアム先行（9体）</td><td class="num">¥21,000</td><td class="num">¥23,800</td><td class="num minus">▲¥2,136</td><td>通常より安い序列は維持</td></tr>
+      <tr class="reco"><td>プレミアム通常（9体）</td><td class="num">¥25,000</td><td class="num">¥27,800</td><td class="num plus">+¥984</td><td>赤字→黒字に転換</td></tr>
+      <tr><td>相談コース（9体）</td><td class="num">¥29,800</td><td class="num">¥29,800（据え置き）</td><td class="num plus">+¥2,544</td><td>既に健全</td></tr>
+    </table>
+  </section>
+
+  <section class="item">
+    <h2>③ 改定による効果</h2>
+    <table>
+      <tr><th></th><th>現行</th><th>改定案後</th></tr>
+      <tr><td>4体3ティア合計</td><td class="num minus">▲¥15,480</td><td class="num minus">▲¥7,992</td></tr>
+      <tr><td>9体3ティア合計</td><td class="num minus">▲¥14,448</td><td class="num plus">+¥3,024</td></tr>
+      <tr><td>変動費ベース合計</td><td class="num minus">▲¥29,928</td><td class="num minus">▲¥4,968</td></tr>
+      <tr><td>PSC検査費用（固定）</td><td class="num minus">▲¥140,000</td><td class="num minus">▲¥140,000</td></tr>
+      <tr class="total"><td>総合計</td><td class="num minus">▲¥169,928</td><td class="num minus">▲¥144,968</td></tr>
+    </table>
+    <div class="callout good"><b>効果：</b>赤字幅を約24,960円縮小。ただし固定費（PSC検査費）が大きく、価格改定だけでは黒字化しない構造は変わらない。</div>
+  </section>
+
+  <section class="item">
+    <h2><span class="badge ask">本間さんへご相談</span>④ 残る論点</h2>
+    <ol>
+      <li><b>PSC検査費用¥140,000は補助金の対象になるか</b>（盛岡市森林づかいイノベーション事業の対象経費に含められるか、要確認）</li>
+      <li><b>超早割の赤字▲15,560円を「広報投資」として割り切ってよいか</b>（他のクラファン事業で、初動インセンティブの赤字がどう扱われているか事例があれば伺いたい）</li>
+      <li><b>9体セットの正式原価が上がった場合の再検証タイミング</b>（松森さんの正式見積もりが8月以降・9/15の初稿入稿締切に間に合わせる必要あり）</li>
+    </ol>
+    <div class="callout alert"><b>⚠️留意：</b>Makuakeは All In方式のため、公開後の価格改定は基本的にできない。9体原価が確定する前に価格を確定させるリスクがある点は認識しておきたい。</div>
+  </section>
+
+  <section class="item" style="border-bottom:none">
+    <h2>参考：リターン構成（現行・生産数上限230体）</h2>
+    <table class="ref-table">
+      <tr><th>コース</th><th>内容</th><th>現行価格</th><th>数量</th></tr>
+      <tr><td>応援コース</td><td>メール＋進捗レポート（商品なし）</td><td>¥1,000</td><td>無制限</td></tr>
+      <tr><td>スタンダード 超早割</td><td>4体セット</td><td>¥9,800</td><td>10</td></tr>
+      <tr><td>スタンダード 早割</td><td>4体セット</td><td>¥11,000</td><td>12</td></tr>
+      <tr><td>スタンダード 通常</td><td>4体セット</td><td>¥13,000</td><td>8</td></tr>
+      <tr><td>プレミアム 先行</td><td>9体（9樹種）フルセット</td><td>¥21,000（仮）</td><td>4</td></tr>
+      <tr><td>プレミアム 通常</td><td>9体（9樹種）フルセット</td><td>¥25,000</td><td>4</td></tr>
+      <tr><td>相談コース</td><td>9体フルセット＋オンライン相談30分</td><td>¥29,800（仮）</td><td>3</td></tr>
+      <tr class="total"><td colspan="3">合計</td><td>219体（上限230体に対し11体の余裕）</td></tr>
+    </table>
+  </section>
+
+  <footer>
+    もりんこ Makuakeプロジェクト｜2026年8月10日 本間さんとの打合せ資料
+  </footer>
+
+</div>
+</body>
+</html>
