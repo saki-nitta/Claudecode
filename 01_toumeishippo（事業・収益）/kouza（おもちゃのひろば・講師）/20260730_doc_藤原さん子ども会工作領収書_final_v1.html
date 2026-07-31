@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>領収書_渋民1子ども会</title>
+<style>
+  @page { size: A4; margin: 12mm; }
+  body {
+    font-family: "Yu Gothic", "Meiryo", sans-serif;
+    color: #111;
+    margin: 0;
+  }
+  .receipt {
+    border: 1px solid #333;
+    padding: 24px 28px;
+    margin-bottom: 14mm;
+    box-sizing: border-box;
+  }
+  .receipt:last-child { margin-bottom: 0; }
+  .label-copy {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  h1 {
+    text-align: center;
+    letter-spacing: 1em;
+    font-size: 22px;
+    margin: 4px 0 20px;
+  }
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+  }
+  .atesaki {
+    font-size: 18px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+    min-width: 260px;
+  }
+  .hakko-date { font-size: 14px; }
+  .kingaku-row {
+    display: flex;
+    align-items: baseline;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    padding: 10px 0;
+    margin: 14px 0;
+  }
+  .kingaku-label { font-size: 14px; margin-right: 12px; }
+  .kingaku-value { font-size: 26px; font-weight: bold; }
+  .kingaku-nari { font-size: 14px; margin-left: 4px; }
+  .kakuninbun { font-size: 13px; margin-bottom: 16px; }
+  table.uchiwake {
+    border-collapse: collapse;
+    width: 60%;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+  table.uchiwake td {
+    border: 1px solid #999;
+    padding: 6px 10px;
+  }
+  table.uchiwake td:last-child { text-align: right; }
+  table.uchiwake tr.total td { font-weight: bold; background: #f5f5f5; }
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .renraku {
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+  .hakkosha {
+    text-align: right;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .inkan-box {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #999;
+    text-align: center;
+    line-height: 40px;
+    font-size: 11px;
+    color: #999;
+    margin-left: 6px;
+  }
+  @media print {
+    .receipt { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="receipt">
+  <div class="label-copy">原本</div>
+  <h1>領　収　書</h1>
+  <div class="top-row">
+    <div class="atesaki">渋民1子ども会　様</div>
+    <div class="hakko-date">発行日　2026年8月7日</div>
+  </div>
+  <div class="kingaku-row">
+    <span class="kingaku-label">金額</span>
+    <span class="kingaku-value">¥7,000</span>
+    <span class="kingaku-nari">也</span>
+  </div>
+  <div class="kakuninbun">上記正に領収いたしました。</div>
+  <div class="bottom-row">
+    <div class="renraku">
+      但し　子ども会工作教室（カップガーデン）講師料として<br>
+      実施場所：姫神ホール 大会議室（2026年8月7日実施）
+    </div>
+    <div class="hakkosha">
+      おもちゃと遊び企画舎　とうめいしっぽ<br>
+      代表者：新田　紗希<span class="inkan-box">印</span><br>
+      住所：〒020-0835　岩手県盛岡市津志田14-39-31<br>
+      電話番号：090-4478-3601
+    </div>
+  </div>
+</div>
+
+<div class="receipt">
+  <div class="label-copy">控</div>
+  <h1>領　収　書</h1>
+  <div class="top-row">
+    <div class="atesaki">渋民1子ども会　様</div>
+    <div class="hakko-date">発行日　2026年8月7日</div>
+  </div>
+  <div class="kingaku-row">
+    <span class="kingaku-label">金額</span>
+    <span class="kingaku-value">¥7,000</span>
+    <span class="kingaku-nari">也</span>
+  </div>
+  <div class="kakuninbun">上記正に領収いたしました。</div>
+  <div class="bottom-row">
+    <div class="renraku">
+      但し　子ども会工作教室（カップガーデン）講師料として<br>
+      実施場所：姫神ホール 大会議室（2026年8月7日実施）
+    </div>
+    <div class="hakkosha">
+      おもちゃと遊び企画舎　とうめいしっぽ<br>
+      代表者：新田　紗希<span class="inkan-box">印</span><br>
+      住所：〒020-0835　岩手県盛岡市津志田14-39-31<br>
+      電話番号：090-4478-3601
+    </div>
+  </div>
+</div>
+
+<div class="receipt">
+  <div class="label-copy">原本</div>
+  <h1>領　収　書</h1>
+  <div class="top-row">
+    <div class="atesaki">渋民1子ども会　様</div>
+    <div class="hakko-date">発行日　2026年8月7日</div>
+  </div>
+  <div class="kingaku-row">
+    <span class="kingaku-label">金額</span>
+    <span class="kingaku-value">¥24,000</span>
+    <span class="kingaku-nari">也</span>
+  </div>
+  <div class="kakuninbun">上記正に領収いたしました。</div>
+  <table class="uchiwake">
+    <tr><td>材料費（500円 × 48名）</td><td>¥24,000</td></tr>
+  </table>
+  <div class="bottom-row">
+    <div class="renraku">
+      但し　子ども会工作教室（カップガーデン）材料費として<br>
+      実施場所：姫神ホール 大会議室（2026年8月7日実施）
+    </div>
+    <div class="hakkosha">
+      おもちゃと遊び企画舎　とうめいしっぽ<br>
+      代表者：新田　紗希<span class="inkan-box">印</span><br>
+      住所：〒020-0835　岩手県盛岡市津志田14-39-31<br>
+      電話番号：090-4478-3601
+    </div>
+  </div>
+</div>
+
+<div class="receipt">
+  <div class="label-copy">控</div>
+  <h1>領　収　書</h1>
+  <div class="top-row">
+    <div class="atesaki">渋民1子ども会　様</div>
+    <div class="hakko-date">発行日　2026年8月7日</div>
+  </div>
+  <div class="kingaku-row">
+    <span class="kingaku-label">金額</span>
+    <span class="kingaku-value">¥24,000</span>
+    <span class="kingaku-nari">也</span>
+  </div>
+  <div class="kakuninbun">上記正に領収いたしました。</div>
+  <table class="uchiwake">
+    <tr><td>材料費（500円 × 48名）</td><td>¥24,000</td></tr>
+  </table>
+  <div class="bottom-row">
+    <div class="renraku">
+      但し　子ども会工作教室（カップガーデン）材料費として<br>
+      実施場所：姫神ホール 大会議室（2026年8月7日実施）
+    </div>
+    <div class="hakkosha">
+      おもちゃと遊び企画舎　とうめいしっぽ<br>
+      代表者：新田　紗希<span class="inkan-box">印</span><br>
+      住所：〒020-0835　岩手県盛岡市津志田14-39-31<br>
+      電話番号：090-4478-3601
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
