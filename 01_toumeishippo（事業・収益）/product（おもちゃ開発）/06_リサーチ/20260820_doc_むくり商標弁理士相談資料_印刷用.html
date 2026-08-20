@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>弁理士相談用資料｜商品名「むくり」商標・意匠について</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #3a5a40;
+  --gold: #b08d57;
+  --cream: #f8f4ec;
+  --ink: #1e1a14;
+  --muted: #4a4438;
+  --border: #c8b87a;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 10pt;
+  color: var(--ink);
+  background: #fff;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 14mm 12mm 14mm;
+  background: #fff;
+  margin: 0 auto;
+}
+
+/* ヘッダー */
+.header {
+  border-top: 2.5px solid var(--forest);
+  border-bottom: 1px solid var(--border);
+  padding: 5px 0 5px 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-left h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 15pt;
+  color: var(--forest);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.header-left p {
+  font-size: 8pt;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.08em;
+}
+
+.header-right {
+  font-size: 7.5pt;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* リード文 */
+.lead {
+  background: #f4f0e8;
+  border-left: 3px solid var(--gold);
+  padding: 7px 10px;
+  font-size: 8.5pt;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+/* セクション */
+.section {
+  margin-bottom: 9px;
+  page-break-inside: avoid;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.section-badge {
+  background: var(--forest);
+  color: #fff;
+  font-size: 7pt;
+  letter-spacing: 0.08em;
+  padding: 1.5px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.section-badge.gold {
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e0d8c8;
+  padding-bottom: 2px;
+  flex: 1;
+}
+
+.section-body {
+  padding-left: 0;
+  font-size: 8.5pt;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.section-body ul, .section-body ol {
+  padding-left: 1.3em;
+}
+
+.section-body li {
+  margin-bottom: 2px;
+}
+
+.section-body ol > li > ol,
+.section-body ul > li > ul {
+  margin-top: 2px;
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+  margin-top: 4px;
+}
+
+th {
+  background: var(--forest);
+  color: #fff;
+  padding: 3px 7px;
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  font-size: 7.5pt;
+}
+
+td {
+  padding: 3.5px 7px;
+  border-bottom: 1px solid #e8e0d0;
+  vertical-align: top;
+  line-height: 1.65;
+}
+
+tr:nth-child(even) td {
+  background: #faf7f2;
+}
+
+.td-label {
+  color: var(--forest);
+  font-weight: 500;
+  white-space: nowrap;
+  width: 26%;
+}
+
+.td-label.wide {
+  width: 34%;
+}
+
+.highlight-row td {
+  background: #f0f8f0 !important;
+  font-weight: 700;
+  color: var(--forest);
+}
+
+/* 由来リスト */
+.origin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.origin-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border: 1px solid #e0d8c8;
+  padding: 5px 9px;
+  border-radius: 3px;
+}
+
+.origin-num {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 11pt;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.origin-phrase {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 10.5pt;
+  color: var(--forest);
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.origin-note {
+  font-size: 7.8pt;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* 質問ブロック */
+.q-block {
+  margin-top: 4px;
+}
+
+.q-subtitle {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin: 6px 0 3px;
+}
+
+.q-block ol {
+  counter-reset: q;
+  padding-left: 0;
+}
+
+.q-block ol > li {
+  list-style: none;
+  counter-increment: q;
+  position: relative;
+  padding-left: 1.6em;
+  margin-bottom: 3px;
+}
+
+.q-block ol > li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--forest);
+  color: #fff;
+  font-size: 7pt;
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.q-block li strong {
+  color: var(--forest);
+}
+
+/* フッター */
+.footer {
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  color: #aaa;
+}
+
+.note {
+  font-size: 7.5pt;
+  color: var(--muted);
+  margin-top: 3px;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="header-left">
+      <h1>弁理士相談用資料</h1>
+      <p>商品名「むくり」商標・意匠について</p>
+    </div>
+    <div class="header-right">
+      とうめいしっぽ　新田紗希<br>
+      2026年8月20日作成<br>
+      面談：本日14:00〜（本間さん・manordaいわて ご紹介）
+    </div>
+  </div>
+
+  <!-- リード文 -->
+  <div class="lead">
+    Makuakeでのクラウドファンディング（2026年11月24日公開予定）に向けて、商品名「むくり」の商標・意匠について、どこまで・どのタイミングで手続きが必要かをご相談したく、事前に整理した資料です。
+  </div>
+
+  <!-- 1. 事業者情報 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">1</span>
+      <span class="section-title">事業者・相談者情報</span>
+    </div>
+    <div class="section-body">
+      <table>
+        <tr><td class="td-label">事業者名</td><td>とうめいしっぽ（新田紗希）</td></tr>
+        <tr><td class="td-label">事業内容</td><td>岩手県産・盛岡市産材を使った木のおもちゃの企画・製造・販売</td></tr>
+        <tr><td class="td-label">準拠事業</td><td>盛岡市森林づかいイノベーション事業（R6〜R8）</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 2. 商標として使いたい名称 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">2</span>
+      <span class="section-title">商標として使いたい名称</span>
+    </div>
+    <div class="section-body">
+      <span style="font-family:'Shippori Mincho B1',serif; font-size:16pt; color:var(--forest); font-weight:700;">むくり</span>
+      <table style="margin-top:6px;">
+        <tr><td class="td-label wide">基本表記</td><td>ひらがな「むくり」（カタカナ「ムクリ」表記の併用も想定）</td></tr>
+        <tr><td class="td-label wide">ローマ字表記の使用予定</td><td>現時点ではなし（要相談：将来の海外展開時に別途必要か）</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 3. 商品概要 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">3</span>
+      <span class="section-title">商品概要</span>
+    </div>
+    <div class="section-body">
+      <ul>
+        <li>岩手県産・盛岡市産の無垢フローリング材（9樹種）を使った、赤ちゃんの誕生記念品としての木のおもちゃ</li>
+        <li>形状：「ひとのかたち」。底面に丸みを持たせ、倒れても起き上がる構造</li>
+        <li>赤ちゃんの誕生データ（名前・生年月日・出生時刻・体重・身長・天気・出生地）を独自アルゴリズムで木目模様に変換し、一体ずつ製作する受注生産品</li>
+        <li>対象年齢：3ヶ月〜（PSCマーク取得予定）／想定サイズ：65mm</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. 名称の由来 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">4</span>
+      <span class="section-title">名称の由来（識別力の説明用参考情報）</span>
+    </div>
+    <div class="section-body">
+      <div class="origin-list">
+        <div class="origin-item">
+          <span class="origin-num">①</span>
+          <span class="origin-phrase">無垢材</span>
+          <span class="origin-note">混ざりもののない木材そのもの。使用する無垢フローリング材を指す</span>
+        </div>
+        <div class="origin-item">
+          <span class="origin-num">②</span>
+          <span class="origin-phrase">起り（むくり）</span>
+          <span class="origin-note">日本の伝統建築用語。屋根等に見られる、ゆるやかに上へ膨らんだ曲面を指す言葉で、本製品の底面の丸みの造形を表す</span>
+        </div>
+        <div class="origin-item">
+          <span class="origin-num">③</span>
+          <span class="origin-phrase">むくっと起き上がる</span>
+          <span class="origin-note">擬態語として。倒れても自分でバランスを取り戻し起き上がる、本製品の動きの特徴そのもの</span>
+        </div>
+      </div>
+      <div class="note">→ 木工の専門用語・擬態語からの命名であり、直接的に商品内容（おもちゃ／木製品）を説明する語ではないという理解だが、識別力の評価は要確認。</div>
+    </div>
+  </div>
+
+  <!-- 5. 意匠として保護を検討したい形状の特徴 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">5</span>
+      <span class="section-title">意匠として保護を検討したい形状の特徴</span>
+    </div>
+    <div class="section-body">
+      商標だけでなく、<strong>形状そのもの（意匠）をどこまで・どの範囲で保護すべきか</strong>も併せて相談したい。
+      <table style="margin-top:5px;">
+        <tr><th>要素</th><th>内容</th></tr>
+        <tr>
+          <td class="td-label">全体形状</td>
+          <td>「ひとのかたち」。だるま・マトリョーシカのような、世代を超えて愛される造形をイメージ</td>
+        </tr>
+        <tr>
+          <td class="td-label">底面の丸み</td>
+          <td>「起り（むくり）」の名の由来にもなっている、ゆるやかに膨らんだ底面構造。倒れても自分で起き上がる機能・見た目の両方を兼ねる特徴的な部分</td>
+        </tr>
+        <tr>
+          <td class="td-label">顔（頭部）の意匠</td>
+          <td>前髪の帯＋目という構成の彫刻表現（2026年8月15日にデザインGO確定）</td>
+        </tr>
+        <tr>
+          <td class="td-label">樹種ごとの木目模様</td>
+          <td>誕生データを独自アルゴリズムで変換して生成。個体ごとに異なる一点物</td>
+        </tr>
+      </table>
+      <div class="note">→ どの要素が意匠登録になじむか（全体形状／底面の丸み構造／顔の彫刻表現など）は未整理。相談の中で切り分けたい。</div>
+    </div>
+  </div>
+
+  <!-- 6. 想定スケジュール -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">6</span>
+      <span class="section-title">想定スケジュール（出願タイミングの相談材料）</span>
+    </div>
+    <div class="section-body">
+      <table>
+        <tr><th>日程</th><th>内容</th></tr>
+        <tr><td class="td-label">2026/10/28 正午</td><td>Makuake初回申請</td></tr>
+        <tr><td class="td-label">2026/11/6 正午</td><td>最終申請・クラウドサイン締結</td></tr>
+        <tr><td class="td-label">2026/11/9</td><td>最終審査申請</td></tr>
+        <tr class="highlight-row"><td class="td-label">2026/11/24</td><td>Makuakeプロジェクト公開（商品名「むくり」が対外的に広く露出する日）</td></tr>
+        <tr><td class="td-label">2026/12/24</td><td>Makuake終了予定</td></tr>
+      </table>
+      <div class="note">→ <strong>公開日（11/24）より前に出願しておくべきか、公開後でも実務上問題ないか</strong>を最優先で相談したい。</div>
+    </div>
+  </div>
+
+  <!-- 7. 事前調査結果 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">7</span>
+      <span class="section-title">事前調査結果（自己調査・2026年7月24日実施、商標のみ）</span>
+    </div>
+    <div class="section-body">
+      <ul>
+        <li>J-PlatPat 称呼検索「ムクリ」：全区分で3件のみヒット。うち<strong>第28類（がん具等）は0件</strong></li>
+        <li>一般Web検索でも、木のおもちゃ・ベビー用品分野での競合ブランド・先行商標は見当たらず</li>
+        <li><strong>意匠については自己調査未実施</strong>（先行意匠の有無は未確認）</li>
+      </ul>
+      <div class="note">※あくまで簡易な自己チェックであり、正式な先行商標調査・類似性判断は未実施。</div>
+    </div>
+  </div>
+
+  <!-- 8. 相談したいこと -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge gold">8</span>
+      <span class="section-title">弁理士に相談したいこと</span>
+    </div>
+    <div class="section-body q-block">
+      <div class="q-subtitle">商標</div>
+      <ol>
+        <li>「むくり」の商標登録可否（識別力・先行商標との類似性）</li>
+        <li>出願すべき区分の確認（第28類＝がん具は確定として想定。他に第20類＝木工品・家具、第16類＝印刷物、第35類＝小売・通信販売等は必要か）</li>
+        <li>ひらがな表記／カタカナ表記／ロゴ化した場合の扱いの違い（どこまでを一つの商標として押さえるべきか）</li>
+      </ol>
+      <div class="q-subtitle">意匠</div>
+      <ol start="4">
+        <li>5.の形状要素（全体形状／底面の丸み構造／顔の彫刻表現）のうち、意匠登録になじむものはどれか</li>
+        <li>木目模様（個体ごとに異なる一点物）は意匠になじむのか、そもそも対象外か</li>
+      </ol>
+      <div class="q-subtitle">全体（スケジュール・費用）</div>
+      <ol start="6">
+        <li><strong>商標・意匠それぞれ、Makuake公開（11/24）前に出願すべきか、公開後で間に合うか</strong>（クラウドファンディングによる先使用・模倣リスクの観点から）</li>
+        <li>商標・意匠を同時に進めるべきか、優先順位をつけて進めるべきか</li>
+        <li>それぞれの出願から登録までの標準的な期間・費用感（概算でよい）</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 9. 補足 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">9</span>
+      <span class="section-title">補足</span>
+    </div>
+    <div class="section-body">
+      <ul>
+        <li>紹介元：本間さん（manordaいわて）</li>
+        <li>面談日時：2026年8月20日（本日）14:00〜</li>
+        <li>現時点で「むくり」の商標出願実績・先行出願はなし（自社調査の範囲内）</li>
+        <li>商品名「むくり」は社内では確定事項として運用中（2026年8月10日確定）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <span>とうめいしっぽ　弁理士相談用資料　2026.08.20</span>
+    <span>商品名「むくり」商標・意匠について</span>
+  </div>
+
+</div>
+</body>
+</html>

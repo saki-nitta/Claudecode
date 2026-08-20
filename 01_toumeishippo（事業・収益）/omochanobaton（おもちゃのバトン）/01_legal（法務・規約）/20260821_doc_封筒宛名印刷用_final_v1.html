@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>封筒宛名印刷用</title>
+<style>
+  @page { size: 120mm 235mm; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "MS Mincho", "Yu Mincho", serif;
+    color: #111;
+    margin: 0;
+  }
+  .envelope {
+    width: 120mm;
+    height: 235mm;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .envelope:last-child { page-break-after: auto; }
+
+  .zip {
+    position: absolute;
+    top: 20mm;
+    left: 15mm;
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  .address-block {
+    position: absolute;
+    top: 36mm;
+    left: 15mm;
+    width: 90mm;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .name-block {
+    position: absolute;
+    top: 95mm;
+    left: 15mm;
+    width: 90mm;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  .name-block .honorific {
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: 6px;
+  }
+
+  .sender {
+    position: absolute;
+    bottom: 15mm;
+    left: 15mm;
+    width: 90mm;
+    font-size: 10.5px;
+    line-height: 1.7;
+    text-align: left;
+  }
+  .sender .sender-zip {
+    letter-spacing: 1px;
+  }
+  .sender .sender-name {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="envelope">
+    <div class="zip">〒028-3317</div>
+    <div class="address-block">
+      岩手県紫波郡紫波町南日詰字京田61番地1
+    </div>
+    <div class="name-block">遠藤 真由美<span class="honorific">様</span></div>
+    <div class="sender">
+      <div class="sender-zip">〒020-0835</div>
+      <div>岩手県盛岡市津志田14-39-31</div>
+      <div class="sender-name">新田 紗希</div>
+    </div>
+  </div>
+
+  <div class="envelope">
+    <div class="zip">〒984-0015</div>
+    <div class="address-block">
+      宮城県仙台市若林区卸町3丁目1-7
+    </div>
+    <div class="name-block">平和紙業　関<span class="honorific">様</span></div>
+    <div class="sender">
+      <div class="sender-zip">〒020-0835</div>
+      <div>岩手県盛岡市津志田14-39-31</div>
+      <div class="sender-name">おもちゃと遊び企画舎とうめいしっぽ　新田 紗希</div>
+    </div>
+  </div>
+
+</body>
+</html>
