@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>打合せ資料｜「むくり」赤ちゃんモデルのご相談</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #3a5a40;
+  --gold: #b08d57;
+  --cream: #f8f4ec;
+  --ink: #1e1a14;
+  --muted: #4a4438;
+  --border: #c8b87a;
+  --greenbg: #eaf3ee;
+  --goldbg: #f6f0e2;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.85;
+}
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+.header {
+  border-top: 3px solid var(--forest);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0 16px;
+  margin-bottom: 32px;
+}
+
+.header .eyebrow {
+  font-size: 12.5px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+.header h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 25px;
+  color: var(--forest);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.meta {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 2;
+}
+.meta b { color: var(--ink); }
+
+section { margin-bottom: 36px; }
+
+h2 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 18px;
+  color: var(--forest);
+  border-left: 4px solid var(--gold);
+  padding-left: 12px;
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+
+h3 {
+  font-size: 14.5px;
+  color: var(--forest);
+  margin: 18px 0 8px;
+  font-weight: 700;
+}
+
+p { margin-bottom: 10px; color: var(--ink); }
+.muted { color: var(--muted); font-size: 13.5px; }
+
+.intro-box {
+  background: var(--goldbg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 20px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.meaning-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 16px 0 20px;
+}
+
+.meaning-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 14px;
+  text-align: center;
+}
+
+.meaning-card .num {
+  font-family: 'Shippori Mincho B1', serif;
+  color: var(--gold);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.meaning-card .term {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 16px;
+  color: var(--forest);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.meaning-card .desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 12px 0 8px;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--greenbg);
+  color: var(--forest);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.spec-list {
+  list-style: none;
+  font-size: 13.5px;
+}
+.spec-list li {
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border);
+  display: flex;
+  gap: 14px;
+}
+.spec-list .label {
+  color: var(--gold);
+  font-weight: 700;
+  min-width: 6em;
+  flex-shrink: 0;
+}
+
+.ask-box {
+  background: var(--greenbg);
+  border: 1px solid var(--forest);
+  border-radius: 8px;
+  padding: 22px 24px;
+}
+.ask-box h2 { margin-bottom: 12px; }
+.ask-box ul { padding-left: 20px; margin-top: 10px; }
+.ask-box li { margin-bottom: 8px; }
+
+.footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+@media print {
+  body { background: #fff; }
+  .page { max-width: 100%; padding: 10mm 12mm; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="eyebrow">MTG資料 ｜ 2026-08-26</div>
+    <h1>「むくり」赤ちゃんモデルのご相談</h1>
+    <div class="meta">
+      <b>お渡し先：</b>@aya.photo__ 様　｜　<b>作成：</b>とうめいしっぽ　新田紗希
+    </div>
+  </div>
+
+  <section>
+    <h2>とうめいしっぽについて</h2>
+    <p>
+      私は個人事業主「とうめいしっぽ」として、2022年から活動を始め、おもちゃと遊びに関する活動に携わってきました。
+      今回のご相談は、その中でも令和6年度から3か年計画で進めている、盛岡市の補助を受けた事業となります。
+    </p>
+  </section>
+
+  <section>
+    <h2>「むくり」について</h2>
+
+    <p>
+      「むくり」は、盛岡市森林づかいイノベーション事業の取り組みのひとつとして開発している、
+      赤ちゃんの誕生記念品となる木のおもちゃです。「一度きりの誕生の記録を、手放さずにずっと手元に置いておけるものにしたい」
+      という思いから生まれました。
+    </p>
+
+    <h3>名前に込めた三つの意味</h3>
+    <div class="meaning-grid">
+      <div class="meaning-card">
+        <div class="num">その一</div>
+        <div class="term">無垢材</div>
+        <div class="desc">混ざりもののない木そのもの。岩手県産・盛岡市産の無垢フローリング材を使用</div>
+      </div>
+      <div class="meaning-card">
+        <div class="num">その二</div>
+        <div class="term">起り（むくり）</div>
+        <div class="desc">伝統建築用語。ゆるやかに膨らんだ曲面のこと。おもちゃの底の丸みを表す</div>
+      </div>
+      <div class="meaning-card">
+        <div class="num">その三</div>
+        <div class="term">むくっと起き上がる</div>
+        <div class="desc">倒れても自分でバランスを取り戻す動き。子どもの成長になぞらえた</div>
+      </div>
+    </div>
+
+    <h3>商品概要</h3>
+    <ul class="spec-list">
+      <li><span class="label">形状</span><span>ひとのかたち。底に丸みがあり、倒れても起き上がる構造</span></li>
+      <li><span class="label">素材</span><span>岩手県産・盛岡市産の無垢フローリング材（9樹種）</span></li>
+      <li><span class="label">サイズ</span><span>65mm</span></li>
+      <li><span class="label">特徴</span><span>赤ちゃんの誕生データ（名前・生年月日・出生時刻・体重・身長・天気・出生地）を独自アルゴリズムで木目模様に変換し、一体ずつ製作する受注生産品</span></li>
+      <li><span class="label">対象年齢</span><span>3ヶ月〜（こどもPSCマーク取得予定）</span></li>
+    </ul>
+
+    <h3>スケジュール</h3>
+    <table>
+      <tr><th>時期</th><th>内容</th></tr>
+      <tr><td>2026年9月第1週目</td><td>サンプル完成</td></tr>
+      <tr><td>2026年9月上旬〜中旬</td><td>モデルありの撮影（自宅等の環境で）</td></tr>
+      <tr><td>2026-09-14（月）</td><td>物撮り・自然の中での撮影（道の駅「石神の丘」／別カメラマン担当）</td></tr>
+      <tr><td>2026-11-24（火）〜12-24（木）</td><td>Makuake（応援購入サービス）にて公開</td></tr>
+    </table>
+  </section>
+
+  <div class="ask-box">
+    <h2>今回ご相談したいこと</h2>
+    <p>
+      むくりのMakuakeページや広報素材に使う「赤ちゃんがむくりと過ごす様子」の撮影を、
+      お願いしたいです。
+    </p>
+    <ul>
+      <li>内容：赤ちゃんモデルありで、生活感のある環境（ご自宅等）での撮影</li>
+      <li>撮影候補時期：2026年9月上旬〜中旬</li>
+      <li>対象：生後3ヶ月前後のお子さんで、盛岡近郊にお住まいのご家族に心当たりがあれば教えていただきたいです</li>
+      <li>撮影場所：モデルのご自宅で問題ないか、それとも住居のような雰囲気のスタジオをご存知であれば教えていただきたいです</li>
+      <li>体制：物撮り・自然の中での撮影は別のカメラマンが担当予定です（9/14前後・道の駅「石神の丘」）。
+        今後、両カメラマンの撮影内容・日程の調整をご相談させていただく場面があるかもしれません</li>
+      <li>現状：幼児教室つながりの方への撮影協力の打診も並行して進めており、一定のめどは立ちつつありますが、
+        より自然な表情・複数カットを揃えたく、お心当たりも合わせてお借りできないかご相談したいです</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    とうめいしっぽ　新田紗希　｜　Instagram：@toumei.shippo
+  </div>
+
+</div>
+</body>
+</html>
