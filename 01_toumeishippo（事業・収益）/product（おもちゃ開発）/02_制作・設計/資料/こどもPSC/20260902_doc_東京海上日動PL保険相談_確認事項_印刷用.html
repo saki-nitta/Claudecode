@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>PL保険オンライン相談資料｜東京海上日動パートナーズ</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #3a5a40;
+  --gold: #b08d57;
+  --cream: #f8f4ec;
+  --ink: #1e1a14;
+  --muted: #4a4438;
+  --border: #c8b87a;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 10pt;
+  color: var(--ink);
+  background: #fff;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 14mm 12mm 14mm;
+  background: #fff;
+  margin: 0 auto;
+}
+
+/* ヘッダー */
+.header {
+  border-top: 2.5px solid var(--forest);
+  border-bottom: 1px solid var(--border);
+  padding: 5px 0 5px 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-left h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 15pt;
+  color: var(--forest);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.header-left p {
+  font-size: 8pt;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.08em;
+}
+
+.header-right {
+  font-size: 7.5pt;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* リード文 */
+.lead {
+  background: #f4f0e8;
+  border-left: 3px solid var(--gold);
+  padding: 7px 10px;
+  font-size: 8.5pt;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+/* セクション */
+.section {
+  margin-bottom: 9px;
+  page-break-inside: avoid;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.section-badge {
+  background: var(--forest);
+  color: #fff;
+  font-size: 7pt;
+  letter-spacing: 0.08em;
+  padding: 1.5px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.section-badge.gold {
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e0d8c8;
+  padding-bottom: 2px;
+  flex: 1;
+}
+
+.section-body {
+  padding-left: 0;
+  font-size: 8.5pt;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.section-body ul, .section-body ol {
+  padding-left: 1.3em;
+}
+
+.section-body li {
+  margin-bottom: 2px;
+}
+
+/* テーブル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+  margin-top: 4px;
+}
+
+th {
+  background: var(--forest);
+  color: #fff;
+  padding: 3px 7px;
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  font-size: 7.5pt;
+}
+
+td {
+  padding: 3.5px 7px;
+  border-bottom: 1px solid #e8e0d0;
+  vertical-align: top;
+  line-height: 1.65;
+}
+
+tr:nth-child(even) td {
+  background: #faf7f2;
+}
+
+.td-label {
+  color: var(--forest);
+  font-weight: 500;
+  white-space: nowrap;
+  width: 26%;
+}
+
+.highlight-row td {
+  background: #f0f8f0 !important;
+  font-weight: 700;
+  color: var(--forest);
+}
+
+/* 質問ブロック */
+.q-block ol {
+  counter-reset: q;
+  padding-left: 0;
+}
+
+.q-block ol > li {
+  list-style: none;
+  counter-increment: q;
+  position: relative;
+  padding-left: 1.7em;
+  margin-bottom: 5px;
+}
+
+.q-block ol > li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--forest);
+  color: #fff;
+  font-size: 7pt;
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.q-block li strong {
+  color: var(--forest);
+}
+
+.q-note {
+  display: block;
+  font-size: 7.5pt;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+.priority-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-size: 6.5pt;
+  padding: 0px 5px;
+  border-radius: 2px;
+  margin-left: 5px;
+  vertical-align: middle;
+  letter-spacing: 0.05em;
+}
+
+/* メモ欄 */
+.memo-block {
+  margin-top: 4px;
+}
+
+.memo-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  border-bottom: 1px dotted var(--border);
+  padding: 5px 0;
+}
+
+.memo-num {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 10pt;
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.memo-label {
+  font-size: 8.5pt;
+  color: var(--forest);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.memo-fill {
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  min-height: 16px;
+}
+
+/* フッター */
+.footer {
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  color: #aaa;
+}
+
+.note {
+  font-size: 7.5pt;
+  color: var(--muted);
+  margin-top: 3px;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="header-left">
+      <h1>PL保険 オンライン相談資料</h1>
+      <p>東京海上日動パートナーズ　岩手支店・盛岡支社</p>
+    </div>
+    <div class="header-right">
+      とうめいしっぽ　新田紗希<br>
+      2026年9月2日（水）15:00〜<br>
+      担当：藤原様
+    </div>
+  </div>
+
+  <!-- リード文 -->
+  <div class="lead">
+    「むくり」（乳幼児用玩具）の消費生活用製品安全法・様式第3〈製造事業届出〉の別紙2〈損害賠償措置〉に添付するPL保険加入について相談したく、事前に整理した資料です。会員番号41550（盛岡商工会議所・ビジネス総合保険制度）での加入を前提にお話しできればと思います。
+  </div>
+
+  <!-- 1. 事業者・商品情報 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">1</span>
+      <span class="section-title">事業者・商品情報</span>
+    </div>
+    <div class="section-body">
+      <table>
+        <tr><td class="td-label">事業者名</td><td>とうめいしっぽ（新田紗希）</td></tr>
+        <tr><td class="td-label">会員番号</td><td>41550（盛岡商工会議所・ビジネス総合保険制度）</td></tr>
+        <tr><td class="td-label">商品</td><td>岩手県産材を使った木製の人型おもちゃ。赤ちゃんの誕生データを模様に変換し1体ずつ製作。電池・可動部品・磁石・発音機構・熱源なし。対象年齢3ヶ月〜</td></tr>
+        <tr><td class="td-label">販売予定</td><td>2026年11月24日〜　Makuake（クラウドファンディング）にて先行販売</td></tr>
+        <tr><td class="td-label">年間売上（申告予定）</td><td>65万円（Makuake全リターン完売時試算のレンジ内）</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 2. ここまでの経緯 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">2</span>
+      <span class="section-title">ここまでの経緯</span>
+    </div>
+    <div class="section-body">
+      <ul>
+        <li>SGマーク制度は対象外のため、実質PL保険加入が損害賠償措置の唯一の現実的ルートと確定（8/20）</li>
+        <li>盛岡商工会議所「ビジネス総合保険制度」が団体割引で有利と判明。ただし単体申込不可・代理店経由必須</li>
+        <li>盛岡商工会議所・畑川様より会員番号「41550」発行済みの連絡（8/31・正式な入会承認は9月末予定）</li>
+        <li>代理店を当初のブルーアドバイザーズから東京海上日動パートナーズへ変更（8/31・会員番号41550はそのまま使用）</li>
+        <li>東北経済産業局への確認で「事業開始日は未来日付NG・意思決定日など事業者の実態に応じて幅があり、事業開始日から1ヶ月以内に様式第3を提出」というルールが判明（8/31）</li>
+        <li class="highlight-row" style="list-style:none; margin-left:-1.3em; padding:3px 7px; background:#f0f8f0; border-radius:2px;">→ これを受け、<strong>「事業開始日＝PL保険証券取得日」とする方針を確定</strong>（別紙2に証券の写しが必須のため、証券取得と事業開始日を一致させれば以後の届出期限と矛盾しない）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3. 相談したいこと -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge gold">3</span>
+      <span class="section-title">相談したいこと</span>
+    </div>
+    <div class="section-body q-block">
+      <ol>
+        <li><strong>PL保険証券は、申込からどのくらいで発行されるか（目安の日数）</strong><span class="priority-tag">最優先</span>
+          <span class="q-note">事業開始日＝証券取得日とする方針のため、これが決まらないと様式第3の提出期限（事業開始日から1ヶ月以内）が逆算できない</span>
+        </li>
+        <li>会員番号41550（ビジネス総合保険制度）で、生産物賠償責任（PL）を含むプランの保険料イメージ</li>
+        <li>年間売上「65万円」と申告する場合、保険料への影響はあるか</li>
+        <li>様式第3・別紙2に添付する「保険証券等の写し」として、証券そのものでよいか。他に必要な書類はあるか</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 4. 通話後メモ -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-badge">4</span>
+      <span class="section-title">相談メモ（記入用）</span>
+    </div>
+    <div class="section-body memo-block">
+      <div class="memo-item"><span class="memo-num">①</span><span class="memo-label">証券発行までの目安期間</span><span class="memo-fill"></span></div>
+      <div class="memo-item"><span class="memo-num">②</span><span class="memo-label">保険料イメージ</span><span class="memo-fill"></span></div>
+      <div class="memo-item"><span class="memo-num">③</span><span class="memo-label">年間売上65万円の扱い</span><span class="memo-fill"></span></div>
+      <div class="memo-item"><span class="memo-num">④</span><span class="memo-label">別紙2に必要な書類の形式</span><span class="memo-fill"></span></div>
+      <div class="memo-item"><span class="memo-num">⑤</span><span class="memo-label">次のアクション</span><span class="memo-fill"></span></div>
+      <div class="memo-item"><span class="memo-num">⑥</span><span class="memo-label">その他</span><span class="memo-fill"></span></div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <span>とうめいしっぽ　PL保険オンライン相談資料　2026.09.02</span>
+    <span>東京海上日動パートナーズ　担当：藤原様</span>
+  </div>
+
+</div>
+</body>
+</html>
