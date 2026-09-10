@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>むくり Makuakeページ本文 v2（印刷・推敲用）</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest: #3a5a40;
+  --gold: #b08d57;
+  --cream: #f8f4ec;
+  --paper: #ffffff;
+  --ink: #2a2620;
+  --soft: #5c554a;
+  --muted: #857b6b;
+  --border: #ddd2bd;
+  --ok-bg: #eef4ea;
+  --ok-text: #3a5a40;
+  --todo-bg: #fdf3d9;
+  --todo-text: #8a6a1a;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 13.5px;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.9;
+}
+
+.doc {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--paper);
+  box-shadow: 0 10px 40px rgba(60,48,30,.10);
+  padding: 0 0 60px;
+}
+
+.cover {
+  padding: 40px 48px 28px;
+  border-bottom: 2px solid var(--forest);
+  background: linear-gradient(180deg,#f4efe4,#fbf8f2);
+}
+.cover .kicker { font-size: 11px; letter-spacing: .3em; color: var(--gold); margin-bottom: 10px; }
+.cover h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.cover p.meta { font-size: 12px; color: var(--soft); line-height: 1.8; }
+.cover p.note { font-size: 11.5px; color: var(--muted); margin-top: 10px; line-height: 1.8; }
+
+main { padding: 8px 48px 20px; }
+
+.map {
+  margin: 20px 0 8px;
+  font-size: 12px;
+}
+.map table { width: 100%; border-collapse: collapse; }
+.map th, .map td { border: 1px solid var(--border); padding: 5px 8px; text-align: left; }
+.map th { background: #f1ece0; color: var(--forest); }
+
+section.sec {
+  padding: 30px 0 6px;
+  border-bottom: 1px solid var(--border);
+  page-break-inside: avoid;
+}
+section.sec:last-of-type { border-bottom: none; }
+
+.secnum { font-size: 11px; letter-spacing: .2em; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+.sec h2 { font-family: 'Shippori Mincho B1', serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; line-height: 1.5; }
+.sec .guide { font-size: 11.5px; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+
+.sec h3 { font-family: 'Shippori Mincho B1', serif; font-size: 14.5px; font-weight: 700; color: var(--forest); margin: 16px 0 6px; }
+.sec h4 { font-size: 13.5px; font-weight: 700; color: var(--forest); margin: 12px 0 4px; }
+
+.sec p { margin-bottom: 10px; letter-spacing: .01em; }
+.sec ul, .sec ol { margin: 6px 0 12px 22px; }
+.sec li { margin-bottom: 4px; }
+
+.divider { text-align: center; color: var(--border); margin: 14px 0; letter-spacing: .5em; font-size: 11px; }
+
+table.data { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 12.5px; }
+table.data th, table.data td { border: 1px solid var(--border); padding: 7px 10px; text-align: left; vertical-align: top; }
+table.data th { background: #f1ece0; color: var(--forest); }
+
+blockquote.notice {
+  background: #f1ece0; border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0;
+  padding: 10px 14px; font-size: 12px; color: var(--muted); margin: 10px 0 16px; line-height: 1.7;
+}
+blockquote.notice p { margin-bottom: 4px; }
+blockquote.notice p:last-child { margin-bottom: 0; }
+
+.ok { background: var(--ok-bg); color: var(--ok-text); padding: 1px 6px; border-radius: 4px; font-size: 11.5px; font-weight: 600; }
+.todo { background: var(--todo-bg); color: var(--todo-text); padding: 1px 6px; border-radius: 4px; font-size: 11.5px; font-weight: 600; }
+
+.proof-box {
+  border: 1.5px dashed var(--gold);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 14px 0;
+  min-height: 30px;
+  background: #fffdf7;
+}
+.proof-box .label { font-size: 10.5px; letter-spacing: .15em; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+
+.closing { padding: 32px 48px; background: #f1ece0; text-align: center; }
+.closing p { font-size: 13px; letter-spacing: .05em; line-height: 2; max-width: 520px; margin: 0 auto; color: var(--soft); }
+
+@media print {
+  body { background: #fff; font-size: 12px; }
+  .doc { box-shadow: none; max-width: none; }
+  section.sec { page-break-inside: avoid; }
+  .proof-box { border-color: #999; }
+}
+@page { size: A4; margin: 14mm 12mm; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+<header class="cover">
+  <p class="kicker">MUKURI — MAKUAKE PAGE DRAFT v2（印刷・推敲用）</p>
+  <h1>むくり Makuakeページ本文 たたき台 v2（最新情報反映版）</h1>
+  <p class="meta">作成日：2026-08-26／更新：2026-09-04（涼子・最新情報とすり合わせ）<br>
+  骨組み：Makuake公式構成ガイド準拠（H:\マイドライブ側v2）　中身：確定最新事実＋v1確定コピーを統合</p>
+  <p class="note">✅マーク＝2026-09-04時点で最新情報に更新済みの箇所　／　【要確認】＝まだ確定していない箇所。<br>各セクション末尾に手書き推敲用の余白ボックスを設けています。</p>
+</header>
+
+<main>
+
+<div class="map">
+  <table>
+    <tr><th>本原稿</th><th>サキさん指定</th><th>公式ガイド対応</th></tr>
+    <tr><td>⓪</td><td>（新規）</td><td>プロジェクトタイトル</td></tr>
+    <tr><td>①</td><td>キャッチコピー</td><td>①「商品名」とは（5〜7行）</td></tr>
+    <tr><td>②</td><td>ご挨拶・自己紹介</td><td>⑧実行者紹介の前出し</td></tr>
+    <tr><td>③</td><td>背景・課題</td><td>①の補強</td></tr>
+    <tr><td>④</td><td>商品の特徴</td><td>②プロダクトの特徴</td></tr>
+    <tr><td>④-2</td><td>（追加）</td><td>③利用シーン／利用方法</td></tr>
+    <tr><td>⑤</td><td>開発ストーリー</td><td>独自セクション</td></tr>
+    <tr><td>⑥</td><td>素材（9樹種）</td><td>②④の補強</td></tr>
+    <tr><td>⑥-2</td><td>（追加）</td><td>④仕様</td></tr>
+    <tr><td>⑥-3</td><td>（追加）</td><td>⑤製造スケジュール</td></tr>
+    <tr><td>⑦</td><td>リターン紹介</td><td>⑥リターン紹介</td></tr>
+    <tr><td>⑦-2</td><td>（追加）</td><td>⑦資金の使い道</td></tr>
+    <tr><td>⑧</td><td>実行者・委託先クレジット</td><td>⑧実行者紹介</td></tr>
+    <tr><td>⑧-2</td><td>（追加）</td><td>⑨FAQ</td></tr>
+    <tr><td>⑧-3</td><td>（追加）</td><td>リスク＆チャレンジ</td></tr>
+  </table>
+</div>
+
+<section class="sec">
+  <div class="secnum">⓪ — プロジェクトタイトル</div>
+  <h2>SEO対策として検索されやすい文言を入れる</h2>
+  <p class="guide">ガイド指示：SEO対策として検索されやすい文言（製品名・ブランド名）を入れる／どんなプロダクトで何ができるのかが伝わるタイトルにする</p>
+
+  <p><b>案A（推奨）</b><br>生まれた日が模様になる。岩手県産材9樹種の木製誕生記念玩具「むくり」</p>
+  <p><b>案B</b><br>【出産祝い・誕生記念】赤ちゃんの誕生データが模様になる木製玩具「むくり」／岩手県産材</p>
+  <p><b>案C</b><br>臨床心理士が設計した木のおもちゃ「むくり」——名前・生年月日を岩手の木に刻む誕生記念</p>
+  <p>※SEOキーワード：出産祝い／誕生記念／木のおもちゃ／木製玩具／名入れ／岩手県産材／オーダーメイド</p>
+  <p><span class="todo">要確認</span> タイトルは文字数制限あり。キュレーターに上限を確認のうえ最終調整。</p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">① — キャッチコピー／「むくり」とは</div>
+  <h2>あなたのルーツが、おもちゃになる。</h2>
+  <p class="guide">ガイド指示：プロダクトの一番優れている点・特徴を、誰にでもわかる言葉で。5〜7行程度</p>
+
+  <p>「むくり」は、赤ちゃんの誕生データ（名前・生年月日・体重・身長など）を独自のアルゴリズムで模様に変換し、岩手県産材9樹種に刻んでお届けする、オーダーメイドの木製玩具です。<br>
+  生まれた瞬間の記録が、その子だけの模様になります。<br>
+  設計したのは、療育・教育の現場に12年以上携わってきた臨床心理士。生後3か月の「にぎる」から6歳の「かたちをつくる」まで、成長に合わせて遊び方が変わっていくよう、発達の視点から形と大きさを設計しました。<br>
+  飾るだけの記念品でも、数か月で卒業するおもちゃでもない——握って、積んで、遊び倒せる誕生記念。<br>
+  岩手の職人とともに、ひとつずつ受注生産でお作りします。</p>
+
+  <p><b>サブコピー案：</b>A｜名前、生年月日、体重、身長。生まれた瞬間が、その子だけの模様になる。　B｜3か月の「にぎる」から、6歳の「つくる」まで。　C｜はじめてのおもちゃが、いつか家族の宝物になる。</p>
+  <p>※「世界にひとつ」等の絶対的表現は不使用、「その子だけの」で統一。</p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">② — ご挨拶・自己紹介</div>
+  <h2>「生まれたときからそばに置けるおもちゃを」</h2>
+
+  <p>はじめまして。「むくり」実行者の<b>新田紗希</b>（企画者）と申します。<span class="ok">✅2026-09-04反映</span></p>
+  <p>私は臨床心理士として、療育センターやスクールカウンセラーなど、12年以上にわたり乳幼児から学齢期までの多くの親子と向き合ってきました。</p>
+  <p>たくさんの子どもたちと遊び、たくさんの親御さんの話を聴く中で、ずっと感じてきたことがあります。</p>
+  <p><b>「生まれたときからそばに置けて、子どもが大きくなってからも家族に寄り添い続けるおもちゃが、もっとあればいいのに」</b></p>
+  <p>その思いから生まれたのが、この「むくり」です。</p>
+  <p>「むくり」という名前には、三つの意味を重ねました。ひとつは、混ざりもののない木そのもの——無垢材。赤ちゃんの無垢さとも、どこか重なります。もうひとつは、屋根のゆるやかなふくらみを指す、伝統建築の言葉「起り（むくり）」。このおもちゃの、丸みを帯びた底の形そのものを指す言葉でもあります。そしてもうひとつ。倒れても、むくっと起き上がる。子どもの成長と同じように。<span class="ok">✅v1確定文を移植</span></p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">③ — 背景・課題</div>
+  <h2>「記念品」と「おもちゃ」は、両立できないのか</h2>
+
+  <h3>おもちゃは、すぐに「卒業」してしまう</h3>
+  <p>赤ちゃんのためにと選んだおもちゃが、数か月で使われなくなってしまった——そんな経験はありませんか。</p>
+  <p>発達の現場で親子と接していると、月齢ごとにおもちゃを買い替え、遊ばれなくなったおもちゃが押し入れに眠っていく光景に、数えきれないほど出会います。誕生記念にいただいた特別な品も、「思い出の箱」の中にしまわれたまま、ということが少なくありません。</p>
+
+  <h3>「記念品」と「おもちゃ」は、両立できないのか</h3>
+  <p>誕生記念品は美しいけれど、飾られるだけで子どもは触れられない。おもちゃは楽しいけれど、成長とともに手放されていく。</p>
+  <p>臨床心理士として発達を見つめてきた経験から、この2つを1つにできないかと考えました。生まれた瞬間の記録を宿しながら、子どもの発達段階に合わせて遊び方が変わり続ける玩具。それが「むくり」の出発点です。</p>
+
+  <h3>岩手の森の課題と、もうひとつの出会い</h3>
+  <p>もうひとつの原点は、岩手の森です。本プロジェクトは、盛岡市森林づかいイノベーション事業（令和6〜8年度）の採択を受け、盛岡市産・岩手県産の木材を活かす取り組みとして開発を進めてきました。</p>
+  <p>盛岡・岩手の森は、木を育てるための手入れが欠かせません。けれど木材として使われる機会が減れば、森は放置され、弱っていきます。むくりが1体売れるということは、岩手の森の木が1本、ちゃんと「使われた」ということ。使うことが、森を守ることにつながっています。<span class="ok">✅v1⑦理由1を転用</span></p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">④ — 商品の特徴</div>
+  <h2>従来の誕生記念品・木製玩具との違い</h2>
+  <p class="guide">ガイド指示：新規性／競合との違いを明確に／魅力を箇条書きで／素材・デザインのこだわり</p>
+
+  <table class="data">
+    <tr><th></th><th>一般的な誕生記念品</th><th>一般的な木製玩具</th><th>むくり</th></tr>
+    <tr><td>誕生データ</td><td>名前・日付を記載</td><td>なし</td><td><b>模様そのものに変換（約1,000通り）</b></td></tr>
+    <tr><td>遊べるか</td><td>飾るのが中心</td><td>遊べる</td><td><b>3か月から6歳まで遊べる</b> <span class="ok">✅0歳→3ヶ月に修正</span></td></tr>
+    <tr><td>設計視点</td><td>記念性</td><td>遊び</td><td><b>臨床心理士による発達視点の設計</b></td></tr>
+    <tr><td>素材</td><td>さまざま</td><td>さまざま</td><td><b>盛岡市産・岩手県産の9樹種</b></td></tr>
+  </table>
+
+  <h3>特徴1｜生まれた瞬間が、その子だけの模様になる</h3>
+  <p>お子さまの誕生データ（名前・生年月日・体重・身長など）を、独自のアルゴリズムで幾何学模様に変換します。生成される模様のパターンは約1,000通り。同じデータからは同じ模様が、違うデータからは違う模様が生まれます。データそのものが模様の設計図になる——「生まれた瞬間」が、かたちとして手元に残ります。</p>
+
+  <h3>特徴2｜臨床心理士による、発達視点の設計</h3>
+  <p>「むくり」は、療育・教育の現場に12年以上携わってきた臨床心理士が、発達の視点から設計した玩具です。手のひらになじむ65mmのサイズ、握りやすい厚み、樹種ごとに異なる9つのかたち。モンテッソーリ教育の「敏感期」や感覚統合の考え方を手がかりに、成長に合わせて遊びが広がるよう設計しています。</p>
+
+  <h3>特徴3｜岩手の木9樹種×職人の手仕事</h3>
+  <p>素材は、盛岡市産・岩手県産の9樹種。同じ形でも、樹種ごとに重さ・手ざわり・香り・色がすべて違います。NC加工とレーザー刻印、そして職人の手仕事を組み合わせ、ひとつずつ受注生産でお作りします（在庫を持たない受注生産のため、資源のむだがありません）。</p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">④-2 — 遊び方・利用シーン</div>
+  <h2>成長に合わせて、遊び方が変わっていきます</h2>
+  <p class="guide">ガイド指示：利用シーンを画像を交えて紹介／利用方法を手順がわかるように説明</p>
+
+  <table class="data">
+    <tr><th>時期</th><th>遊び方</th><th>ねらい</th></tr>
+    <tr><td>3〜6か月 <span class="ok">✅修正</span></td><td>握る・口に運ぶ・感触を確かめる</td><td>感覚遊び<br><span class="todo">要確認</span>口に入れる前提の表現可否＝塗装安全性の確認結果に依存</td></tr>
+    <tr><td>6か月〜1歳</td><td>持ち替える・打ち合わせる</td><td>操作遊び</td></tr>
+    <tr><td>1〜2歳</td><td>積む・崩す</td><td>因果関係の理解</td></tr>
+    <tr><td>2〜3歳</td><td>見立て・ごっこ遊び</td><td>象徴機能の芽生え</td></tr>
+    <tr><td>3〜6歳</td><td>絵合わせ・ならべる・かたちをつくる</td><td>構成遊び</td></tr>
+  </table>
+
+  <h3>ご注文からお届けまでの手順</h3>
+  <ol>
+    <li>Makuakeでご希望のコースを応援購入</li>
+    <li>プロジェクト終了後、専用フォームからお子さまの誕生データをご入力 <span class="todo">要確認：フォームの具体的手段・入力期限</span></li>
+    <li>データをもとに模様を生成し、1体ずつレーザー彫刻</li>
+    <li>塗装・研磨・仕上げ</li>
+    <li>化粧箱に入れてお届け <span class="todo">要確認：パッケージ仕様</span></li>
+  </ol>
+  <p>撮影は2026年9月14日(月)、道の駅「石神の丘」で確定。赤ちゃんモデルは十文字さんOK確定（大内さん返信待ち）。<span class="ok">✅反映</span></p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">⑤ — 開発ストーリー</div>
+  <h2>主人公・課題・転機・価値観・その先の世界</h2>
+
+  <h3>主人公——現場で親子と向き合ってきた臨床心理士</h3>
+  <p>12年以上、療育センターやスクールカウンセリングの現場で、乳幼児から学齢期までの子どもたちと向き合ってきました。遊びは、子どもにとって世界との最初の対話です。</p>
+
+  <h3>課題——「ずっとそばにいられるおもちゃ」がない</h3>
+  <p>けれど現場で目にするのは、月齢とともに手放されていくおもちゃたち。「生まれたときからそばに置けて、大きくなっても家族に寄り添うおもちゃ」は、探してもなかなか見つかりませんでした。</p>
+
+  <h3>転機——岩手の木と、ものづくりの仲間との出会い</h3>
+  <p>転機は、盛岡市森林づかいイノベーション事業（令和6〜8年度）との出会いでした。地元の木を暮らしに活かすこの取り組みの中で、滝沢市の松森木工所（ima Design Lab）・松森政仁さんと出会い、試作を重ねてきました。</p>
+  <p>サイズは当初60mmで検討していましたが、松森さんから「60/65/70mmどれでも工数は変わらない」との回答を受け、65mmへ拡大しました。<span class="ok">✅反映</span> <span class="todo">要確認：他の試作エピソードは撮影・サンプル完成後に追記</span></p>
+  <p>製造は複数の工程を分担して行います。NCでの外形カット、手作業での切り離しとルーター仕上げ（松森木工所）、レーザー彫刻と塗装（新田）、面取り（松森木工所）。研磨工程は量産フェーズでしらたき工房へ委託する想定ですが、今回のサンプル制作自体は不関与と判明しており、正式な契約範囲は<span class="todo">要確認</span>のままです。<span class="ok">✅修正</span></p>
+
+  <h3>価値観——「記念」を、しまい込まない</h3>
+  <p>生まれた記録は、額に入れて飾るものではなく、毎日握って、積んで、遊び倒してほしい。使い込まれて艶が出た頃、その子自身が模様の意味を知る日が来る。それが「むくり」の願いです。</p>
+
+  <h3>その先の世界——岩手の森から、全国の家族へ</h3>
+  <p>このプロジェクトが実現すれば、岩手の木が「誕生の記念」というかたちで全国の家庭に届きます。子どもの成長とともに森の話ができる家庭が、ひとつずつ増えていく。そんな未来を目指しています。</p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">⑥ — 素材・9樹種、9つの願い</div>
+  <h2>岩手の9樹種、9つの願い</h2>
+  <p>「むくり」の9枚は、すべて盛岡市産・岩手県産の木。樹種ごとに、木の性質に由来する「かたち」と「願い」を込めました。<span class="todo">※各樹種の「願い」の言葉はドラフト段階です</span></p>
+
+  <table class="data">
+    <tr><th>樹種</th><th>産地・かたち</th><th>願い</th></tr>
+    <tr><td>1. スギ</td><td>盛岡市産・縦長楕円</td><td>まっすぐ、すくすくと育ってほしい。</td></tr>
+    <tr><td>2. カラマツ</td><td>盛岡市産・角丸菱形</td><td>どんな環境でも、たくましく根を張ってほしい。</td></tr>
+    <tr><td>3. アカマツ</td><td>岩手県産・上尖り卵形</td><td>岩手の地に根を張り、長く健やかに。</td></tr>
+    <tr><td>4. ナラ</td><td>盛岡市産・丸みある卵形</td><td>実り多い人生を。誰かを支え、与えられる人に。</td></tr>
+    <tr><td>5. クリ</td><td>盛岡市産（在庫状況により岩手県産の場合あり）<span class="ok">✅反映</span>・横長楕円</td><td>家族の土台・支えになってほしい。</td></tr>
+    <tr><td>6. ヤマザクラ</td><td>岩手県産・上膨らみ雫形</td><td>一瞬一瞬を大切に、輝く時間を重ねてほしい。</td></tr>
+    <tr><td>7. オニグルミ</td><td>岩手県産・自然石型</td><td>硬い殻に守られながら、磨かれて輝く人に。</td></tr>
+    <tr><td>8. イタヤカエデ</td><td>岩手県産・丸み五角形</td><td>しなやかな強さで、何にでもなれる可能性を。</td></tr>
+    <tr><td>9. ケヤキ</td><td>岩手県産・下広がり扇形</td><td>堂々と、大きく育ってほしい。</td></tr>
+  </table>
+  <p><span class="todo">要確認：木材の産地・調達方法（認証の有無、伐採から製品化までの流れ）</span></p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">⑥-2 — 仕様</div>
+  <h2>サイズ・素材・生産国・安全基準</h2>
+  <p class="guide">ガイド指示：サイズ・重さ・機能・スペック・生産国・予定販売価格・付属品・注意点を詳しく</p>
+
+  <table class="data">
+    <tr><th>項目</th><th>内容</th></tr>
+    <tr><td>商品名</td><td>むくり</td></tr>
+    <tr><td>セット内容</td><td><b>スタンダード：4体（スギ・カラマツ・ナラ・クリ）／プレミアム・相談：9体（全樹種）</b> <span class="ok">✅修正：単位「枚」→「体」、2SKU構成に統一</span></td></tr>
+    <tr><td>サイズ</td><td>約65mm（1体あたり）／厚み <span class="todo">要確認</span></td></tr>
+    <tr><td>重さ</td><td><span class="todo">要確認：1体あたり・セット総重量。樹種差も記載</span></td></tr>
+    <tr><td>素材</td><td>スギ・カラマツ・ナラ・クリ（盛岡市産、クリは在庫により岩手県産の場合あり）／アカマツ・ヤマザクラ・オニグルミ・イタヤカエデ・ケヤキ（岩手県産）</td></tr>
+    <tr><td>塗装</td><td>シオン社・食器用木守りコート（食器に使うのと同じ、舐めても安全な塗料）<span class="ok">✅反映</span></td></tr>
+    <tr><td>仕上げ</td><td>面取り・研磨（角の処理はしらたき工房で研磨仕上げ、量産時の三段階研磨は<span class="todo">要確認</span>）</td></tr>
+    <tr><td>加工</td><td>NC加工＋レーザー彫刻＋手仕上げ</td></tr>
+    <tr><td>生産国</td><td><b>日本（岩手県滝沢市／松森木工所ほか）</b></td></tr>
+    <tr><td>対象年齢</td><td><b>3ヶ月〜</b> <span class="ok">✅PSC区分と整合済み</span></td></tr>
+    <tr><td>安全基準</td><td>こどもPSCマーク取得予定——公開の前提条件。2026-09-04時点で検査未実施（サンプル完成待ち）。取得完了後に正確なステータスで記載</td></tr>
+    <tr><td>付属品</td><td><span class="todo">要確認：化粧箱／9樹種の「願い」ガイド／保証書など</span></td></tr>
+    <tr><td>予定販売価格</td><td><span class="todo">要確認：金額確定前に松森さんと合意すること</span></td></tr>
+  </table>
+
+  <blockquote class="notice">
+    <p>※製品のデザインや色は変更になる可能性があります。ご了承ください。</p>
+    <p>※皆様のご支援により量産効率が向上した場合、正規販売価格が販売予定価格より下がる可能性もあります。</p>
+    <p>※天然の木材を使用しているため、木目・色味・重さは1体ずつ異なります。同じ樹種でも表情に個体差が出ますが、不良ではございません。</p>
+    <p>※誕生データはご注文後にお伺いします。データの誤りによる作り直しは承れない場合があります <span class="todo">要確認</span>。</p>
+  </blockquote>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">⑥-3 — 製造・お届けスケジュール</div>
+  <h2>開発〜公開〜お届けまでの流れ</h2>
+
+  <table class="data">
+    <tr><th>時期</th><th>内容</th></tr>
+    <tr><td>2024〜2026年</td><td>盛岡市森林づかいイノベーション事業（令和6〜8年度）のもとで開発・試作</td></tr>
+    <tr><td><b>2026年9月第1週目</b> <span class="ok">✅修正</span></td><td>サンプル完成（9樹種×各3体：検査用・撮影用・予備用）</td></tr>
+    <tr><td><b>2026年9月14日(月)</b> <span class="ok">✅追加</span></td><td>サンプル撮影（道の駅「石神の丘」）</td></tr>
+    <tr><td>2026年10〜11月</td><td>誕生データに依存しない工程（NCカット・切り離し・ルーター仕上げ）を前倒しで着手</td></tr>
+    <tr><td><b>2026年11月24日（火）</b></td><td>Makuakeプロジェクト公開（11時台希望）</td></tr>
+    <tr><td><b>2026年12月24日（木）</b> <span class="ok">✅反映</span></td><td>プロジェクト終了</td></tr>
+    <tr><td>終了後1〜2か月</td><td>レーザー彫刻・塗装・研磨・仕上げののち順次発送 <span class="todo">要確認：具体月</span></td></tr>
+    <tr><td><span class="todo">要確認</span></td><td>一般販売開始予定</td></tr>
+  </table>
+  <p>※受注生産のため、ご注文状況により発送時期が前後する可能性があります。遅れが生じる場合は活動レポートで随時ご報告します。</p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">⑦ — リターン紹介</div>
+  <h2>お届けするコース</h2>
+
+  <blockquote class="notice">
+    <p>2026-09-04確定：応援リターンは¥1,000一本化で最終確定（9/1）。旧・寄付コース案／応援ボード¥500案／体験型コース（工房見学・絵付け体験）はいずれも不採用・削除。</p>
+    <p><span class="todo">要確認</span>：2026-08-10打合せで「超早割3／早割3／スタンダード24／プレミアム先行3／プレミアム通常5」への再設計案が出ており、藤根さん回答待ちのため下表は未反映。</p>
+  </blockquote>
+
+  <p>スタンダードとプレミアムの違いは、届く体の数＝樹種の数です。スタンダードは厳選4樹種の4体セット（樹種はお選びいただけません）、プレミアムは9樹種すべてが揃う9体セット。</p>
+
+  <table class="data">
+    <tr><th>コース</th><th>内容</th><th>価格</th><th>数量</th></tr>
+    <tr><td>応援コース</td><td>メール＋活動レポート（モノなし）</td><td>¥1,000</td><td>無制限</td></tr>
+    <tr><td>スタンダード 超早割</td><td>4体セット</td><td>¥9,800</td><td>10</td></tr>
+    <tr><td>スタンダード 早割</td><td>4体セット</td><td>¥11,000</td><td>12</td></tr>
+    <tr><td>スタンダード 通常</td><td>4体セット</td><td>¥13,000</td><td>8</td></tr>
+    <tr><td>プレミアム 先行</td><td>9体（9樹種）フルセット</td><td>¥21,000（仮）</td><td>4</td></tr>
+    <tr><td>プレミアム 通常</td><td>9体（9樹種）フルセット</td><td>¥25,000</td><td>4</td></tr>
+    <tr><td>相談コース</td><td>9体フルセット＋オンライン相談30分</td><td>¥29,800（仮）</td><td>3</td></tr>
+  </table>
+  <p>合計219体・生産キャパ230体上限に対し11体の余裕。相談コースは口数3で確定。</p>
+  <ul>
+    <li>お届け：プロジェクト終了後1〜2か月を予定（受注生産）</li>
+    <li>ご注文後、専用フォームでお子さまの誕生データをお伺いします</li>
+    <li>ご購入は、出産後にお願いしています（妊娠中の方は、生まれてからあらためてどうぞ）</li>
+    <li><span class="todo">要確認：兄弟姉妹セット・出産祝いギフト向け訴求を入れるか</span></li>
+  </ul>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">⑦-2 — 資金の使い道</div>
+  <h2>いただいた応援購入代金の使い道</h2>
+
+  <p>「むくり」は、盛岡市森林づかいイノベーション事業（令和6〜8年度）の補助を受けて開発してきましたが、補助はそのほとんどを開発費に充てており、量産・事業化のための資金が課題として残っています。</p>
+  <p>皆様からいただいた応援購入代金は、以下に充てさせていただきます。</p>
+  <ul>
+    <li>初回ロットの量産費用（岩手県産材の材料費、加工・研磨の委託費）</li>
+    <li><span class="todo">要確認：治具・工具など製造設備費があれば追記</span></li>
+    <li>パッケージ・リーフレットの制作費</li>
+    <li>こどもPSCマーク取得・PL保険加入など安全と品質に関わる費用</li>
+    <li>Makuake手数料および配送費</li>
+  </ul>
+  <p>目標金額：表¥100,000（All In・確定）／裏目標¥800,000（目安・固執しない方針）<span class="ok">✅反映</span></p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">⑧ — 実行者プロフィール・委託先クレジット</div>
+  <h2>このプロジェクトを届けるつくり手</h2>
+
+  <h3>実行者</h3>
+  <p><b>新田紗希</b>（企画者・臨床心理士・公認心理師）<span class="ok">✅反映</span></p>
+  <p><span class="todo">要確認：顔写真を必ず入れる（ガイド指示）</span></p>
+  <p>臨床心理士。療育センター・スクールカウンセラーなど、12年以上にわたり乳幼児から学齢期の親子支援に従事。発達の現場での経験をもとに「むくり」を設計しました。盛岡市森林づかいイノベーション事業（令和6〜8年度）の採択を受け、岩手のつくり手とともに開発を進めています。</p>
+  <p><span class="todo">要確認：GTカフェ・ひろば等の活動歴を載せるか。SNS/HPリンク</span></p>
+
+  <h3>製造・デザイン体制（委託先のご紹介）</h3>
+  <table class="data">
+    <tr><th>担当</th><th>役割</th></tr>
+    <tr><td>松森木工所／ima Design Lab（松森政仁）</td><td>アプリ開発・試作から9樹種の製品製造まで</td></tr>
+    <tr><td>岩手アートディレクターズクラブ（阿部拓也／のはら）</td><td>プロダクト・パッケージ・リーフレットのデザイン</td></tr>
+    <tr><td>しらたき工房</td><td>研磨工程委託<span class="todo">要確認：量産フェーズでの正式な委託範囲・クレジット記載要否</span></td></tr>
+  </table>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec">
+  <div class="secnum">⑧-2 — FAQ</div>
+  <h2>よくあるご質問</h2>
+
+  <p><b>Q：誕生データはいつ、どうやって伝えればいいですか？</b><br>A：プロジェクト終了後、Makuakeのメッセージにて専用フォームをご案内します。<span class="todo">要確認：確定運用・入力期限</span></p>
+
+  <p><b>Q：まだ生まれていないのですが、応援購入できますか？</b><br>A：ご購入は、出産後にお願いしています。妊娠中の方は、お子さまが生まれてからあらためてご購入ください。<span class="ok">✅反映</span></p>
+
+  <p><b>Q：赤ちゃんが口に入れても大丈夫ですか？</b><br>A：仕上げには、食器にも使われるシオン社の食器用木守りコートを使用しています。安全基準の面では、こどもPSCマークの取得を進めており、取得が完了次第、正式にご案内します。<span class="todo">要確認：PSC取得完了後に断定表現へ更新</span></p>
+
+  <p><b>Q：木の色や模様が写真と違うことはありますか？</b><br>A：天然木を使用しているため、木目・色味・重さは1体ずつ異なります。それも「その子だけの一体」としてお楽しみいただければ幸いです。</p>
+
+  <p><b>Q：模様は本当にひとつずつ違うのですか？</b><br>A：誕生データをもとに約1,000通りのパターンから模様を生成します。同じデータであれば同じ模様になります。</p>
+
+  <p><b>Q：兄弟姉妹の分もほしいのですが、追加できますか？</b><br>A：<span class="todo">要確認</span></p>
+
+  <p><b>Q：一般販売はしますか？価格は？</b><br>A：<span class="todo">要確認：一般販売時期・予定価格</span></p>
+
+  <p><b>Q：お届けはいつになりますか？</b><br>A：受注生産のため、プロジェクト終了（2026年12月24日予定）後1〜2か月を予定しています。<span class="ok">✅反映</span></p>
+
+  <p><b>Q：名入れはできますか？</b><br>A：<span class="todo">要確認</span></p>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+<section class="sec" style="border-bottom:none">
+  <div class="secnum">⑧-3 — リスク＆チャレンジ</div>
+  <h2>ご購入前にお伝えしたいこと</h2>
+
+  <ul>
+    <li>本プロジェクトは受注生産のため、ご注文数によっては製造・発送に想定以上のお時間をいただく可能性があります。遅延が見込まれる場合はすみやかに活動レポートでご報告します。</li>
+    <li>天然木を使用しているため、木目・色味・重さには個体差があります。</li>
+    <li>製品の仕様・デザイン・色は、安全性や品質の向上のため変更になる場合があります。大幅な変更が生じる場合は、事前にキュレーターへ報告のうえサポーターの皆様にお知らせします。</li>
+    <li>こどもPSCマークの取得を公開の前提条件として進めています。2026-09-04時点で検査未実施のため、取得状況に応じて本文の表現を随時更新します。<span class="ok">✅修正</span></li>
+    <li>万一の事故に備え、PL保険への加入を進めています。2026-09-03、ブルーアドバイザーズ株式会社へオンライン相談を実施済みで、結果を踏まえて加入手続きを進めます。<span class="ok">✅反映</span></li>
+  </ul>
+  <div class="proof-box"><div class="label">推敲メモ</div></div>
+</section>
+
+</main>
+
+<div class="closing">
+  <p>この子と、ずっと。<br>むくり。</p>
+</div>
+
+</div>
+</body>
+</html>

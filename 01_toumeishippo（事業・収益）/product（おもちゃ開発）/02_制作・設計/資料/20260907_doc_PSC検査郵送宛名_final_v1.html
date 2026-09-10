@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>封筒宛名印刷用（PSC検査・日文安宛）</title>
+<style>
+  @page { size: A4; margin: 15mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "MS Mincho", "Yu Mincho", serif;
+    color: #111;
+    margin: 0;
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20mm;
+  }
+  .label {
+    width: 130mm;
+    height: 100mm;
+    border: 1px dashed #999;
+    padding: 8mm 10mm;
+    position: relative;
+  }
+  .cut-note {
+    position: absolute;
+    top: -6mm;
+    left: 0;
+    font-size: 9px;
+    color: #888;
+    font-family: sans-serif;
+  }
+
+  .zip {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .address-block {
+    margin-top: 6mm;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .name-block {
+    margin-top: 8mm;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+  .name-block .honorific {
+    font-size: 17px;
+    font-weight: normal;
+    margin-left: 6px;
+  }
+
+  .sender {
+    position: absolute;
+    bottom: 8mm;
+    right: 10mm;
+    width: 90mm;
+    font-size: 10px;
+    line-height: 1.7;
+    text-align: right;
+  }
+  .sender .sender-name {
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  .note-row {
+    text-align: right;
+    margin-bottom: 8mm;
+  }
+  .boxed-note {
+    display: inline-block;
+    border: 2px solid #c00;
+    color: #c00;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2mm 4mm;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="label">
+    <div class="cut-note">✂ ここで切り取り</div>
+    <div class="note-row"><span class="boxed-note">検査依頼書類在中</span></div>
+    <div class="zip">〒130-8611</div>
+    <div class="address-block">
+      東京都墨田区東駒形4丁目22番4号
+    </div>
+    <div class="name-block">一般財団法人 日本文化用品安全試験所<br>東京事業所（本所）製品安全部<span class="honorific">御中</span></div>
+    <div class="sender">
+      <div>〒020-0835</div>
+      <div>岩手県盛岡市津志田14-39-31</div>
+      <div class="sender-name">おもちゃと遊び企画舎とうめいしっぽ　新田 紗希</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
