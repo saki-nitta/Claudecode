@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>封筒宛名印刷用（平和紙業 関様）</title>
+<style>
+  @page { size: A4; margin: 15mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "MS Mincho", "Yu Mincho", serif;
+    color: #111;
+    margin: 0;
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .label {
+    width: 130mm;
+    height: 85mm;
+    border: 1px dashed #999;
+    padding: 8mm 10mm;
+    position: relative;
+  }
+  .cut-note {
+    position: absolute;
+    top: -6mm;
+    left: 0;
+    font-size: 9px;
+    color: #888;
+    font-family: sans-serif;
+  }
+
+  .zip {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .address-block {
+    margin-top: 6mm;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .name-block {
+    margin-top: 8mm;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  .name-block .honorific {
+    font-size: 17px;
+    font-weight: normal;
+    margin-left: 6px;
+  }
+
+  .sender {
+    position: absolute;
+    bottom: 8mm;
+    right: 10mm;
+    width: 90mm;
+    font-size: 10px;
+    line-height: 1.7;
+    text-align: right;
+  }
+  .sender .sender-name {
+    font-size: 11px;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="label">
+    <div class="cut-note">✂ ここで切り取り</div>
+    <div class="zip">〒984-0015</div>
+    <div class="address-block">
+      宮城県仙台市若林区卸町3丁目1-7
+    </div>
+    <div class="name-block">平和紙業　関<span class="honorific">様</span></div>
+    <div class="sender">
+      <div>〒020-0835</div>
+      <div>岩手県盛岡市津志田14-39-31</div>
+      <div class="sender-name">おもちゃと遊び企画舎とうめいしっぽ　新田 紗希</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
