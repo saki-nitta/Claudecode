@@ -19,3 +19,9 @@ Thumbs.db
 
 # その他
 .DS_Store
+
+# Python自動生成ファイル
+__pycache__/
+
+# Windowsショートカット
+*.lnk
